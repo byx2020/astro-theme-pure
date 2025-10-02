@@ -72,4 +72,36 @@ const docs_ec = defineCollection({
     })
 })
 
-export const collections = { blog, docs, docs_ec }
+// Define docs_zxs collection
+const docs_zxs = defineCollection({
+  loader: glob({ base: './src/content/docs-zxs', pattern: '**/*.{md,mdx}' }),
+  schema: () =>
+    z.object({
+      title: z.string().max(60),
+      description: z.string().max(160),
+      publishDate: z.coerce.date().optional(),
+      updatedDate: z.coerce.date().optional(),
+      tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+      draft: z.boolean().default(false),
+      // Special fields
+      order: z.number().default(999)
+    })
+})
+
+// Define docs_qq collection
+const docs_qq = defineCollection({
+  loader: glob({ base: './src/content/docs-qq', pattern: '**/*.{md,mdx}' }),
+  schema: () =>
+    z.object({
+      title: z.string().max(60),
+      description: z.string().max(160),
+      publishDate: z.coerce.date().optional(),
+      updatedDate: z.coerce.date().optional(),
+      tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+      draft: z.boolean().default(false),
+      // Special fields
+      order: z.number().default(999)
+    })
+})
+
+export const collections = { blog, docs, docs_ec, docs_zxs, docs_qq }

@@ -1,17 +1,13 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import vercel from '@astrojs/vercel'
+import netlify from '@astrojs/netlify'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 
-// 其他插件
-// import { visualizer } from 'rollup-plugin-visualizer'
-
 // 本地集成
-// 本地 rehype & remark 插件
 import rehypeAutolinkHeadings from './src/plugins/rehype-auto-link-headings.ts'
-// Shiki 相关
 import {
   addCopyButton,
   addLanguage,
@@ -22,58 +18,43 @@ import {
 } from './src/plugins/shiki-transformers.ts'
 import config from './src/site.config.ts'
 
-import netlify from '@astrojs/netlify';
+// 动态判断部署平台（依赖平台自动注入的环境变量）
+const isVercel = !!process.env.VERCEL
+const isNetlify = !!process.env.NETLIFY
 
-// Astro 官方配置文档：https://astro.build/config
+// 基础适配器：根据平台自动切换，不添加额外参数
+const adapter = isVercel 
+  ? vercel() // Vercel 部署时使用基础适配器
+  : isNetlify 
+    ? netlify() // Netlify 部署时使用基础适配器
+    : vercel(); // 本地开发默认（不影响部署）
+
 export default defineConfig({
-  // 顶层选项
   site: 'https://www.byx2020.com',
-  // 部署到子路径；参考：https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
-  // base: '/astro-pure/',
   trailingSlash: 'never',
 
-  // 适配器
-  // Astro 部署指南：https://docs.astro.build/en/guides/deploy/
-  // 1. Vercel（无服务器）
-  // adapter: adapter,
+  // 核心：动态适配器 + 静态输出（保持简洁）
+  adapter: adapter,
   output: 'static',
-  // 2. Vercel（静态）
-  // adapter: vercelStatic(),
-  // 3. 本地（独立模式）
-  // adapter: node({ mode: 'standalone' }),
-  // output: 'server',
-  // ---
 
+  // 图片服务保留基础配置（平台适配器会自动兼容）
   image: {
     responsiveStyles: true,
     service: {
       entrypoint: 'astro/assets/services/sharp'
     }
-  }, // 图片服务相关
+  },
 
   integrations: [
-    // astro-pure 会自动添加 sitemap、mdx 和 unocss
-    // sitemap(),
-    // mdx(),
     AstroPureIntegration(config)
-    // (await import('@playform/compress')).default({
-    //   SVG: false,
-    //   Exclude: ['index.*.js']
-    // }),
-
-    // Vercel 适配器临时修复
-    // 不需要静态构建方法
   ],
-  // 项目根目录设置示例
-  // root: './my-project-directory',
 
-  // 预取选项
   prefetch: true,
-  // 服务器选项
   server: {
     host: true
   },
-  // Markdown 配置
+
+  // Markdown 配置保持不变
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [
@@ -88,7 +69,6 @@ export default defineConfig({
         }
       ]
     ],
-    // Astro 语法高亮文档：https://docs.astro.build/en/guides/syntax-highlighting/
     shikiConfig: {
       themes: {
         light: 'github-light',
@@ -104,15 +84,13 @@ export default defineConfig({
       ]
     }
   },
+
   experimental: {
     contentIntellisense: true
   },
+
   vite: {
-    plugins: [
-      //   visualizer({
-      //     emitFile: true,
-      //     filename: 'stats.html'
-      //   })
-    ]
+    plugins: []
   }
 })
+

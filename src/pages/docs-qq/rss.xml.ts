@@ -14,10 +14,10 @@ import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 
 // 动态导入图片作为映射集合
 const imagesGlob = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/content/docs-ec/**/*.{jpeg,jpg,png,gif,avif,webp}' // 如需支持更多图片格式可添加
+  '/src/content/docs-qq/**/*.{jpeg,jpg,png,gif,avif,webp}' // 如需支持更多图片格式可添加
 )
 
-const renderContent = async (post: CollectionEntry<'docs_ec'>, site: URL) => {
+const renderContent = async (post: CollectionEntry<'docs_qq'>, site: URL) => {
   // 用正确的路径替换图片链接
   function remarkReplaceImageLink() {
     /**
@@ -29,7 +29,7 @@ const renderContent = async (post: CollectionEntry<'docs_ec'>, site: URL) => {
         if (node.url.startsWith('/images')) {
           node.url = `${site}${node.url.replace('/', '')}`
         } else {
-          const imagePathPrefix = `/src/content/docs-ec/${post.id}/${node.url.replace('./', '')}`
+          const imagePathPrefix = `/src/content/docs-qq/${post.id}/${node.url.replace('./', '')}`
           const promise = imagesGlob[imagePathPrefix]?.().then(async (res) => {
             const imagePath = res?.default
             if (imagePath) {
@@ -54,7 +54,7 @@ const renderContent = async (post: CollectionEntry<'docs_ec'>, site: URL) => {
 }
 
 const GET = async (context: AstroGlobal) => {
-  const allPostsByDate = sortMDByDate(await getBlogCollection('docs_ec')) as CollectionEntry<'docs_ec'>[]
+  const allPostsByDate = sortMDByDate(await getBlogCollection('docs_qq')) as CollectionEntry<'docs_qq'>[]
   const siteUrl = context.site ?? new URL(import.meta.env.SITE)
 
   return rss({
@@ -69,7 +69,7 @@ const GET = async (context: AstroGlobal) => {
     site: import.meta.env.SITE,
     items: await Promise.all(
       allPostsByDate.map(async (post) => ({
-        link: `/docs-ec/${post.id}`,
+        link: `/docs-qq/${post.id}`,
         content: await renderContent(post, siteUrl),
         ...post.data
       }))
