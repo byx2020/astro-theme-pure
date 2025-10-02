@@ -1,8 +1,8 @@
-# Astro Theme Presets
+# Astro Theme 预设资源
 
-Here's some resources preset to help you quick start your personal projects.
+这里提供了一些预设资源，帮助你快速启动个人项目。
 
-## Structure
+## 结构说明
 
-- icons: alternatives for `src/assets/tools`. Commonly used by `ToolSection` in `src/pages/about/index,astro`
-- components: some experimental components template
+- icons：可替代 `src/assets/tools` 的图标资源，通常被 `src/pages/about/index.astro` 中的 `ToolSection` 组件使用。
+- components：一些实验性组件模板。

@@ -15,7 +15,7 @@ export default function rehypeAutolinkHeadings({
           type: 'element',
           tagName: 'a',
           properties: { ...properties, href: `#${node.properties.id}` },
-          // children: Array.isArray(content) ? content : [content]
+          // 子节点处理：如果 content 是数组则直接使用，否则按类型包装为数组
           children: Array.isArray(content)
             ? content
             : typeof content === 'object' && content.type

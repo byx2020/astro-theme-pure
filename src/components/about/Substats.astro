@@ -2,6 +2,7 @@
 import { socialLinks, type iconsType } from 'astro-pure/types'
 import { Icon } from 'astro-pure/user'
 
+// Substats 项目类型定义
 interface SubstatsItem {
   platform: string
   icon: (typeof socialLinks)[number]
@@ -12,12 +13,14 @@ interface SubstatsItem {
   count?: number
 }
 
+// 组件 Props 类型定义
 type Props = {
   stats: SubstatsItem[]
 }
 
 const { stats } = Astro.props as Props
 
+// 异步获取统计数据
 async function fetchCount(item: SubstatsItem) {
   if (!item.api) return
   try {
@@ -29,7 +32,7 @@ async function fetchCount(item: SubstatsItem) {
       item.count = data.count
     }
   } catch (error) {
-    console.error('Error in Substats fetching: ' + error)
+    console.error('Substats 获取出错: ' + error)
   }
 }
 

@@ -2,19 +2,19 @@
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
   "compilerOptions": {
-    // Basic
-    "allowJs": true,
-    // Building for a library
-    "declaration": true,
-    // Code runs in the DOM
-    "lib": ["es2022", "dom", "dom.iterable"],
-    // Type Imports
-    "verbatimModuleSyntax": true,
-    // Others
-    "baseUrl": ".",
-    "strictNullChecks": true,
-    // Paths
-    "paths": {
+  // 基础配置
+  "allowJs": true,
+  // 构建为库时启用
+  "declaration": true,
+  // 代码运行于 DOM 环境
+  "lib": ["es2022", "dom", "dom.iterable"],
+  // 类型导入相关
+  "verbatimModuleSyntax": true,
+  // 其他选项
+  "baseUrl": ".",
+  "strictNullChecks": true,
+  // 路径别名
+  "paths": {
       "@/assets/*": ["src/assets/*"],
       "@/components/*": ["src/components/*"],
       "@/layouts/*": ["src/layouts/*"],

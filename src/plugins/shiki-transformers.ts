@@ -19,7 +19,7 @@ function parseMetaString(str = '') {
   )
 }
 
-// Nest a div in the outer layer
+// 在最外层嵌套一个 div
 export const updateStyle = (): ShikiTransformer => {
   return {
     name: 'shiki-transformer-update-style',
@@ -31,7 +31,7 @@ export const updateStyle = (): ShikiTransformer => {
   }
 }
 
-// Process meta string, like ```ts title="test.ts"
+// 处理 meta 字符串，例如 ```ts title="test.ts"
 export const processMeta = (): ShikiTransformer => {
   return {
     name: 'shiki-transformer-process-meta',
@@ -45,7 +45,7 @@ export const processMeta = (): ShikiTransformer => {
   }
 }
 
-// Add a title to the code block
+// 给代码块添加标题
 export const addTitle = (): ShikiTransformer => {
   return {
     name: 'shiki-transformer-add-title',
@@ -72,7 +72,7 @@ export const addTitle = (): ShikiTransformer => {
   }
 }
 
-// Add a language tag to the code block
+// 给代码块添加语言标签
 export const addLanguage = (): ShikiTransformer => {
   return {
     name: 'shiki-transformer-add-language',
@@ -89,7 +89,7 @@ export const addLanguage = (): ShikiTransformer => {
   }
 }
 
-// Add a copy button to the code block
+// 给代码块添加复制按钮
 export const addCopyButton = (timeout?: number): ShikiTransformer => {
   const toggleMs = timeout || 3000
 

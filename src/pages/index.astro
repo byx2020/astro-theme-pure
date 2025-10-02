@@ -9,19 +9,19 @@ import PageLayout from '@/layouts/BaseLayout.astro'
 import ProjectCard from '@/components/home/ProjectCard.astro'
 import Section from '@/components/home/Section.astro'
 import SkillLayout from '@/components/home/SkillLayout.astro'
-import avatar from '@/assets/avatar.png'
+import avatar from '@/assets/勋章_cr.jpg'
 import config from '@/site-config'
 
 const languages = ['Html', 'JavaScript', 'CSS', 'Shell']
 const frontend = ['TypeScript', 'Vite', 'Webpack', 'Astro']
 const backend = ['Vercel', 'Waline']
 
-const MAX_POSTS = 10
+const MAX_POSTS = 5
 const allPosts = await getBlogCollection()
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 ---
 
-<PageLayout meta={{ title: 'Home' }} highlightColor='#659EB9'>
+<PageLayout meta={{ title: '主页' }} highlightColor='#659EB9'>
   <main class='flex w-full flex-col items-center'>
     <section class='animate mb-10 flex flex-col items-center gap-y-7' id='content-header'>
       <Image
@@ -34,22 +34,28 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <div class='flex flex-col items-center gap-y-4'>
         <h1 class='text-3xl font-bold'>{config.author}</h1>
         <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
-          <Label title='China'>
-            <Icon name='location' class='size-5' slot='icon' />
+          <Label
+            title='Email'
+            as='a'
+            href='mailto:byx2020@outlook.es'
+            target='_blank'
+          >
+            <Icon name='email' class='size-5' slot='icon' />
           </Label>
           <Label
-            title='Source code'
+            title='Github'
             as='a'
-            href='https://github.com/cworld1/astro-theme-pure'
+            href='https://github.com/byx2020'
             target='_blank'
           >
             <Icon name='github' class='size-5' slot='icon' />
           </Label>
         </div>
+        <Quote class='relative flex items-center justify-center' />
       </div>
 
-      {/* Get template */}
-      <a
+      {/* 获取模板 */}
+      {/* <a
         href='https://github.com/cworld1/astro-theme-pure'
         target='_blank'
         class='flex flex-row items-center gap-x-3 rounded-full border bg-background px-4 py-2 text-sm shadow-sm transition-shadow hover:shadow-md'
@@ -60,23 +66,92 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
           ></span>
           <span class='size-2 rounded-full bg-green-400'></span>
         </span>
-        <p class='font-medium text-muted-foreground'>Get Template</p>
-      </a>
+        <p class='font-medium text-muted-foreground'>获取模板</p>
+      </a> */}
     </section>
 
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
-      <Section title='About'>
-        <p class='text-muted-foreground'>Developer / Designer</p>
+      {/* <Section title='关于'>
+        <p class='text-muted-foreground'>开发者 / 设计师</p>
         <p class='text-muted-foreground'>
-          Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione
-          indoctum dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel,
-          at eum oratio possit voluptatum.
+          你好！我是一个热爱前端与设计的开发者，喜欢探索 Astro、TypeScript 等新技术。欢迎访问 <a href='https://github.com/cworld1/astro-theme-pure' target='_blank'>源码仓库</a> 获取更多信息。
         </p>
-        <Button title='More about me' class='w-fit self-end' href='/about' variant='ahead' />
+        <Button title='更多关于我' class='w-fit self-end' href='/about' variant='ahead' />
+      </Section> * */}
+
+      {/* <Section title='经历'>
+      <Card
+        heading='示例项目'
+        subheading='示例副标题'
+        date='2022年12月 - 2023年11月'
+        imagePath='/src/assets/about-astro.png'
+        altText='示例图片'
+        imageClass='h-12 w-auto md:-start-16'
+      >
+        <ul class='ms-4 list-disc text-muted-foreground'>
+          <li>
+            这是一个示例经历条目，展示了前端开发与设计相关内容。
+            <li>更多经历内容可在此补充。</li>
+          </li>
+        </ul>
+      </Card>
+      <Card
+        heading='示例项目'
+        subheading='示例副标题'
+        date='2022年12月 - 2023年11月'
+        imagePath='/src/assets/about-astro.png'
+        altText='示例图片'
+        imageClass='h-12 w-auto md:-start-16'
+      />
+    </Section> */
+      }
+      {/* <Section title='教育'>
+        <Card
+          as='a'
+          heading='示例学历'
+          subheading='2021年8月 - 2025年7月'
+          date='2021年8月 - 2025年7月'
+          href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+        >
+          {
+             <ul class='ms-4 list-disc text-muted-foreground'>
+          <li>
+            这是一个示例教育经历条目，展示了学习内容与时间。
+          </li>
+          <li>更多教育经历可在此补充。</li>
+        </ul> 
+          }
+        </Card>
+      </Section> */}
+
+  <Section title='网站列表'>
+        <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
+          <ProjectCard
+            href='http://byx2020.ysepan.com/'
+            heading='边缘星的杂货铺'
+            subheading='个人资源网盘，用于分享各种书籍、软件、游戏、影视等资源'
+            imagePath='/src/assets/projects/alex-tyson-2BAXJ7ha74s-unsplash.jpg'
+          />
+          <ProjectCard
+            href='https://www.yuque.com/byx2020/ec'
+            heading='边缘机器人'
+            subheading='个人搭建维护的QQ机器人，已稳定持续运行五年有余，主要为起点书友相关群服务'
+            imagePath='/src/assets/projects/angelica-teran-Bk9hpaXHK4o-unsplash.jpg'
+          />
+          <ProjectCard
+            href='https://bbs.ra2ol.com/mapcenter/author.php?aid=68'
+            heading='边缘地图'
+            subheading='个人在2019-2023年期间制作的红警2地图，红警战网热度合计4.5w+'
+            imagePath='/src/assets/projects/kseniia-zapiatkina-yATU3rg8tNI-unsplash.jpg'
+          />
+        </div>
+        <Button title='更多网站' class='w-fit self-end' href='/links' variant='ahead' />
       </Section>
+
+      
       {
         allPostsByDate.length > 0 && (
-          <Section title='Posts'>
+          <Section title='文章列表'>
             <ul class='flex flex-col gap-y-1.5 sm:gap-y-2'>
               {allPostsByDate.map((p) => (
                 <li class='flex flex-col gap-x-2 sm:flex-row'>
@@ -84,105 +159,27 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
                 </li>
               ))}
             </ul>
-            <Button title='More posts' class='w-fit self-end' href='/blog' variant='ahead' />
+            <Button title='更多文章' class='w-fit self-end' href='/blog' variant='ahead' />
           </Section>
         )
       }
 
-      {
-        /* <Section title='Experience'>
-      <Card
-        heading='Lorem Ipsum'
-        subheading='Sit amet consectetur'
-        date='Dec 2022 - Nov 2023'
-        imagePath='/src/assets/about-astro.png'
-        altText='Lorem, ipsum dolor sit'
-        imageClass='h-12 w-auto md:-start-16'
-      >
-        <ul class='ms-4 list-disc text-muted-foreground'>
-          <li>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
-            molestiae laboriosam pariatur!
-
-            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
-          </li>
-        </ul>
-      </Card>
-      <Card
-        heading='Lorem Ipsum'
-        subheading='Sit amet consectetur'
-        date='Dec 2022 - Nov 2023'
-        imagePath='/src/assets/about-astro.png'
-        altText='Lorem, ipsum dolor sit'
-        imageClass='h-12 w-auto md:-start-16'
-      />
-    </Section> */
-      }
-      <Section title='Education'>
+      {/* <Section title='证书'>
         <Card
           as='a'
-          heading='Lorem ipsum'
-          subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei.'
-          date='August 2021 - July 2025'
-          href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-        >
-          {
-            /* <ul class='ms-4 list-disc text-muted-foreground'>
-          <li>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
-            molestiae laboriosam pariatur!
-          </li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
-        </ul> */
-          }
-        </Card>
-      </Section>
-
-      <Section title='Website List'>
-        <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
-          <ProjectCard
-            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            heading='Lorem ipsum'
-            subheading='dolor sit amet, oratio ornatus explicari pro ex'
-            imagePath='/src/assets/projects/alex-tyson-2BAXJ7ha74s-unsplash.jpg'
-          />
-          <ProjectCard
-            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            heading='Lorem ipsum'
-            subheading='dolor sit amet, oratio ornatus explicari pro ex'
-            imagePath='/src/assets/projects/angelica-teran-Bk9hpaXHK4o-unsplash.jpg'
-          />
-          <ProjectCard
-            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            heading='Lorem ipsum'
-            subheading='dolor sit amet, oratio ornatus explicari pro ex'
-            imagePath='/src/assets/projects/kseniia-zapiatkina-yATU3rg8tNI-unsplash.jpg'
-          />
-          <ProjectCard
-            href='/projects'
-            heading='More projects'
-            subheading='Check out more projects'
-            imagePath='/src/assets/projects/wen-qiao-g_w8I64FiO0-unsplash.jpg'
-          />
-        </div>
-      </Section>
-
-      <Section title='Certifications'>
-        <Card
-          as='a'
-          heading='Lorem ipsum'
-          subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio possit voluptatum. Dicat ceteros cu vim. Impetus fuisset ullamcorper pri cu, his posse iisque ad, aliquam honestatis usu id.'
-          date='July 2024'
+          heading='示例证书'
+          subheading='这是一个示例证书描述，包含获得时间和相关说明。可补充更多证书信息。'
+          date='2024年7月'
           href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
         />
-      </Section>
+      </Section> */}
 
-      <Section title='Skills'>
-        <SkillLayout title='Languages' skills={languages} />
-        <SkillLayout title='Frontend' skills={frontend} />
-        <SkillLayout title='Backend' skills={backend} />
-      </Section>
+      {/* <Section title='技能'>
+        <SkillLayout title='编程语言' skills={languages} />
+        <SkillLayout title='前端' skills={frontend} />
+        <SkillLayout title='后端' skills={backend} />
+      </Section> */}
     </div>
-    <Quote class='mt-12' />
+    {/* <Quote class='mt-12' /> */}
   </main>
 </PageLayout>

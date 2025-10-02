@@ -5,41 +5,36 @@ import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
 
 const headings = [
-  { depth: 2, slug: 'hobbies', text: 'Hobbies' },
-  { depth: 2, slug: 'tools', text: 'Tools' },
-  { depth: 2, slug: 'social-networks', text: 'Social Networks' },
-  { depth: 2, slug: 'gossips', text: 'Gossips' },
-  { depth: 2, slug: 'about-blog', text: 'About Blog' }
+  { depth: 2, slug: 'hobbies', text: '兴趣爱好' },
+  { depth: 2, slug: 'tools', text: '常用工具' },
+  { depth: 2, slug: 'social-networks', text: '社交网络' },
+  { depth: 2, slug: 'gossips', text: '碎碎念' },
+  { depth: 2, slug: 'about-blog', text: '关于博客' }
 ]
 ---
 
-<PageLayout title='About' {headings} comment>
-  <p>Developer / Designer</p>
+<PageLayout title='关于' {headings} comment>
+  <p>开发者 / 设计师</p>
   <p>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio
-    possit voluptatum.
+    你好！我是一个热爱前端与设计的开发者，喜欢探索新技术与工具。欢迎交流！
   </p>
   <p>
-    My motto: Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
+    座右铭：Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
   </p>
-  <Button title='Sponsor Me' class='w-fit' href='/projects#sponsorship' variant='ahead' />
+  <Button title='赞助我' class='w-fit' href='/projects#sponsorship' variant='ahead' />
 
   {/* general-talk */}
-  <h2 id='hobbies'>Hobbies</h2>
+  <h2 id='hobbies'>兴趣爱好</h2>
   <ul>
-    <li>Lorem ipsum dolor sit amet, vidit suscipit at mei.</li>
-    <li>
-      Quem denique mea id. Usu ei regione indoctum dissentiunt, cu meliore fuisset mei, vel quod
-      voluptua ne.
-    </li>
-    <li>Ex dicat impedit mel, at eum oratio possit voluptatum.</li>
-    <li>Impetus fuisset ullamcorper pri cu, his posse iisque ad, aliquam honestatis usu id.</li>
+    <li>喜欢编程、设计、音乐、摄影等。</li>
+    <li>热衷于探索新技术与工具，享受创造的乐趣。</li>
+    <li>偶尔会写博客、分享经验。</li>
+    <li>欢迎交流更多兴趣爱好！</li>
   </ul>
 
   {/* tools */}
-  <h2 id='tools'>Tools</h2>
-  <p>Current support tools as follow:</p>
+  <h2 id='tools'>常用工具</h2>
+  <p>当前常用工具如下：</p>
   <ToolSection
     class='mb-5'
     title='Design'
@@ -156,10 +151,9 @@ const headings = [
   />
 
   {/* social-networks */}
-  <h2 id='social-networks'>Social Networks</h2>
+  <h2 id='social-networks'>社交网络</h2>
   <p>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne.
+    你可以在以下平台找到我，欢迎关注和交流。
   </p>
   <Substats
     stats={[
@@ -198,62 +192,57 @@ const headings = [
   />
 
   {/* gossips */}
-  <h2 id='gossips'>Gossips</h2>
-  <Collapse title='Lorem ipsum'>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio
-    possit voluptatum.
+  <h2 id='gossips'>碎碎念</h2>
+  <Collapse title='随便聊聊'>
+    这里是一些个人感想或日常碎碎念，欢迎留言交流。
   </Collapse>
 
   {/* about-blog */}
-  <h2 id='about-blog'>About Blog</h2>
-  <p>Website history:</p>
+  <h2 id='about-blog'>关于博客</h2>
+  <p>网站历史：</p>
   <Timeline
     events={[
       {
         date: '2024-04-29',
         content:
-          'Website refactored using <a href="https://astro.build/" target="_blank">Astro</a> and <a href="https://github.com/srleom/astro-theme-resume" target="_blank">Astro Theme Resume</a>'
+          '网站重构，采用 <a href="https://astro.build/" target="_blank">Astro</a> 和 <a href="https://github.com/srleom/astro-theme-resume" target="_blank">Astro Theme Resume</a> 构建'
       },
       {
         date: '2024-07-26',
         content:
-          'Website abstracted as a theme and published on <a href="https://github.com/cworld1/astro-theme-pure"target="_blank">Github</a>'
+          '网站抽象为主题并发布到 <a href="https://github.com/cworld1/astro-theme-pure"target="_blank">Github</a>'
       },
       {
         date: '2024-07-27',
-        content: 'Began writing website docs'
+        content: '开始编写网站文档'
       }
     ]}
   />
   <p>
-    The smooth operation and personalized customization of website also rely on the resources and
-    technical support provided by the following excellent projects/service providers:
+    网站的顺利运行和个性化定制也离不开以下优秀项目/服务商的资源与技术支持：
   </p>
   <ul>
-    <li>Domain: <a href='#' target='_blank'>Vercel</a></li>
+    <li>域名服务：<a href='#' target='_blank'>Vercel</a></li>
     <li>
-      Framework & Theme: <a href='https://astro.build/' target='_blank'>Astro</a> + <a
+      框架与主题：<a href='https://astro.build/' target='_blank'>Astro</a> + <a
         href='https://github.com/cworld1/astro-theme-pure'
-        target='_blank'>Astro Theme Pure</a
+        target='_blank'>Astro Theme Pure</a>
       >
     </li>
     <li>
-      Site hosting: <a href='https://vercel.com/' target='_blank'>Vercel</a>
+      网站托管：<a href='https://vercel.com/' target='_blank'>Vercel</a>
     </li>
     <li>
-      CI/CD: <a href='https://vercel.com/workflow' target='_blank'>Vercel Workflow</a>
+      CI/CD：<a href='https://vercel.com/workflow' target='_blank'>Vercel Workflow</a>
     </li>
-    <!-- <li>Resources speedup: <a href='https://cdn.cbd.int/' target='_blank'>CBD CDN</a></li> -->
-    <li>Comment system: <a href='https://waline.js.org' target='_blank'>Waline</a></li>
+    <!-- <li>资源加速：<a href='https://cdn.cbd.int/' target='_blank'>CBD CDN</a></li> -->
+    <li>评论系统：<a href='https://waline.js.org' target='_blank'>Waline</a></li>
     <li>
-      Visits: <a href='https://supabase.com/' target='_blank'>Supabase</a> +
+      访问统计：<a href='https://supabase.com/' target='_blank'>Supabase</a> +
       <a href='https://waline.js.org/' target='_blank'>Waline</a>
     </li>
     <li>
-      Other statistics: <a href='https://github.com/spencerwooo/substats' target='_blank'
-        >Substats</a
-      >
+      其他统计：<a href='https://github.com/spencerwooo/substats' target='_blank'>Substats</a>
     </li>
   </ul>
 </PageLayout>

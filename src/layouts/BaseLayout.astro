@@ -4,8 +4,7 @@ import type { SiteMeta } from 'astro-pure/types'
 import BaseHead from '@/components/BaseHead.astro'
 import config from '@/site-config'
 
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseLayout /> component.
+// 在此处导入 global.css 文件，以便通过 <BaseLayout /> 组件包含到所有页面。
 import '@/assets/styles/app.css'
 
 interface Props {
@@ -44,7 +43,7 @@ const {
       <Footer />
     </div>
 
-    {/* Set highlight color */}
+  {/* 设置高亮颜色 */}
     <style define:vars={{ highlightColor }}>
       :global(.highlight) {
         color: var(--highlightColor, hsl(var(--primary) / var(--un-text-opacity))) !important;

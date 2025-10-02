@@ -11,17 +11,17 @@ import KeyIcon from '@/assets/icons/key.svg'
 import wechat from '@/assets/wechat-qrcode.jpg'
 
 const headings = [
-  { depth: 2, slug: 'theme', text: 'Theme' },
-  { depth: 2, slug: 'programs', text: 'Programs' },
-  { depth: 2, slug: 'learnings', text: 'Learnings' },
-  { depth: 2, slug: 'others', text: 'Others' },
-  { depth: 2, slug: 'gpg-signature', text: 'GPG Signature' },
-  { depth: 2, slug: 'sponsorship', text: 'Sponsorship' }
+  { depth: 2, slug: 'theme', text: '主题' },
+  { depth: 2, slug: 'programs', text: '程序' },
+  { depth: 2, slug: 'learnings', text: '学习笔记' },
+  { depth: 2, slug: 'others', text: '其他' },
+  { depth: 2, slug: 'gpg-signature', text: 'GPG签名' },
+  { depth: 2, slug: 'sponsorship', text: '赞助' }
 ]
 ---
 
-<PageLayout title='Projects' {headings} view>
-  <p>Github Activities:</p>
+<PageLayout title='项目' {headings} view>
+  <p>Github 活动：</p>
   <p>
     <Image
       src='https://ghchart.rshah.org/659eb9/cworld1'
@@ -31,19 +31,18 @@ const headings = [
     />
   </p>
   <p>
-    If you think it would be useful or interesting to collaborate on a project, you can donate to
-    support my work or contact me to discuss a project.
+    如果你觉得有项目可以合作，欢迎赞助支持我的工作，或联系我讨论项目。
   </p>
-  <Button title='Checkout sponsorship' class='w-fit' href='#sponsorship'>
+  <Button title='查看赞助方式' class='w-fit' href='#sponsorship'>
     <Icon class='size-5' name='receive-money' slot='before' />
   </Button>
 
-  <h2 id='theme'>Theme</h2>
+  <h2 id='theme'>主题</h2>
   <ProjectSection
     projects={[
       {
         name: '🍭 Astro-theme-pure',
-        description: 'A simple, clean but powerful blog theme build by astro.',
+  description: '一个简单、干净但功能强大的 Astro 博客主题。',
         links: [
           { type: 'github', href: 'https://github.com/cworld1/astro-theme-pure' },
           { type: 'site', href: 'https://github.com/cworld1/astro-theme-pure' },
@@ -56,13 +55,13 @@ const headings = [
     ]}
   />
 
-  <h2 id='programs'>Programs</h2>
+  <h2 id='programs'>程序</h2>
   <ProjectSection
     projects={[
       {
         name: '📒 Notie',
         description:
-          'Android note App complies with Material You specifications, developed using Java',
+          'Android 记事应用，遵循 Material You 规范，使用 Java 开发',
         links: [
           { type: 'github', href: 'https://github.com/cworld1/notie' },
           {
@@ -73,7 +72,7 @@ const headings = [
       },
       {
         name: '💄 PKU Art',
-        description: 'A script to beautify pku course website',
+  description: '用于美化北大课程网站的脚本',
         links: [
           { type: 'github', href: 'https://github.com/zhuozhiyongde/pku-art' },
           { type: 'site', href: 'https://github.com/zhuozhiyongde/pku-art' },
@@ -82,17 +81,17 @@ const headings = [
       }
     ]}
   />
-  <Collapse title='Some old projects'>
+  <Collapse title='一些旧项目'>
     <ProjectSection
       projects={[
         {
           name: 'Search Switcher',
-          description: 'Add links to each other in search engines',
+    description: '为各大搜索引擎互相添加跳转链接',
           links: [{ type: 'github', href: 'https://github.com/cworld1/search-switcher' }]
         },
         {
           name: 'Pure Baidu',
-          description: 'Baidu search page beautification module',
+    description: '百度搜索页面美化模块',
           links: [
             { type: 'doc', href: 'https://cworld0.com/blog/pure-baidu' },
             { type: 'site', href: 'https://userstyles.org/styles/173673/pure' }
@@ -102,18 +101,18 @@ const headings = [
     />
   </Collapse>
 
-  <h2 id='learnings'>Learnings</h2>
+  <h2 id='learnings'>学习笔记</h2>
   <ProjectSection
     class='my-2'
     projects={[
       {
         name: 'Rust Learning',
-        description: 'Some notes and code about CWorld learning Rust',
+  description: 'CWorld 学习 Rust 的笔记与代码',
         links: [{ type: 'github', href: 'https://github.com/cworld1/rust-learning' }]
       },
       {
         name: 'CS 213 Learning',
-        description: 'Notes, code and experiences for Introduction to Computer Systems course',
+  description: '《计算机系统导论》课程笔记、代码与经验',
         links: [
           {
             type: 'github',
@@ -124,42 +123,41 @@ const headings = [
     ]}
   />
 
-  <h2 id='others'>Others</h2>
+  <h2 id='others'>其他</h2>
   <ProjectSection
     projects={[
       {
         name: 'CWorld',
-        description: "CWorld's Github",
+  description: "CWorld 的 Github",
         links: [{ type: 'github', href: 'https://github.com/cworld1' }]
       },
       {
         name: 'Arthals',
-        description: 'Arthals Github',
+  description: 'Arthals 的 Github',
         links: [{ type: 'github', href: 'https://github.com/zhuozhiyongde' }]
       }
     ]}
   />
 
   <!-- gpg signature -->
-  <h2 id='gpg-signature'>GPG Signature</h2>
+  <h2 id='gpg-signature'>GPG签名</h2>
   <p>
-    You can verify the authenticity of the files I signed by checking the GPG signature. My GPG key
-    is <code>114514</code>, and you can find it on the opengpg key servers or download from it.
+    你可以通过校验 GPG 签名来验证我签署文件的真实性。我的 GPG 密钥为 <code>114514</code>，可在 opengpg key servers 查询或下载。
   </p>
-  <Button href='https://keys.openpgp.org/search?q=114514' title='Checkout my key' target='_blank'>
+  <Button href='https://keys.openpgp.org/search?q=114514' title='查看我的密钥' target='_blank'>
     <KeyIcon class='size-5' slot='before' />
   </Button>
 
   <!-- sponsorship -->
-  <h2 id='sponsorship'>Sponsorship</h2>
-  <p>Please leave a message or contact me proactively after sponsorship.</p>
+  <h2 id='sponsorship'>赞助</h2>
+  <p>赞助后请留言或主动联系我。</p>
   <Sponsorship
     methods={[
       { name: 'WeChat', icon: 'wechat-pay', image: wechat },
       { name: 'Alipay', icon: 'alipay', image: alipay }
     ]}
   />
-  <p>Thanks to the following sponsors:</p>
+  <p>感谢以下赞助者：</p>
   <Sponsors
     sponsors={[
       { name: 'C*a（酷安@暴走の蜗牛）', amount: '2.00', date: '2019-07-02' },

@@ -5,13 +5,13 @@ import { defineConfig } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 
-// Others
+// 其他插件
 // import { visualizer } from 'rollup-plugin-visualizer'
 
-// Local integrations
-// Local rehype & remark plugins
+// 本地集成
+// 本地 rehype & remark 插件
 import rehypeAutolinkHeadings from './src/plugins/rehype-auto-link-headings.ts'
-// Shiki
+// Shiki 相关
 import {
   addCopyButton,
   addLanguage,
@@ -22,22 +22,22 @@ import {
 } from './src/plugins/shiki-transformers.ts'
 import config from './src/site.config.ts'
 
-// https://astro.build/config
+// Astro 官方配置文档：https://astro.build/config
 export default defineConfig({
-  // Top-Level Options
+  // 顶层选项
   site: 'https://astro-pure.js.org',
-  // Deploy to a sub path; See https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
+  // 部署到子路径；参考：https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
   // base: '/astro-pure/',
   trailingSlash: 'never',
 
-  // Adapter
-  // https://docs.astro.build/en/guides/deploy/
-  // 1. Vercel (serverless)
+  // 适配器
+  // Astro 部署指南：https://docs.astro.build/en/guides/deploy/
+  // 1. Vercel（无服务器）
   adapter: vercel(),
   output: 'server',
-  // 2. Vercel (static)
+  // 2. Vercel（静态）
   // adapter: vercelStatic(),
-  // 3. Local (standalone)
+  // 3. 本地（独立模式）
   // adapter: node({ mode: 'standalone' }),
   // output: 'server',
   // ---
@@ -47,10 +47,10 @@ export default defineConfig({
     service: {
       entrypoint: 'astro/assets/services/sharp'
     }
-  },
+  }, // 图片服务相关
 
   integrations: [
-    // astro-pure will automatically add sitemap, mdx & unocss
+    // astro-pure 会自动添加 sitemap、mdx 和 unocss
     // sitemap(),
     // mdx(),
     AstroPureIntegration(config)
@@ -59,18 +59,19 @@ export default defineConfig({
     //   Exclude: ['index.*.js']
     // }),
 
-    // Temporary fix vercel adapter
-    // static build method is not needed
+    // Vercel 适配器临时修复
+    // 不需要静态构建方法
   ],
+  // 项目根目录设置示例
   // root: './my-project-directory',
 
-  // Prefetch Options
+  // 预取选项
   prefetch: true,
-  // Server Options
+  // 服务器选项
   server: {
     host: true
   },
-  // Markdown Options
+  // Markdown 配置
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [
@@ -85,7 +86,7 @@ export default defineConfig({
         }
       ]
     ],
-    // https://docs.astro.build/en/guides/syntax-highlighting/
+    // Astro 语法高亮文档：https://docs.astro.build/en/guides/syntax-highlighting/
     shikiConfig: {
       themes: {
         light: 'github-light',

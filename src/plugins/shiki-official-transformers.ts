@@ -1,4 +1,4 @@
-// https://github.com/shikijs/shiki/tree/main/packages/transformers
+// 官方 transformers 参考：https://github.com/shikijs/shiki/tree/main/packages/transformers
 
 import type { Element, Text } from 'hast'
 import type { ShikiTransformer, ShikiTransformerContext } from 'shiki'
@@ -6,7 +6,7 @@ import type { ShikiTransformer, ShikiTransformerContext } from 'shiki'
 interface TransformerNotationMapOptions {
   classMap?: Record<string, string | string[]>
   /**
-   * Class added to the <pre> element when the current code has diff
+   * 当前代码块有 diff 时，添加到 <pre> 元素的类名
    */
   classActivePre?: string
 }
@@ -50,7 +50,7 @@ function createCommentNotationTransformer(
         if (nodeToRemove) {
           line.children.splice(line.children.indexOf(nodeToRemove), 1)
 
-          // Remove if empty
+          // 如果行为空则移除
           if (line.children.length === 0) {
             linesToRemove.push(line)
             if (removeEmptyLines) {
@@ -92,25 +92,25 @@ function transformerNotationMap(
   )
 }
 
-// === Transformers ===
+// === 变换器定义 ===
 
-// Add a diff notation to the code block
+// 为代码块添加 diff 标记
 export interface TransformerNotationDiffOptions {
   /**
-   * Class for added lines
+   * 新增行的类名
    */
   classLineAdd?: string
   /**
-   * Class for removed lines
+   * 删除行的类名
    */
   classLineRemove?: string
   /**
-   * Class added to the <pre> element when the current code has diff
+   * 当前代码块有 diff 时，添加到 <pre> 元素的类名
    */
   classActivePre?: string
 }
 /**
- * Use `[!code ++]` and `[!code --]` to mark added and removed lines.
+ * 使用 `[!code ++]` 和 `[!code --]` 标记新增和删除的行。
  */
 export function transformerNotationDiff(
   options: TransformerNotationDiffOptions = {}
@@ -133,20 +133,20 @@ export function transformerNotationDiff(
   )
 }
 
-// Add a highlight notation to the code block
-// https://github.com/shikijs/shiki/blob/main/packages/transformers/src/transformers/notation-highlight.ts
+// 为代码块添加高亮标记
+// 参考：https://github.com/shikijs/shiki/blob/main/packages/transformers/src/transformers/notation-highlight.ts
 export interface TransformerNotationHighlightOptions {
   /**
-   * Class for highlighted lines
+   * 高亮行的类名
    */
   classActiveLine?: string
   /**
-   * Class added to the root element when the code has highlighted lines
+   * 代码有高亮行时，添加到根元素的类名
    */
   classActivePre?: string
 }
 /**
- * Allow using `[!code highlight]` notation in code to mark highlighted lines.
+ * 允许在代码中使用 `[!code highlight]` 标记高亮行。
  */
 export function transformerNotationHighlight(
   options: TransformerNotationHighlightOptions = {}
