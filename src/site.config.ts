@@ -24,7 +24,7 @@ export const theme: ThemeUserConfig = {
   },
   /** 设置要在首页显示的logo图片。 */
   logo: {
-    src: 'src/assets/勋章_cr.jpg',
+    src: 'src/assets/勋章_cr.webp',
     alt: 'Avatar'
   },
 
