@@ -58,7 +58,7 @@ export const theme: ThemeUserConfig = {
   footer: {
     // 年份格式
     // year: `© ${new Date().getFullYear()}`,
-    year: `© 2020 - ${new Date().getFullYear()}`,
+    year: `© 2020-${new Date().getFullYear()}`,
     // links: [
     //   // 备案链接
     //   {
