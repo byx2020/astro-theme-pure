@@ -12,7 +12,7 @@ const { class: className } = Astro.props
   config.integ.waline.enable && (
     <comment-component>
       <div id='waline' class={cn('not-prose', className)}>
-        Comment seems to stuck. Try to refresh?✨
+        评论似乎卡住了。试试刷新页面？✨
       </div>
     </comment-component>
   )
@@ -31,7 +31,7 @@ const { class: className } = Astro.props
     }
 
     connectedCallback() {
-      // Prevent Vue log errors
+      // 防止Vue日志错误
       ;(globalThis as unknown as { __VUE_OPTIONS_API__: boolean }).__VUE_OPTIONS_API__ = true
       ;(globalThis as unknown as { __VUE_PROD_DEVTOOLS__: boolean }).__VUE_PROD_DEVTOOLS__ = false
       ;(
@@ -56,18 +56,18 @@ const { class: className } = Astro.props
 </script>
 
 <style>
-  /* Basic theme */
+  /* 基础主题 */
   #waline {
-    /* Font size */
+    /* 字体大小 */
     --waline-font-size: 16px;
-    /* Basic color */
+    /* 基础颜色 */
     --waline-white: hsl(var(--background) / var(--un-bg-opacity, 1));
     --waline-light-grey: #999;
     --waline-dark-grey: #666;
-    /* Theme color */
+    /* 主题颜色 */
     --waline-theme-color: hsl(var(--foreground) / var(--un-text-opacity, 1));
     --waline-active-color: hsl(var(--primary) / var(--un-text-opacity, 1));
-    /* Layout */
+    /* 布局 */
     --waline-color: hsl(var(--muted-foreground) / var(--un-text-opacity, 1));
     --waline-bg-color: hsl(var(--muted) / var(--un-bg-opacity, 1));
     --waline-bg-color-light: hsl(var(--input) / var(--un-text-opacity, 1));
@@ -76,25 +76,25 @@ const { class: className } = Astro.props
     --waline-disable-bg-color: #f8f8f8;
     --waline-disable-color: #bbb;
     --waline-code-bg-color: #282c34;
-    /* Special */
+    /* 特殊元素 */
     --waline-bq-color: #f0f0f0;
-    /* Avatar */
+    /* 头像 */
     --waline-avatar-size: 3.25rem;
     --waline-m-avatar-size: calc(var(--waline-avatar-size) * 9 / 13);
-    /* Badge */
+    /* 徽章 */
     --waline-badge-color: hsl(var(--border) / var(--un-border-opacity, 1));
     --waline-badge-font-size: 0.775em;
-    /* Info */
+    /* 信息区 */
     --waline-info-bg-color: var(--waline-bg-color-light);
     --waline-info-color: var(--waline-color);
     --waline-info-font-size: 0.625em;
-    /* Render selection */
+    /* 渲染样式 */
     --waline-border: 1px solid var(--waline-border-color);
     --waline-avatar-radius: 50%;
     --waline-box-shadow: none;
   }
 
-  /* Fix long text and links overflow */
+  /* 修复长文本和链接溢出问题 */
   #waline :global(.wl-content, .wl-text, .wl-comment-text, .wl-item, .wl-card-item, a) {
     max-width: 100%;
   }
@@ -110,7 +110,7 @@ const { class: className } = Astro.props
     overflow: hidden;
   }
 
-  /* Reaction buttons */
+  /* 互动按钮 */
   #waline :global(.wl-reaction-title, .wl-reaction-text) {
     display: none;
   }
@@ -150,7 +150,7 @@ const { class: className } = Astro.props
 
   #waline :global(.wl-reaction-votes:after) {
     margin-left: 0.25em;
-    content: 'Like(s)';
+    content: '个赞';
     display: inline-block;
     clear: both;
     border: 0;

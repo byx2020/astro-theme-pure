@@ -2,7 +2,7 @@ import { MdxRepl } from 'astro-pure/user'
 
 # Signature
 
-> Thanks for [zhuozhiyongde (Arthals)](https://github.com/zhuozhiyongde)
+> 感谢 [zhuozhiyongde (Arthals)](https://github.com/zhuozhiyongde)
 >
 > https://github.com/cworld1/astro-theme-pure/commit/695e722d7d537adb7f1b2893452328e09581b995
 
@@ -20,25 +20,25 @@ import Signature from 'some_target_file_path'
 </Fragment>
 </MdxRepl>
 
-To customize this component, you first need to create an SVG using Figma or another vector graphics editor. This SVG should contain one or more `<path>` elements with a `stroke` attribute, as the animation effect is applied exclusively to these stroked paths. You can refer to [this SVG](https://github.com/zhuozhiyongde/Arthals-Ink/blob/main/src/assets/signature.svg) as an example.
+要自定义此组件，首先需要使用Figma或其他矢量图形编辑器创建一个SVG。该SVG应包含一个或多个带有`stroke`属性的`<path>`元素，因为动画效果仅应用于这些带描边的路径。你可以参考[这个SVG](https://github.com/zhuozhiyongde/Arthals-Ink/blob/main/src/assets/signature.svg)作为示例。
 
-There also has some additional attributes you can use to customize the component:
+此外，还有一些额外的属性可用于自定义组件：
 
-1. `data-duration`(optional): The duration of the animation in milliseconds. If not specified, the `defaultDuration` prop value will be used. For example: `<path data-duration="800" ... />`
-2. `seq`(optional): The sequence of the path. If not specified, the path will be animated in the order of appearance in the SVG file. For example: `<path seq="1" ... />`, `<path seq="2" ... />`.
+1. `data-duration`（可选）：动画持续时间（以毫秒为单位）。如果未指定，将使用`defaultDuration`属性的值。例如：`<path data-duration="800" ... />`
+2. `seq`（可选）：路径的动画顺序。如果未指定，路径将按照在SVG文件中出现的顺序进行动画。例如：`<path seq="1" ... />`，`<path seq="2" ... />`。
 
-By default, the component loads the SVG file from `src/assets/signature.svg`. Place your prepared SVG file at this path and name it `signature.svg`.
+默认情况下，该组件从`src/assets/signature.svg`加载SVG文件。将你准备好的SVG文件放在此路径下，并命名为`signature.svg`。
 
 ## Component Props
 
-You can pass the following props when using the component to customize its animation behavior:
+使用组件时，你可以传递以下属性来自定义其动画行为：
 
-| Prop              | Type                         | Description                                                  | Default Value |
+| 属性              | 类型                         | 描述                                                         | 默认值 |
 | ----------------- | ---------------------------- | ------------------------------------------------------------ | ------------- |
-| `mode`            | `'loop'` \| `'once-on-view'` | Animation mode. `loop`: continuously draws and rolls back; `once-on-view`: plays the animation once it enters the viewport. | `'loop'`      |
-| `drawDelay`       | `number`                     | (Loop mode) The delay in milliseconds before drawing the next path. | `200`         |
-| `rollbackDelay`   | `number`                     | (Loop mode) The delay in milliseconds before rolling back the previous path. | `80`          |
-| `loopPause`       | `number`                     | (Loop mode) The pause duration in milliseconds at the end of each full cycle. | `2000`        |
-| `threshold`       | `number`                     | (On-view mode) The visibility threshold (from 0.0 to 1.0) to trigger the animation. | `1.0`         |
-| `defaultDuration` | `number`                     | The default animation duration in milliseconds for each stroke. | `600`         |
-| `class`           | `string`                     | Additional CSS classes to be added to the component's root element. | `undefined`   |
+| `mode`            | `'loop'` \| `'once-on-view'` | 动画模式。`loop`：持续绘制并回滚；`once-on-view`：进入视口后播放一次动画。 | `'loop'`      |
+| `drawDelay`       | `number`                     | （循环模式）绘制下一个路径前的延迟时间（毫秒）。              | `200`         |
+| `rollbackDelay`   | `number`                     | （循环模式）回滚上一个路径前的延迟时间（毫秒）。              | `80`          |
+| `loopPause`       | `number`                     | （循环模式）每个完整周期结束后的暂停时间（毫秒）。            | `2000`        |
+| `threshold`       | `number`                     | （视口模式）触发动画的可见性阈值（0.0到1.0之间）。            | `1.0`         |
+| `defaultDuration` | `number`                     | 每个描边的默认动画持续时间（毫秒）。                          | `600`         |
+| `class`           | `string`                     | 要添加到组件根元素的额外CSS类。                              | `undefined`   |

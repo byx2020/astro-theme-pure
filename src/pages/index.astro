@@ -12,9 +12,9 @@ import SkillLayout from '@/components/home/SkillLayout.astro'
 import avatar from '@/assets/勋章_cr.webp'
 import config from '@/site-config'
 
-const languages = ['Html', 'JavaScript', 'CSS', 'Shell']
-const frontend = ['TypeScript', 'Vite', 'Webpack', 'Astro']
-const backend = ['Vercel', 'Waline']
+// const languages = ['Html', 'JavaScript', 'CSS', 'Shell']
+// const frontend = ['TypeScript', 'Vite', 'Webpack', 'Astro']
+// const backend = ['Vercel', 'Waline']
 
 const MAX_POSTS = 5
 const allPosts = await getBlogCollection()
@@ -71,13 +71,12 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
     </section>
 
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
-      {/* <Section title='关于'>
-        <p class='text-muted-foreground'>开发者 / 设计师</p>
+      <Section title='关于'>
         <p class='text-muted-foreground'>
-          你好！我是一个热爱前端与设计的开发者，喜欢探索 Astro、TypeScript 等新技术。欢迎访问 <a href='https://github.com/cworld1/astro-theme-pure' target='_blank'>源码仓库</a> 获取更多信息。
+          这里汇总了边缘星2020的网站、项目和文章等相关信息。
         </p>
-        <Button title='更多关于我' class='w-fit self-end' href='/about' variant='ahead' />
-      </Section> * */}
+        <Button title='更多关于' class='w-fit self-end' href='/about' variant='ahead' />
+      </Section>
 
       {/* <Section title='经历'>
       <Card
@@ -103,9 +102,9 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         altText='示例图片'
         imageClass='h-12 w-auto md:-start-16'
       />
-    </Section> */
-      }
-      {/* <Section title='教育'>
+      </Section>
+      
+      <Section title='教育'>
         <Card
           as='a'
           heading='示例学历'
@@ -145,7 +144,6 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
             imagePath='/src/assets/projects/kseniia-zapiatkina-yATU3rg8tNI-unsplash.jpg'
           />
         </div>
-        <Button title='更多网站' class='w-fit self-end' href='/links' variant='ahead' />
       </Section>
 
       
@@ -172,9 +170,9 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
           date='2024年7月'
           href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
         />
-      </Section> */}
+      </Section>
 
-      {/* <Section title='技能'>
+      <Section title='技能'>
         <SkillLayout title='编程语言' skills={languages} />
         <SkillLayout title='前端' skills={frontend} />
         <SkillLayout title='后端' skills={backend} />

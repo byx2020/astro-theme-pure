@@ -1,10 +1,10 @@
 ---
 layout: '@/layouts/IndividualPage.astro'
 
-title: 'Terms and Conditions'
-description: 'Last updated: 2024-11-26'
+title: '服务条款'
+description: '最后更新：2024-11-26'
 language: 'En'
 back: '/terms/list'
 ---
 
-It may be recommended to generate policies from [PolicyMaker.io](https://policymaker.io).
+建议从[PolicyMaker.io](https://policymaker.io)生成相关政策。

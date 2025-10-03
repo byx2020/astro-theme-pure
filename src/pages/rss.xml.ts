@@ -12,13 +12,13 @@ import config from 'virtual:config'
 
 import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 
-// Get dynamic import of images as a map collection
+// 动态导入图片作为映射集合
 const imagesGlob = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/content/blog/**/*.{jpeg,jpg,png,gif,avif.webp}' // add more image formats if needed
+  '/src/content/blog/**/*.{jpeg,jpg,png,gif,avif.webp}' // 如需支持更多图片格式可添加
 )
 
 const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
-  // Replace image links with the correct path
+  // 用正确的路径替换图片链接
   function remarkReplaceImageLink() {
     /**
      * @param {Root} tree
@@ -58,12 +58,12 @@ const GET = async (context: AstroGlobal) => {
   const siteUrl = context.site ?? new URL(import.meta.env.SITE)
 
   return rss({
-    // Basic configs
+    // 基本配置
     trailingSlash: false,
     xmlns: { h: 'http://www.w3.org/TR/html4/' },
     stylesheet: '/scripts/pretty-feed-v3.xsl',
 
-    // Contents
+    // 内容
     title: config.title,
     description: config.description,
     site: import.meta.env.SITE,

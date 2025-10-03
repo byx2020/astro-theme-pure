@@ -11,12 +11,13 @@ import KeyIcon from '@/assets/icons/key.svg'
 import wechat from '@/assets/wechat-qrcode.jpg'
 
 const headings = [
-  { depth: 2, slug: 'theme', text: '主题' },
-  { depth: 2, slug: 'programs', text: '程序' },
-  { depth: 2, slug: 'learnings', text: '学习笔记' },
-  { depth: 2, slug: 'others', text: '其他' },
-  { depth: 2, slug: 'gpg-signature', text: 'GPG签名' },
-  { depth: 2, slug: 'sponsorship', text: '赞助' }
+  // { depth: 2, slug: 'theme', text: '主题' },
+  // { depth: 2, slug: 'programs', text: '程序' },
+  // { depth: 2, slug: 'learnings', text: '学习笔记' },
+  // { depth: 2, slug: 'others', text: '其他' },
+  // { depth: 2, slug: 'gpg-signature', text: 'GPG签名' },
+  // { depth: 2, slug: 'sponsorship', text: '赞助' }
+  { depth: 2, slug: 'github', text: 'Github 活动' }
 ]
 ---
 
@@ -24,20 +25,20 @@ const headings = [
   <p>Github 活动：</p>
   <p>
     <Image
-      src='https://ghchart.rshah.org/659eb9/cworld1'
+      src='https://ghchart.rshah.org/659eb9/byx2020'
       alt='github activities'
       inferSize
       loading='lazy'
     />
   </p>
-  <p>
+  {/* <p>
     如果你觉得有项目可以合作，欢迎赞助支持我的工作，或联系我讨论项目。
   </p>
   <Button title='查看赞助方式' class='w-fit' href='#sponsorship'>
     <Icon class='size-5' name='receive-money' slot='before' />
-  </Button>
+  </Button> */}
 
-  <h2 id='theme'>主题</h2>
+  {/* <h2 id='theme'>主题</h2>
   <ProjectSection
     projects={[
       {
@@ -165,7 +166,7 @@ const headings = [
       { name: '◌(QQ：1934****45)', amount: '3.00', date: '2019-12-30' },
       { name: 'Anonymous', amount: '20.00', date: '2022-04-06' }
     ]}
-  />
+  /> */}
 </PageLayout>
 
 <style>

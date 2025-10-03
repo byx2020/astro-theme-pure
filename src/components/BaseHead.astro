@@ -17,13 +17,13 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', As
 <meta content='IE=edge' http-equiv='X-UA-Compatible' />
 <title>{siteTitle}</title>
 
-{/* Icons / Favicon */}
+{/* 图标 / 网站图标 */}
 <link rel='apple-touch-icon' sizes='180x180' href='/favicon/apple-touch-icon.png' />
 <link rel='icon' type='image/png' sizes='32x32' href='/favicon/favicon-32x32.png' />
 <link rel='icon' type='image/png' sizes='16x16' href='/favicon/favicon-16x16.png' />
 <link rel='manifest' href='/favicon/site.webmanifest' />
 
-{/* Font preloads */}
+{/* 字体预加载 */}
 <link rel='preload' href='/fonts/Satoshi-Variable.ttf' as='font' type='font/ttf' crossorigin />
 <link
   rel='preload'
@@ -33,18 +33,18 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', As
   crossorigin
 />
 
-{/* Canonical URL */}
+{/* 规范URL */}
 <link rel='canonical' href={canonicalURL} />
 
-{/* Primary Meta Tags */}
+{/* 主要元标签 */}
 <meta content={siteTitle} name='title' />
 <meta content={description} name='description' />
 <meta content={config.author} name='author' />
 
-{/* Theme Color */}
+{/* 主题颜色 */}
 <meta content='' name='theme-color' />
 
-{/* Open Graph / Facebook */}
+{/* Open Graph / Facebook（开放图谱/脸书） */}
 <meta content={articleDate ? 'article' : 'website'} property='og:type' />
 <meta content={title} property='og:title' />
 <meta content={description} property='og:description' />
@@ -63,17 +63,17 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', As
   )
 }
 
-{/* Twitter */}
+{/* Twitter（推特） */}
 <meta content='summary_large_image' property='twitter:card' />
 <meta content={canonicalURL} property='twitter:url' />
 <meta content={title} property='twitter:title' />
 <meta content={description} property='twitter:description' />
 <meta content={socialImageURL} property='twitter:image' />
 
-{/* Sitemap */}
+{/* 站点地图 */}
 <link href='/sitemap-index.xml' rel='sitemap' />
 
-{/* RSS auto-discovery */}
+{/* RSS自动发现 */}
 <link
   rel='alternate'
   type='application/rss+xml'
@@ -83,11 +83,11 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', As
 
 <meta content={Astro.generator} name='generator' />
 
-{/* Styles */}
+{/* 样式 */}
 <link rel='stylesheet' href='/styles/global.css' />
 
 {
-  /* User script*/
+  /* 用户脚本 */
   prod && (
     <script>
       console.log( '%c Astro Theme Pure %c https://github.com/cworld1/astro-theme-pure/',

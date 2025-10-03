@@ -49,7 +49,7 @@ export const theme: ThemeUserConfig = {
     menu: [
   { title: '博客', link: '/blog' },
   // { title: '项目', link: '/projects' },
-  { title: '链接', link: '/links' },
+  { title: '友链', link: '/links' },
   { title: '关于', link: '/about' }
     ]
   },
@@ -117,7 +117,7 @@ export const integ: IntegrationUserConfig = {
   { name: '名称', val: theme.title },
   { name: '简介', val: theme.description || '无' },
   { name: '链接', val: 'https://byx2020.com/' },
-  { name: '头像', val: 'https://astro-pure.js.org/favicon/favicon.ico' }
+  { name: '头像', val: 'https://byx2020.com/favicon/favicon.ico' }
     ]
   },
   // 启用页面搜索功能
