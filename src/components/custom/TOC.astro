@@ -24,9 +24,9 @@ const toc = generateToc(headings)
 </toc-heading>
 
 <script>
-  // This script tag is useful only if you want to display the TOC alongside the blog post...
-  // ... and highlight the section that the user is currently reading through.
-  // Feel free to remove this tag if you don't need this type of functionality.
+  // 这个脚本标签仅在你想在博客文章旁显示目录时有用...
+  // ...并且想要高亮显示用户当前正在阅读的章节。
+  // 如果你不需要这种功能，可以直接移除这个标签。
 
   interface TOCLink {
     element: HTMLAnchorElement
@@ -47,7 +47,7 @@ const toc = generateToc(headings)
     constructor() {
       super()
 
-      // Initialize the headings and tocLinks
+      // 初始化标题和目录链接
       this.headings = Array.from(
         document.querySelectorAll('article h2, article h3, article h4, article h5, article h6')
       )
@@ -99,14 +99,14 @@ const toc = generateToc(headings)
     }
 
     connectedCallback() {
-      // Smooth scroll
+      // 平滑滚动
       this.tocLinks.forEach((link) => {
         link.element.addEventListener('click', (e) => {
           e.preventDefault()
-          // Push the history to add the hash at the end of the URL
+          // 推送历史记录，在URL末尾添加哈希值
           const directHeading = this.headings.find((heading) => heading.id === link.slug)
           if (directHeading) {
-            // Push the history to add the hash at the end of the URL
+            // 推送历史记录，在URL末尾添加哈希值
             history.pushState(
               null,
               directHeading.textContent || '',
@@ -114,12 +114,12 @@ const toc = generateToc(headings)
             )
             directHeading.scrollIntoView({ behavior: 'smooth' })
           } else {
-            console.warn(`No heading found for slug: ${link.slug}`)
+            console.warn(`未找到与锚点匹配的标题：${link.slug}`)
           }
         })
       })
 
-      // Initial first and listen to scroll event
+      // 初始加载时执行一次，并监听滚动事件
       setInterval(this.updatePositionAndStyle, 100)
       window.addEventListener('scroll', this.updatePositionAndStyle)
     }

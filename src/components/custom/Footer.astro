@@ -7,7 +7,7 @@ import { Icon } from 'astro-pure/user'
 const footerConf = config.footer
 let social = footerConf.social || {}
 
-// If the list does not contain rss, add it
+// 如果列表中不包含rss，则添加它
 social.rss = {
   label: 'RSS',
   url: '/rss.xml'
@@ -22,7 +22,7 @@ const footerLink1 = footerConf.links?.filter(({ pos }) => pos === 1) || []
       <div
         class='flex items-center gap-x-4 gap-y-2 text-muted-foreground max-sm:flex-col [&_a]:text-foreground'
       >
-        {/* Position 1 */}
+        {/* 位置 1 */}
         {
           footerLink1.length > 0 && (
             <div>
@@ -37,7 +37,7 @@ const footerLink1 = footerConf.links?.filter(({ pos }) => pos === 1) || []
             </div>
           )
         }
-        {/* Position 2 */}
+        {/* 位置 2 */}
         <div>
           {config.footer.year}
           {config.author}
@@ -63,6 +63,7 @@ const footerLink1 = footerConf.links?.filter(({ pos }) => pos === 1) || []
         {
           footerConf.credits && (
             <span>
+              本网站基于
               <a href='https://github.com/withastro/astro' target='_blank'>
                 Astro
               </a>
@@ -70,13 +71,13 @@ const footerLink1 = footerConf.links?.filter(({ pos }) => pos === 1) || []
               <a href='https://github.com/cworld1/astro-theme-pure' target='_blank'>
                 Pure
               </a>
-              主题驱动
+              构建
             </span>
           )
         }
       </div>
 
-      {/* Social Brands */}
+      {/* 社交媒体图标 */}
       <div class='flex items-center gap-x-4'>
         {
           footerConf.social &&
