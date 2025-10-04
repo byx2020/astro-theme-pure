@@ -28,7 +28,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 )
 if (!images[imagePath])
   throw new Error(
-    `"${imagePath}" does not exist in glob: "src/assets/projects/*.{jpeg,jpg,png,gif,avif.webp}"`
+    `"${imagePath}" does not exist in glob: "src/assets/projects/*.{jpeg,jpg,png,gif,avif,webp}"`
   )
 ---
 
