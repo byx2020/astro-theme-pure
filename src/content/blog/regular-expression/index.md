@@ -5,7 +5,7 @@ updateDate: 2021-05-22 15:20:01
 description: 自用
 tags:
  - 正则表达式
-heroImage: { src: './thumbnail.webp', color: '#B4C6DA' }
+heroImage: { src: './regular-expression_600x200.webp', color: '#0b6dddff' }
 language: '中文'
  
 ---
