@@ -5,7 +5,7 @@ description: 本文中的火星指什么？
 tags:
 - 火星
 - 法律
-heroImage: { src: './thumbnail.jpg', color: '#B4C6DA' }
+heroImage: { src: './mars_law_cr_600x200.webp', color: '#f35e07ff' }
 language: '中文'
 ---
 
