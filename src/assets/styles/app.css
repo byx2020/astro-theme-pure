@@ -1,44 +1,47 @@
-/* Font */
-@font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/Satoshi-Variable.ttf') format('truetype');
-  font-style: normal;
-  font-display: swap;
+/* 字体 */
+/* @font-face {
+  font-family: 'Satoshi'; 字体名称，保持原样
+  src: url('/fonts/Satoshi-Variable.ttf') format('truetype'); 字体文件路径及格式
+  font-style: normal; 正常字体样式
+  font-display: swap; 字体加载策略：使用系统字体替代直到自定义字体加载完成
 }
 @font-face {
   font-family: 'Satoshi';
   src: url('/fonts/Satoshi-VariableItalic.ttf') format('truetype');
-  font-style: italic;
+  font-style: italic; 斜体字体样式
   font-display: swap;
-}
+} */
 html {
-  font-family: 'Satoshi', sans-serif;
+  /* font-family: 'Satoshi', sans-serif; 全局默认字体，优先使用Satoshi，无则使用系统无衬线字体 */
+  font-family: system-ui;
 }
 
-/* Theme */
+/* 主题样式 */
 :root {
-  --background: 210 33% 99%;
-  --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
-  --primary: 200 29% 45%;
-  --primary-foreground: 0 0% 92.5%;
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95%;
-  --muted-foreground: 240 3.8% 28.1%;
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
-  --destructive: 0 72.22% 50.59%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 5.9% 88%;
-  --input: 240 5.9% 90%;
-  --ring: 240 5.9% 10%;
-  --radius: 0.5rem;
+  /* 浅色模式下的颜色变量（HSL色彩模式，格式：色相 饱和度 明度） */
+  --background: 210 33% 99%; /* 页面背景色 */
+  --foreground: 240 10% 3.9%; /* 主要文字颜色 */
+  --card: 0 0% 100%; /* 卡片背景色 */
+  --card-foreground: 240 10% 3.9%; /* 卡片内文字颜色 */
+  --popover: 0 0% 100%; /* 弹出层背景色 */
+  --popover-foreground: 240 10% 3.9%; /* 弹出层内文字颜色 */
+  --primary: 200 29% 45%; /* 主色调 */
+  --primary-foreground: 0 0% 92.5%; /* 主色调区域内的文字颜色 */
+  --secondary: 240 4.8% 95.9%; /* 次要色调 */
+  --secondary-foreground: 240 5.9% 10%; /* 次要色调区域内的文字颜色 */
+  --muted: 240 4.8% 95%; /* 弱化区域背景色（如次要内容区） */
+  --muted-foreground: 240 3.8% 28.1%; /* 弱化区域内的文字颜色 */
+  --accent: 240 4.8% 95.9%; /* 强调色 */
+  --accent-foreground: 240 5.9% 10%; /* 强调色区域内的文字颜色 */
+  --destructive: 0 72.22% 50.59%; /* 危险/删除操作相关颜色 */
+  --destructive-foreground: 0 0% 98%; /* 危险区域内的文字颜色 */
+  --border: 240 5.9% 88%; /* 边框颜色 */
+  --input: 240 5.9% 90%; /* 输入框背景色 */
+  --ring: 240 5.9% 10%; /* 焦点环/高亮环颜色 */
+  --radius: 0.5rem; /* 全局圆角大小 */
 }
 .dark {
+  /* 深色模式下的颜色变量，与浅色模式一一对应 */
   --background: 240 20.54% 5.2%;
   --foreground: 0 0% 98%;
   --card: 240 10% 3.9%;
@@ -60,16 +63,16 @@ html {
   --ring: 240 4.9% 83.9%;
 }
 :root {
-  --un-default-border-color: hsl(var(--border) / 1);
+  --un-default-border-color: hsl(var(--border) / 1); /* UnoCSS默认边框颜色，基于上面定义的边框色变量 */
 }
 html.dark {
-  color-scheme: dark;
+  color-scheme: dark; /* 告知浏览器使用深色模式的系统样式（如滚动条等） */
 }
 
-/* Global */
+/* 全局样式 */
 a {
-  transition: color 0.2s ease;
-  &:hover {
-    color: hsl(var(--primary) / var(--un-text-opacity, 1));
+  transition: color 0.2s ease; /* 链接颜色过渡动画，时长0.2秒，缓动效果 */
+  &:hover { /* 链接悬停状态 */
+    color: hsl(var(--primary) / var(--un-text-opacity, 1)); /* 悬停时使用主色调 */
   }
 }
