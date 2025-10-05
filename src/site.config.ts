@@ -138,7 +138,7 @@ export const integ: IntegrationUserConfig = {
   typography: {
     class: 'prose text-base text-muted-foreground',
     // 块引用字体样式，正常或斜体（排版中默认斜体）
-    blockquoteStyle: 'italic',
+    blockquoteStyle: 'normal',
     // 行内代码块样式，code或modern（排版中默认code）
     inlineCodeBlockStyle: 'modern'
   },
