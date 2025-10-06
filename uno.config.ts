@@ -46,9 +46,10 @@ const typographyConfig = {
     },
     // 块引用样式
     blockquote: {
+      color: fg, // 文字颜色使用主要文字颜色
       position: 'relative', // 相对定位（用于伪元素定位）
       overflow: 'hidden', // 超出部分隐藏
-      'border-width': '1px', // 边框宽度
+      'border-width': '2px', // 边框宽度
       'border-left': 'inherit', // 继承左侧边框样式
       'border-radius': 'var(--radius)', // 使用全局圆角变量
       'padding-inline': '1.6rem', // 左右内边距
@@ -75,7 +76,7 @@ const typographyConfig = {
       'font-size': '.9em' // 字体大小（相对默认值更小）
     },
     'table tr': {
-      'border-bottom-width': '1px' // 表格行底部边框宽度
+      'border-bottom-width': '2px' // 表格行底部边框宽度
     },
     'tbody tr:last-child': {
       'border-bottom-width': '0' // 表格最后一行取消底部边框
@@ -86,7 +87,7 @@ const typographyConfig = {
     },
     'td, th': {
       // border: 'inherit', // 继承边框样式
-      border: '1px solid hsl(var(--border))', // 单元格内边框（使用主题边框色变量）
+      border: '2px solid hsl(var(--border))', // 单元格内边框（使用主题边框色变量）
       'text-align': 'start', // 文字左对齐
       padding: '0.6em' // 内边距
     },
