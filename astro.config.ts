@@ -25,7 +25,7 @@ import config from './src/site.config.ts'
 // Astro 官方配置文档：https://astro.build/config
 export default defineConfig({
   // 顶层选项
-  site: 'https://byx2020.com',
+  site: 'https://www.byx2020.com',
   // 部署到子路径；参考：https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
   // base: '/astro-pure/',
   trailingSlash: 'never',
