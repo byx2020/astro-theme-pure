@@ -46,7 +46,7 @@ const typographyConfig = {
     },
     // 块引用样式
     blockquote: {
-      color: fg, // 文字颜色使用主要文字颜色
+      color: fgMuted, // 颜色使用弱化文字颜色
       position: 'relative', // 相对定位（用于伪元素定位）
       overflow: 'hidden', // 超出部分隐藏
       'border-width': '2px', // 边框宽度
