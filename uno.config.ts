@@ -50,7 +50,7 @@ const typographyConfig = {
       position: 'relative', // 相对定位（用于伪元素定位）
       overflow: 'hidden', // 超出部分隐藏
       'border-width': '2px', // 边框宽度
-      'border-left': 'inherit', // 继承左侧边框样式
+      'border-left': '2px solid hsl(var(--border))', // 关键修改：替换 inherit，明确设置左侧边框的样式和颜色
       'border-radius': 'var(--radius)', // 使用全局圆角变量
       'padding-inline': '1.6rem', // 左右内边距
       'box-shadow': '0 5px 0 ' + bgMuted, // 底部阴影（使用弱化背景色）
@@ -72,28 +72,38 @@ const typographyConfig = {
     },
     // 表格样式
     table: {
-      display: 'block', // 块级显示（便于响应式处理）
-      'font-size': '.9em' // 字体大小（相对默认值更小）
+    display: 'block',
+    'font-size': '.9em',
+    'border-collapse': 'collapse', /* 合并边框，避免间隙和重叠 */
+    'border-width': '0', /* 完全禁用表格自身外边框 */
     },
-    'table tr': {
-      'border-bottom-width': '2px' // 表格行底部边框宽度
+  'thead th, tbody td': {
+    'border-style': 'solid',
+    'border-color': 'hsl(var(--border) / 1)', /* 统一边框颜色 */
+    'border-width': '0 2px 2px 0', /* 默认：仅右侧和底部边框（内部边框） */
+    'text-align': 'start',
+    padding: '0.6em',
     },
-    'tbody tr:last-child': {
-      'border-bottom-width': '0' // 表格最后一行取消底部边框
+    /* 第一列单元格：添加左边框（构成表格左外边框） */
+    'thead th:first-child, tbody td:first-child': {
+      'border-left-width': '2px',
     },
+    /* 第一行单元格：添加上边框（构成表格上外边框） */
+    'thead tr:first-child th': {
+      'border-top-width': '2px',
+    },
+    /* 最后一列单元格：添加右边框（构成表格右外边框） */
+    'thead th:last-child, tbody td:last-child': {
+      'border-right-width': '2px',
+    },
+    /* 最后一行单元格：添加下边框（构成表格下外边框） */
+    'tbody tr:last-child td': {
+      'border-bottom-width': '2px',
+    },
+    /* 表头样式补充（保持字体权重） */
     'thead th': {
-      'font-weight': '700', // 表头单元格字体权重
-      color: fg // 表头文字颜色
-    },
-    'td, th': {
-      // border: 'inherit', // 继承边框样式
-      border: '2px solid hsl(var(--border))', // 单元格内边框（使用主题边框色变量）
-      'text-align': 'start', // 文字左对齐
-      padding: '0.6em' // 内边距
-    },
-    // 表格首列单元格的左内边距为0
-    'thead th:first-child,thead th:first-child,tbody td:first-child,tfoot td:first-child': {
-      'padding-inline-start': '.5em'
+      'font-weight': '700',
+      color: fg,
     },
     // 列表样式
     'ol, ul': {
@@ -113,8 +123,9 @@ const typographyConfig = {
     // 行内代码样式（当自定义配置为modern时生效）
     ...(typographyCustom.inlineCodeBlockStyle === 'modern' && {
       ':not(pre) > code': { // 非代码块内的代码（行内代码）
+        color: fgMuted, // 颜色使用弱化文字颜色
         padding: '0.3em 0.5em', // 内边距
-        border: '1px solid hsl(var(--border) / 1)', // 边框（使用边框色变量）
+        border: '2px solid hsl(var(--border) / 1)', // 边框（使用边框色变量）
         'border-radius': 'var(--radius)', // 圆角
         'background-color': 'hsl(var(--muted) / var(--un-bg-opacity, 1))' // 背景色（使用弱化背景色）
       },
@@ -134,6 +145,7 @@ const typographyConfig = {
     kbd: { // 键盘按键样式
       color: fg, // 文字颜色
       'border-color': 'hsl(var(--border) / 1)', // 边框颜色
+      'border-width': '2px', // 边框宽度
       'box-shadow': // 阴影效果
         '0 0 0 1px hsl(var(--primary-foreground) / 1), 0 3px hsl(var(--primary-foreground) / 1)'
     },
