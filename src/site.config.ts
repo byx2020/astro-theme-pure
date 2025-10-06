@@ -17,8 +17,8 @@ export const theme: ThemeUserConfig = {
     // 日期语言设置
     dateLocale: 'zh-CN',
     dateOptions: {
-      day: 'numeric',
-      month: 'short',
+      day: '2-digit',
+      month: '2-digit',
       year: 'numeric'
     }
   },
@@ -58,7 +58,7 @@ export const theme: ThemeUserConfig = {
   footer: {
     // 年份格式
     // year: `© ${new Date().getFullYear()}`,
-    year: `© 2020-${new Date().getFullYear()}`,
+    year: `© 2020-${new Date().getFullYear()} `,
     // links: [
     //   // 备案链接
     //   {
@@ -130,8 +130,9 @@ export const integ: IntegrationUserConfig = {
     // target: (data) => (data as { hitokoto: string }).hitokoto || 'Error'
     // https://github.com/lukePeavey/quotable
     // https://api.quotable.io/quotes/random?maxLength=60
+    // target: `(data) => data[0].content || 'Error'`
     server: 'https://v1.jinrishici.com/tianqi/xingxing',
-    target: `(data) => data[0].content || 'Error'`
+    target: `(data) => data.content || 'Error'`
   },
   // UnoCSS排版
   // 查看：https://unocss.dev/presets/typography
