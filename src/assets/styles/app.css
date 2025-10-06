@@ -19,48 +19,48 @@ html {
 /* 主题样式 */
 :root {
   /* 浅色模式下的颜色变量（HSL色彩模式，格式：色相 饱和度 明度） */
-  --background: 210 33% 99%; /* 页面背景色 */
-  --foreground: 240 10% 3.9%; /* 主要文字颜色 */
+  --background: 310 33% 99%; /* 页面背景色 */
+  --foreground: 340 10% 3.9%; /* 主要文字颜色 */
   --card: 0 0% 100%; /* 卡片背景色 */
-  --card-foreground: 240 10% 3.9%; /* 卡片内文字颜色 */
+  --card-foreground: 340 10% 3.9%; /* 卡片内文字颜色 */
   --popover: 0 0% 100%; /* 弹出层背景色 */
-  --popover-foreground: 240 10% 3.9%; /* 弹出层内文字颜色 */
-  --primary: 200 29% 45%; /* 主色调 */
+  --popover-foreground: 340 10% 3.9%; /* 弹出层内文字颜色 */
+  --primary: 300 29% 45%; /* 主色调 */
   --primary-foreground: 0 0% 92.5%; /* 主色调区域内的文字颜色 */
-  --secondary: 240 4.8% 95.9%; /* 次要色调 */
-  --secondary-foreground: 240 5.9% 10%; /* 次要色调区域内的文字颜色 */
-  --muted: 240 4.8% 95%; /* 弱化区域背景色（如次要内容区） */
-  --muted-foreground: 240 3.8% 28.1%; /* 弱化区域内的文字颜色 */
-  --accent: 240 4.8% 95.9%; /* 强调色 */
-  --accent-foreground: 240 5.9% 10%; /* 强调色区域内的文字颜色 */
+  --secondary: 340 4.8% 95.9%; /* 次要色调 */
+  --secondary-foreground: 340 5.9% 10%; /* 次要色调区域内的文字颜色 */
+  --muted: 340 4.8% 95%; /* 弱化区域背景色（如次要内容区） */
+  --muted-foreground: 340 3.8% 28.1%; /* 弱化区域内的文字颜色 */
+  --accent: 340 4.8% 95.9%; /* 强调色 */
+  --accent-foreground: 340 5.9% 10%; /* 强调色区域内的文字颜色 */
   --destructive: 0 72.22% 50.59%; /* 危险/删除操作相关颜色 */
   --destructive-foreground: 0 0% 98%; /* 危险区域内的文字颜色 */
-  --border: 240 5.9% 88%; /* 边框颜色 */
-  --input: 240 5.9% 90%; /* 输入框背景色 */
-  --ring: 240 5.9% 10%; /* 焦点环/高亮环颜色 */
+  --border: 340 5.9% 88%; /* 边框颜色 */
+  --input: 340 5.9% 90%; /* 输入框背景色 */
+  --ring: 340 5.9% 10%; /* 焦点环/高亮环颜色 */
   --radius: 0.5rem; /* 全局圆角大小 */
 }
 .dark {
   /* 深色模式下的颜色变量，与浅色模式一一对应 */
-  --background: 240 20.54% 5.2%;
+  --background: 340 20.54% 5.2%;
   --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
+  --card: 340 10% 3.9%;
   --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
+  --popover: 340 10% 3.9%;
   --popover-foreground: 0 0% 98%;
-  --primary: 195 95% 85%;
-  --primary-foreground: 240 3.7% 15.9%;
-  --secondary: 240 3.7% 15.9%;
+  --primary: 295 95% 85%;
+  --primary-foreground: 340 3.7% 15.9%;
+  --secondary: 340 3.7% 15.9%;
   --secondary-foreground: 0 0% 98%;
-  --muted: 240 5.9% 12%;
-  --muted-foreground: 240 5% 74.9%;
-  --accent: 240 3.7% 15.9%;
+  --muted: 340 5.9% 12%;
+  --muted-foreground: 340 5% 74.9%;
+  --accent: 340 3.7% 15.9%;
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --border: 240 3.7% 19.9%;
-  --input: 240 3.7% 15.9%;
-  --ring: 240 4.9% 83.9%;
+  --border: 340 3.7% 19.9%;
+  --input: 340 3.7% 15.9%;
+  --ring: 340 4.9% 83.9%;
 }
 :root {
   --un-default-border-color: hsl(var(--border) / 1); /* UnoCSS默认边框颜色，基于上面定义的边框色变量 */
