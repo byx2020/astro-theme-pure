@@ -1,6 +1,6 @@
 ---
 title: '指令概览'
-description: '常用指令说明'
+description: '文档仍在完善中……'
 order: 2
 ---
 

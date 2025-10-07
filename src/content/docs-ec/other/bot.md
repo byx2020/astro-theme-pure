@@ -1,6 +1,6 @@
 ---
 title: 'QQ Bot搭建导航'
-description: '链接'
+description: '文档仍在完善中……'
 order: 1
 ---
 

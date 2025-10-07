@@ -1,6 +1,6 @@
 ---
 title: '信息介绍'
-description: '简单说明'
+description: '文档仍在完善中……'
 order: 1
 ---
 
