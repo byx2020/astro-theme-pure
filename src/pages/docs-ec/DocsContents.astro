@@ -7,7 +7,7 @@ import { cn } from 'astro-pure/utils'
 export const prerender = true
 export const partial = true
 
-const docsCollection = (await getBlogCollection('docs')) as CollectionEntry<'docs'>[]
+const docsCollection = (await getBlogCollection('docs_ec')) as CollectionEntry<'docs_ec'>[]
 // 按id的第一部分对文档进行分组（setup、integrations、advanced等）
 const docsByCate = docsCollection.reduce((acc: { [key: string]: typeof docsCollection }, doc) => {
   const id = doc.id.split('/')[0]
@@ -17,9 +17,9 @@ const docsByCate = docsCollection.reduce((acc: { [key: string]: typeof docsColle
 }, {})
 
 const docCategories = {
-  setup: '设置',
-  integrations: '集成',
-  advanced: '高级'
+  intro: '介绍',    // 对应docsByCate['intro']
+  log: '日志',      // 对应docsByCate['log']
+  other: '其他'     // 对应docsByCate['other']
 }
 
 type Props = {

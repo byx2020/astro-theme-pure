@@ -12,7 +12,7 @@ import DocsContents from './DocsContents.astro'
 export const prerender = true
 
 export async function getStaticPaths() {
-  const posts = sortMDByDate(await getBlogCollection('docs'))
+  const posts = sortMDByDate(await getBlogCollection('docs_ec'))
   return posts.map((post) => ({
     params: { id: post.id },
     props: { post }
@@ -20,14 +20,14 @@ export async function getStaticPaths() {
 }
 
 type Props = {
-  post: CollectionEntry<'docs'>
+  post: CollectionEntry<'docs_ec'>
 }
 
 const { post } = Astro.props
 const { Content, headings } = await render(post)
 const { description, title } = post.data
 
-const editPath = `https://github.com/cworld1/astro-theme-pure/edit/main/${post.filePath}`
+const editPath = `https://github.com/byx2020/astro-theme-pure/edit/main/${post.filePath}`
 ---
 
 <PageLayout meta={{ description, title }} back='/docs-ec'>
