@@ -5,9 +5,13 @@ import { MediumZoom } from 'astro-pure/advanced'
 import { TOC } from '@/components/pages'
 import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 import { Button } from 'astro-pure/user'
+// 1. 导入评论、组件（与博客页面一致）
+import { Comment, PageInfo } from '@/components/waline'
 import PageLayout from '@/layouts/ContentLayout.astro'
 
 import DocsContents from './DocsContents.astro'
+// 新增：导入配置
+import { integ } from '@/site-config'
 
 export const prerender = true
 
@@ -28,6 +32,8 @@ const { Content, headings } = await render(post)
 const { description, title } = post.data
 
 const editPath = `https://github.com/byx2020/astro-theme-pure/edit/main/${post.filePath}`
+// 2. 定义评论区唯一标识（参考博客页面的 ID 生成逻辑，确保唯一性）
+const commentId = `docs-ec-${post.id}` // 区分博客和文档评论（博客通常用 `blog-${post.id}`）
 ---
 
 <PageLayout meta={{ description, title }} back='/docs-ec'>
@@ -50,6 +56,14 @@ const editPath = `https://github.com/byx2020/astro-theme-pure/edit/main/${post.f
         )
       }
     </div>
+    {/* 修改：使用新的 PageInfo 组件，通过 props 控制显示浏览量和评论数 */}
+    <div class="flex items-center gap-4 text-sm text-muted-foreground mb-2">
+      <PageInfo 
+        view={true} 
+        comment={true} 
+        class="flex items-center gap-1" 
+      />
+    </div>
     {
 
         /* 在小屏幕上显示更多文档折叠面板 */
@@ -71,10 +85,21 @@ const editPath = `https://github.com/byx2020/astro-theme-pure/edit/main/${post.f
     {/* 显示文档目录 */}
     <div class='rounded-xl border px-4 py-3 mt-3 sm:py-4 md:mt-6'>
       <DocsContents />
+      {/* 3. 添加评论区（参考博客页面的位置，通常在内容底部） */}
+    <div class="mt-8 pt-6 border-t">
+      <h3 class="text-lg font-medium mb-4">评论区</h3>
+      <Comment 
+        path={commentId} 
+        title={title} 
+        class="mt-3 sm:mt-6"
+      />
+    </div>
     </div>
   </div>
 </PageLayout>
 <MediumZoom />
+
+{integ.mediumZoom.enable && <MediumZoom />}
 
 <style>
   @media (min-width: 1300px) {
