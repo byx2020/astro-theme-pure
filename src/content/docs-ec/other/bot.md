@@ -11,9 +11,7 @@ import { Aside, Tabs, TabItem, MdxRepl } from 'astro-pure/user'
 
 ---
 
-
-
-# 主要
+## 主要
 <font style="color:rgb(31, 35, 40);">LiteLoaderQQNT(QQNT 的插件加载器)【推荐】</font>
 
 [https://github.com/LiteLoaderQQNT/LiteLoaderQQNT](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)
@@ -62,13 +60,9 @@ RainyBot(新手友好，功能强大，简单易上手的跨平台聊天机器�
 
 [https://github.com/YunYouJun/el-bot](https://github.com/YunYouJun/el-bot)
 
-
-
 ---
 
-
-
-# 相关
+## 相关
 Mirai运行环境配置
 
 [https://github.com/iTXTech/mcl-installer](https://github.com/iTXTech/mcl-installer)
@@ -85,13 +79,9 @@ MiraiCQ(对接OneBot，<font style="color:rgb(36, 41, 47);">兼容酷Q插件</fo
 
 [https://github.com/super1207/MiraiCQ](https://github.com/super1207/MiraiCQ)
 
-
-
 ---
 
-
-
-# 其他
+## 其他
 MiraiForum(官方社区)【推荐】
 
 [https://mirai.mamoe.net/](https://mirai.mamoe.net/)
