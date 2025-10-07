@@ -1,0 +1,154 @@
+---
+title: '友链'
+description: '友链相关配置'
+order: 4
+---
+
+import { Steps } from 'astro-pure/user'
+
+## 移除友链页面
+
+友链页面用于展示你的朋友博客链接，默认是启用的。
+
+如果你因任何原因想要移除友链页面，请按照本节中的步骤操作。否则，你可以直接跳至下一章。
+
+在`src/site.config.ts`中将`links.enable`设为`false`：
+
+```ts title="src/site.config.ts"
+export const integ: IntegrationUserConfig = {
+  // ...
+  links: {
+    enable: false // [!code highlight]
+  }
+}
+```
+
+另外，记得删除以下文件夹和文件：
+
+- `src/components/links/`
+- `src/pages/links/`
+- `public/links.json`
+
+## 基本配置
+
+友链的基本配置在`src/site.config.ts`中。你可以添加朋友的日志或自己的链接信息。
+
+```ts title="src/site.config.ts"
+export const integ: IntegrationUserConfig = {
+  links: {
+    // 朋友日志
+    logbook: [
+      { date: '2025-03-16', content: '是不是有泄漏？' },
+      { date: '2025-03-16', content: '什么东西泄漏了？' },
+      { date: '2025-03-16', content: '我这有一满杯水，就像，满满一杯水！' },
+      { date: '2025-03-16', content: '肯定是水的问题。' },
+      { date: '2025-03-16', content: '咱们把这个加到至理名言里去。' },
+    ],
+    // 你自己的链接信息
+    applyTip: {
+      name: theme.title,
+      desc: theme.description || '无',
+      url: 'https://astro-pure.js.org/',
+      avatar: 'https://astro-pure.js.org/favicon/favicon.ico'
+    }
+  },
+}
+```
+
+## 友链配置
+
+友链的具体配置在`public/links.json`中。
+
+```json title="public/links.json"
+{
+  "friends": [
+    {
+      "id_name": "cf-links",
+      "desc": "圈子好友中包含的常见链接",
+      "link_list": [
+        { // [!code highlight:6]
+          "name": "Elysia",
+          "intro": "嗨，想我了吗？无论何时何地，爱莉希雅都会回应你所有的期待哦。",
+          "link": "https://honkaiimpact3.fandom.com/wiki/Elysia",
+          "avatar": "https://0.gravatar.com/avatar/"
+          // 这里你也可以留下一些其他字段作为备注
+        },
+      ]
+    },
+    {
+      "id_name": "inactive-links",
+      "desc": "不活跃或违规的朋友",
+      "link_list": [] // 你可以暂时将一些不良链接放在这里
+    },
+    {
+      "id_name": "special-links",
+      "desc": "其他特殊链接",
+      "link_list": [] // 不是你朋友的特殊链接
+    }
+  ]
+}
+```
+
+## 与`Friend-Circle-Lite`集成
+
+[Friend-Circle-Lite](https://github.com/willow-god/Friend-Circle-Lite)是一个精简的友链应用，无后端，仅通过github action运行。
+
+它需要：
+
+1. 一个启用了github action定时任务的github仓库。
+2. 一个静态网站服务器，如Vercel、Netlify、GitHub Pages等。
+
+本主题尚未集成该应用，且未来也不会提供相关支持。但别担心，本文档会指导你进行集成。
+
+<Steps>
+
+1. Fork [Friend-Circle-Lite](https://github.com/cworld1/friend-circle-lite)仓库。
+2. 修改你fork仓库中的`config.yaml`：
+
+   ```yaml title="config.yaml"
+   spider_settings:
+      enable: true
+      json_url: "<你的网站>/links.json" # [!code highlight]
+      article_count: 4
+   ```
+
+3. 进入“Actions”页面，手动运行“Friend Circle Lite”工作流以检查是否正常工作。这也会在“page”分支中生成服务器文件。
+
+4. 查看[文档](https://github.com/willow-god/Friend-Circle-Lite?tab=readme-ov-file#%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99)，将服务器文件部署到你的静态网站服务器。
+
+5. 将[获取脚本文件`friendCircle.ts`](https://gist.github.com/cworld1/cf0dc6daa89264e6d745d3e68ef8c01c)添加到你的项目`src/plugins`路径下。
+
+6. 将[样式文件`fc.css`](https://gist.github.com/cworld1/cf0dc6daa89264e6d745d3e68ef8c01c?permalink_comment_id=5311916#gistcomment-5311916)添加到你的项目`src/assets/styles`路径下。
+
+7. 在`src/components/pages/links/index.astro`中添加初始化代码：
+
+   ```astro title="src/components/pages/links/index.astro"
+   ---
+   const headings = [
+      // ...
+      { depth: 2, slug: 'small-circle', text: '小圈子' }, // [!code highlight]
+   ]
+   ---
+
+   <PageLayout>
+      {/* ... */}
+      <!-- [!code highlight:16] -->
+      <h2 id='small-circle'>小圈子</h2>
+      <div id='friend-circle-lite-root' class='not-prose'>加载中...</div>
+      <script>
+         import '@/assets/styles/fc.css'
+
+         import { FriendCircle } from '@/plugins/friendCircle'
+
+         const fc = new FriendCircle()
+         fc.init({
+            private_api_url: '<你的fc-lite服务器>',
+            page_turning_number: 10,
+            error_img: 'https://cravatar.cn/avatar/57d8260dfb55501c37dde588e7c3852c'
+         })
+         fc.load()
+      </script>
+   </PageLayout>
+   ```
+
+</Steps>

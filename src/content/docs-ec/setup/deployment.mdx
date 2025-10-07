@@ -1,0 +1,134 @@
+---
+title: '部署'
+description: '将你的网站部署到各种平台'
+order: 3
+---
+
+import { Aside, Steps } from 'astro-pure/user'
+
+## 包模式
+
+本主题（v4.0.0及以上版本）已集成NPM包模式。推荐的方式是移除本地包文件，从NPM安装主题集成。如果由于某些原因你需要修改包内容，应将本地包链接到主题模板。已集成`bun`方法，操作如下：
+
+1. 添加环境变量`BUN_LINK_PKG=true`。
+2. 运行`bun pure check`自动链接包。
+
+此方法也适用于其他平台（如Vercel）的部署。只需在平台控制设置的构建选项中添加该环境变量即可。构建命令`astro-pure check && astro check && astro build`会自动链接包。
+
+## 部署模式
+
+<Aside type='tip'>
+
+Astro对部署有非常好的支持。查看[部署你的Astro网站](https://docs.astro.build/en/guides/deploy/)了解更多。
+
+</Aside>
+
+### Vercel
+
+本主题默认支持Vercel：
+
+<Steps>
+
+1. 将代码推送到你的在线Git仓库（GitHub、GitLab、BitBucket）。
+2. [将项目导入](https://vercel.com/new)Vercel。
+3. Vercel会自动检测到Astro并配置正确的设置。
+4. 你的应用已部署完成！（例如：[astro.vercel.app](https://astro.vercel.app/)）
+
+</Steps>
+
+Vercel也支持静态部署方式：
+
+```ts title="astro.config.mjs"
+import vercelServerless from '@astrojs/vercel/serverless' // [!code --]
+import vercelStatic from '@astrojs/vercel/static'; // [!code ++]
+
+export default defineConfig({
+  //   ...
+  adapter: vercelServerless() // [!code --]
+  adapter: vercelStatic(), // [!code ++]
+})
+```
+
+### Node服务器
+
+如果要在本地通过Node.js部署，需要先安装`@astrojs/node`：
+
+```shell
+bun add '@astrojs/node'
+```
+
+然后按照`astro.config.ts`中的注释修改：
+
+```ts title="astro.config.ts"
+import node from '@astrojs/node' // [!code ++]
+import vercelServerless from '@astrojs/vercel/serverless' // [!code --]
+
+export default defineConfig({
+  //   ...
+  adapter: vercelServerless(), // [!code --]
+  adapter: node({ mode: 'standalone' }), // [!code ++]
+
+  integrations: [
+    // prettier-ignore
+    outputCopier({ // [!code --]
+      integ: ['sitemap', 'pagefind'] // [!code --]
+    }) // [!code --]
+  ]
+})
+```
+
+### Bun服务器
+
+Bun也支持静态部署方式。
+
+查看[@nurodev/astro-bun](https://www.npmjs.com/package/@nurodev/astro-bun)了解更多。
+
+### 静态部署
+
+移除`astro.config.ts`中所有服务器适配器配置：
+
+```ts title="astro.config.ts"
+import vercelServerless from '@astrojs/vercel/serverless' // [!code --]
+
+export default defineConfig({
+  //   ...
+  adapter: vercelServerless(), // [!code --]
+  output: 'server' // [!code --]
+})
+```
+
+### GitHub Pages
+
+参见[Astro：为GitHub Pages配置Astro](https://docs.astro.build/en/guides/deploy/github/)。
+
+对于那些在GitHub Pages上部署且带有基础路径的情况（如`username.github.io/repo-name`），请仔细阅读[部署#带基础路径的平台](/docs/setup/deployment#platform-with-base-path)。
+
+## 带基础路径的平台
+
+<Aside type='danger'>
+
+1. Astro对基础路径提供基本支持——查看配置参考中的"base"选项[Astro：base](https://docs.astro.build/en/reference/configuration-reference/#base)了解更多。
+2. 本主题不支持基础路径，因为它会严重破坏远程开发体验。一般来说，不建议使用基础路径部署模板，因为首页集成了列表、简历元素和其他依赖模板源结构的功能。
+3. 如果你按照指南修改代码，可以使用基础路径部署，但不能使用同一个项目副本同时部署带和不带基础路径的版本。请自行承担风险；除非你计划为文档贡献改进，否则不要就此问题提交issue。
+
+</Aside>
+
+1. 在`astro.config.ts`中设置`base`选项为你的基础路径，例如：
+
+   ```ts title="astro.config.ts"
+   export default defineConfig({
+     //   ...
+     base: '/repo-name/' // 替换为你的仓库名称
+   })
+   ```
+
+2. 更新动态脚本文件中的所有内部链接：
+   - `src/components/BaseHead.astro`
+   - `src/pages/docs/DocsContent.astro`
+   - `src/pages/rss.xml.ts`
+   - `packages/pure/components/pages/PostPreview.astro`（需要[自定义主题](/docs/advanced/customize)才能修改）
+
+3. 更新所有静态资源路径：
+   - 在`src/site.config.ts`中添加基础路径，特别是菜单配置。
+   - 在`src/plugins/shiki-transformers.ts`中为所有`/icons/code.svg`添加基础路径。
+   - 在`src/assets/styles/app.css`中为`@font-face`属性中的所有url添加基础路径。

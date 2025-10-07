@@ -1,0 +1,270 @@
+---
+title: '更新主题'
+description: '将 astro theme pure 更新到最新版本'
+order: 1
+---
+
+import { Aside } from 'astro-pure/user'
+
+<Aside type='caution'>
+  本主题更新频繁，更新主题可能会有些复杂。请仔细阅读以下突破性变更。
+</Aside>
+
+## 突破性变更
+
+### v4.0.8
+
+无突破性变更。
+
+### v4.0.7
+
+- 更改了 `Button` 组件，使用 `variant` 属性替代 `style` 属性。这能帮助你添加自定义样式而不产生冲突。你需要像这样修改代码：
+
+  ```jsx
+  <Button title='My Button' style='primary' /> // [!code --]
+  <Button title='My Button' variant='primary' /> // [!code ++]
+  ```
+
+- 更改了 `src/site.config.ts` 中的 `ExternalLinks` 配置。你需要像这样修改配置：
+
+  ```ts title="src/site.config.ts"
+  export const theme: ThemeUserConfig = {
+    content: {
+      externalLinksContent: ' ↗', // [!code --]
+      /** 外部链接配置 */ // [!code ++]
+      externalLinks: { // [!code ++]
+        content: ' ↗', // [!code ++]
+        /** 外部链接元素的属性 */ // [!code ++]
+        properties: { // [!code ++]
+          style: 'user-select:none' // [!code ++]
+        } // [!code ++]
+      }, // [!code ++]
+      /** 分页的博客页面大小（可选） */
+      blogPageSize: 8,
+      externalLinkArrow: true // 显示外部链接箭头 // [!code --]
+    }
+  }
+  ```
+
+  - 将 Waline 相关文件移出了包外！查看 [Commit 5119694](https://github.com/cworld1/astro-theme-pure/commit/5119694ab3e32b600887dca30650bcbc63da3f7b) 了解如何修改现有页面和布局。别忘了将 `src/components/waline` 下的文件复制到你的项目中。
+
+### v4.0.6
+
+- 将项目卡片的变量名从 `project` 改为 `projects`。
+
+### v4.0.5
+
+- 将 UnoCSS 预设从 `Wind3` 改为 `Mini`。部分功能已移除，例如 `gradient`、`animation`、`container` 等。
+
+### v4.0.3
+
+- 将页脚注册配置改为 `links`。这会让你更灵活地添加更多链接或其他信息：
+
+  ```ts title="src/site.config.ts"
+  export const theme: ThemeUserConfig = {
+    footer: {
+      links: [ // [!code highlight:12]
+        {
+          title: 'Moe ICP 114514',
+          link: 'https://icp.gov.moe/?keyword=114514',
+          style: 'text-sm' // Uno/TW CSS 类
+        },
+        {
+          title: '网站政策',
+          link: '/terms/list',
+          pos: 2 // 位置设为 2 会被附加到版权行
+        }
+      ]
+    }
+  }
+  ```
+
+### v4.0.2-beta
+
+- 考虑将工具图标移到新路径（如 `src/assets/tools/`）；这可能帮助用户区分哪些与工具相关。
+- 将链接的 `applyTip` 改为自定义数组格式：
+
+  ```ts title="src/site.config.ts"
+  export const integ: IntegrationUserConfig = {
+    links: {
+      applyTip: [
+        { name: '名称', val: theme.title }, // [!code highlight:4]
+        { name: '描述', val: theme.description || '无' },
+        { name: '链接', val: 'https://astro-pure.js.org/' },
+        { name: '头像', val: 'https://astro-pure.js.org/favicon/favicon.ico' }
+        // 你也可以添加更多字段
+      ]
+    }
+  }
+  ```
+
+- 添加了环境变量 `BUN_LINK_PKG`。将其设为 `true` 会自动引用 `packages/pure` 路径下的 `astro-pure` 包，而非 `node_modules/astro-pure`。这可能帮助用户开发主题或自行修改代码（不推荐用于生产环境）。
+- 将 CSS 框架改为 UnoCSS。这会影响 `unocss.config.ts` 和排版类名设置。
+
+### v4.0.1-beta
+
+- 将 svg 交付导入改为自定义导入 svg 元素。这会影响 `ToolSelection` 组件的使用。你需要修改：
+
+  （可选）将图标移到新路径（如 `src/assets/icons/`）
+
+  然后修改使用代码（默认在 `src/pages/about/index.astro`）
+
+  ```ts title="src/pages/about/index.astro"
+  <ToolSection
+    tools={[
+      {
+        name: 'Arch Linux',
+        description: 'Linux 发行版',
+        href: 'https://archlinux.org/',
+        iconPath: 'archlinux' // [!code --]
+        icon: import('@/assets/icons/archlinux.svg?raw') // [!code ++]
+      }
+    ]},
+  />
+  ```
+
+- 此变更引入了新组件 `Svg`。查看 [用户组件 #Svg 加载器](/docs/integrations/components#svg-loader) 了解用法。
+
+### v4.0.0-alpha
+
+- 将所有复用的组件、类型和工具函数移到新 npm 包 `astro-pure` 中。受影响的组件包含在其中。导入方式也已更改：
+
+  ```ts
+  import { Button } from '@/components/user' // [!code --]
+  import { Button } from 'astro-pure/user' // [!code ++]
+  ```
+
+- 新格式的配置文件 `src/site.config.ts`。将有 zod 模式验证配置文件，配置的使用方式已更改：
+
+  ```ts
+  import { siteConfig } from '@/site-config' // [!code --]
+  import config from '@/site-config' // [!code ++]
+  // 如果你想使用经过处理或转换后的配置
+  import config from 'virtual:config' // [!code ++]
+  ```
+
+- 内置 astro 配置支持。`astro-pure` 包会自动配置一些集成，如 `unocss/astro`、`@astrojs/mdx`、`@astrojs/sitemap`，以及一些 rehypePlugins 和 remarkPlugins。
+- 将搜索引擎改为 [pagefind](https://pagefind.app/)，主要因为 Astro v5 不允许从客户端直接获取集合数据（这是 Fuse.js 搜索引擎的核心工作模式）。
+- 将部分 `BaseHead` 标签配置移到 `src/site.config.ts`。
+
+### v3.1.4
+
+- 将配置 `siteConfig.content.typographyProse` 移到 `src/site.config.ts` 中的 `integrationConfig.typography.class`。
+- 将高级组件移到 `src/components/advanced`。受影响的组件包含在 [高级组件](/docs/integrations/advanced) 中。导入方式也已更改：
+
+  ```ts
+  import LinkPreview from '@/components/LinkPreview.astro' // [!code --]
+  import { LinkPreview } from 'astro-pure/advanced' // [!code ++]
+
+  <LinkPreview href='https://www.cloudflare.com/' />
+  ```
+
+- 将 `Substats` 配置移到相关页面 `src/pages/about/index.astro`。
+- 将 Github 卡片组件改为 `src/components/advanced` 中的 `GithubCard`。查看 [高级组件 #Github 卡片](http://localhost:4321/docs/integrations/advanced#github-card) 了解用法。
+- 将友链日志移到 `src/site.config.ts`。查看 [友链 #基本配置](/docs/integrations/links#basic-configurations)。
+
+### v3.1.3
+
+- 将用户组件移到 `src/components/user`。受影响的组件包含在 [用户组件](/docs/integrations/components) 中。导入方式也已更改：
+
+  ```ts
+  import Button from '@/components/Button' // [!code --]
+  import { Button } from 'astro-pure/user' // [!code ++]
+  ```
+
+- 将 `remark-github-blockquote-alert` 插件替换为 `Aside` 组件。查看 [用户组件 #Aside](/docs/integrations/components#aside) 了解迁移方法。
+
+### v3.1.2（预发布）
+
+- 将部分配置项（如 `telegram`、`walineServerURL`）移到 `src/site.config.ts` 的新结构中。
+
+### v3.1.1
+
+- 将 `src/utils` 中的内部部分移到 `src/plugins`。
+- 将配置文件 `astro.config.ts` 修改为 `astro.config.mjs`。
+- 将 ESLint 更新到最新版本，并将配置文件 `.eslintrc.js` 迁移为 `eslint.config.mjs`。
+- 将 `prettier.config.js` 修改为 `prettier.config.mjs`。
+
+### v3.1.0（预发布）
+
+- 将通用内容 markdown 格式化器 `coverImage` 改为 `heroImage`。你需要修改所有 markdown 文件，将 `coverImage` 替换为 `heroImage`。
+
+### v3.0.9
+
+稳定版本。
+
+待更新...
+
+## 更新方法
+
+### 变基（Rebase）
+
+如果你通过 fork 创建了新项目，只需将主题仓库变基到最新版本即可。
+
+### 手动合并（Merge Manually）
+
+由于 git 历史不同，你可能需要手动将主题仓库合并到你的项目中。
+
+对于 Windows 用户，一个实用的方法是使用工具 [WinMerge](https://winmerge.org/)。
+
+过滤器列表可能会有帮助：
+
+```diff
+## 这是用于 WinMerge 的目录/文件过滤器模板
+name: Astro Theme Pure
+desc: 博客与 Astro Theme Pure 的差异对比
+
+## 选择过滤器是包含性还是排他性
+## 包含性（宽松）过滤器允许所有不匹配规则的项通过
+## 排他性过滤器只允许匹配规则的项通过
+## include 或 exclude
+def: include
+
+## 文件名过滤器以 f: 开头
+## 目录过滤器以 d: 开头
+## 要排除某些匹配 f: 模式的文件，使用 f!:
+## 要排除某些匹配 d: 模式的文件夹，使用 d!:
+## （行内注释以 " ##" 开头，延伸到行尾）
+
+### 前端文件 ###
+d: \\\.git$
+d: \\node_modules$
+
+# Astro 缓存
+d: \\\.vercel
+d: \\\.astro
+
+### 主题开发 ###
+d: ^\\packages$
+d: ^\\preset$
+d: ^\\test$
+f: ^LICENSE$
+f: ^README\.md$
+f: ^README-zh-CN\.md$
+f: ^CODE_OF_CONDUCT\.md$
+
+# 项目
+f: ^bun\.lockb$
+f: \.code-workspace$
+f: ^ignore\.md$
+
+### Astro theme pure ###
+# 静态文件
+d: ^\\public\\favicon$
+f: ^public\\links\.json$
+f: ^public\\images\\social-card\.png$
+
+# 资源
+f: ^src\\assets\\avatar\.png$
+d: ^\\src\\assets\\projects$
+d: ^\\src\\assets\\tools$
+
+# 内容
+d: ^\\src\\content\\blog$
+d: ^\\src\\content\\docs$
+d: ^\\src\\pages\\docs$
+f: ^src\\pages\\terms\\.*\.md$
+
+### 博客 ###
+# 你自己的文件
+```

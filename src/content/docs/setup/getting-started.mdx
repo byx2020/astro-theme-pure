@@ -1,0 +1,208 @@
+---
+title: '快速开始'
+description: 'Astro Theme Pure 快速入门'
+order: 1
+---
+
+import { Steps, Aside, Tabs, TabItem } from 'astro-pure/user'
+
+## 安装
+
+有两种安装方式。“模板”方式轻量简单，但难以更新；而“Fork”方式便于更新，但需要一些Git操作技巧。
+
+### 通过模板安装
+
+<Aside type='tip'>
+Astro有一篇很棒的文章教你搭建项目：[安装并设置Astro #使用主题或启动模板](https://docs.astro.build/en/install-and-setup/#use-a-theme-or-starter-template) 
+</Aside>
+
+<Steps>
+
+1. 安装主题
+
+   在你的用户目录下执行以下命令以安装主题：
+   
+   <Tabs>
+   <TabItem label='bun'>
+   ```shell
+   bun create astro@latest --template cworld1/astro-theme-pure
+   ```
+   <Aside type='tip'>
+   对于Bun，若安装速度较慢，建议在项目根目录下创建`bunfig.toml`文件配置镜像：
+
+   ```toml title="bunfig.toml"
+   [install]
+   registry = "<npm镜像地址>"
+   ```
+
+   其他包管理器（PM）的镜像配置详情，你可能需要查看它们的官方文档。
+   </Aside>
+   </TabItem>
+   <TabItem label='pnpm'>
+   ```shell
+   pnpm create astro@latest --template cworld1/astro-theme-pure
+   ```
+   </TabItem>
+   <TabItem label='yarn'>
+   ```shell
+   yarn create astro --template cworld1/astro-theme-pure
+   ```
+   </TabItem>
+   <TabItem label='npm'>
+   ```shell
+   npm create astro@latest -- --template cworld1/astro-theme-pure
+   ```
+   </TabItem>
+   </Tabs>
+
+   默认情况下，该命令会使用模板仓库的`main`分支。若要使用其他分支，可在`--template`参数中指定分支名：`cworld1/astro-theme-pure#<branch>`（将`<branch>`替换为目标分支名）。
+
+2. 回答CLI向导的问题并遵循其指示操作。
+
+3. 完成！
+
+   现在你可以[启动Astro开发服务器](https://docs.astro.build/en/install-and-setup/#start-the-astro-dev-server)，在自定义项目时查看实时预览效果了！
+
+</Steps>
+
+### 通过Fork安装
+
+你只需[点击主题仓库的Fork按钮](https://github.com/cworld1/astro-theme-pure/fork)创建自己的项目，然后将Fork后的仓库克隆到本地机器即可。
+
+```shell
+git clone https://github.com/<你的用户名>/astro-theme-pure.git
+```
+
+之后，你就可以启动Astro开发服务器，在自定义项目时查看实时预览效果了！
+
+## 启动开发服务器
+
+进入你的项目目录：
+
+```shell
+cd ./<你的项目名>
+```
+
+<Tabs>
+<TabItem label='bun'>
+```shell
+bun dev
+```
+</TabItem>
+<TabItem label='pnpm'>
+```shell
+pnpm dev
+```
+</TabItem>
+<TabItem label='yarn'>
+```shell
+yarn run dev
+```
+</TabItem>
+<TabItem label='npm'>
+```shell
+npm run dev
+```
+</TabItem>
+</Tabs>
+
+接下来，请先阅读配置说明，再继续配置主题。
+
+## 迁移到Astro
+
+参见[Astro：将现有项目迁移到Astro](https://docs.astro.build/en/guides/migrate-to-astro/)。
+
+## 主题文件结构
+
+主题的文件结构如下：
+
+- `public`：将被复制到根目录的静态资源
+- `src`：
+  - `assets`：静态资源（如图片、字体等）
+  - `components`：主题中使用的组件，也包含用户常用组件（如`Card`、`Collapse`、`Spoiler`等）
+  - `layouts`：网站基础布局组件
+  - `pages`：页面文件（如`404`、`about`、`blog`、`docs`、`index`等页面）
+  - `plugins`：主题中使用的扩展插件
+  - `types`：TypeScript类型定义文件
+  - `utils`：工具函数
+  - `site.config.ts`：主题核心配置文件
+- `astro.config.mjs`：Astro框架配置文件
+- `eslint.config.mjs`：ESLint代码检查配置文件
+- `prettier.config.mjs`：Prettier代码格式化配置文件
+- `uno.config.ts`：UnoCSS样式框架配置文件
+- `tsconfig.json`：TypeScript编译配置文件
+- `package.json`：项目包信息（依赖、脚本等）
+
+## 简单配置
+
+<Steps>
+
+1. 删除文档文件
+
+   - 删除`src/pages/docs`目录
+   - 删除`src/site.config.ts`中的文档菜单声明：
+   
+   ```ts title="src/site.config.ts"
+   export const theme: ThemeUserConfig = {
+      // ...
+      /** 配置网站头部 */
+      header: {
+         menu: [
+            { title: 'Blog', link: '/blog' },
+            { title: 'Docs', link: '/docs' }, // [!code --]
+            // ...
+         ],
+      },
+   }
+   ```
+
+   - 删除`src/content.config.ts`中文档相关的内容集合配置：
+
+   ```ts title="src/content.config.ts"
+   const docs = defineCollection({ // [!code --]
+   loader: glob({ base: './src/content/docs', pattern: '**/*.{md,mdx}' }), // [!code --]
+   schema: ({ image }) => // [!code --]
+      z.object({ // [!code --]
+         ... // [!code --]（此处省略原有属性）
+      }) // [!code --]
+   }) // [!code --]
+   export const collections = { blog, docs } // [!code --]
+   export const collections = { blog } // [!code ++]
+   ```
+
+2. 删除`packages`目录（该目录将通过NPM包自动导入）
+
+3. 修改网站图标（Favicon）
+
+   <Aside type='tip'>
+   [Favicon.io](https://favicon.io/)是一个实用工具，可帮助你快速生成图标文件。
+   </Aside>
+
+   将`public/favicon/*`目录下的文件替换为你自己的图标文件。
+
+4. 替换头像图片
+
+   将`src/assets/avatar.png`文件替换为你自己的头像图片。
+
+5. 配置网站信息
+
+   你可以在`src/site.config.ts`配置文件中自定义项目信息：
+
+   ```ts title="src/site.config.ts"
+   export const theme: ThemeUserConfig = {
+      author: 'CWorld', // 作者名
+      title: 'Astro Theme Pure', // 网站标题
+      site: 'https://astro-pure.js.org', // 网站域名
+      description: 'Stay hungry, stay foolish', // 网站描述
+      // ...（其他配置项）
+   }
+
+   export const integ: IntegrationUserConfig = { /* ...（集成工具配置） */ }
+   // ...
+   ```
+
+6. TypeScript语法说明
+
+   配置文件`site.config.ts`使用TypeScript语法。若你不熟悉TS语法，建议先[点击这里](https://learnxinyminutes.com/docs/typescript/)了解相关基础内容。
+
+</Steps>

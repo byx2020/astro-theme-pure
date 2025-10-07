@@ -1,0 +1,166 @@
+---
+title: '其他集成'
+description: '有助于改进网站的其他集成'
+---
+
+import { Aside, Tabs, TabItem, Steps } from 'astro-pure/user'
+
+<Aside>文档仍在完善中。</Aside>
+
+## `medium-zoom`
+
+查看 [medium-zoom](https://github.com/francoischalifour/medium-zoom) 了解更多。
+
+```ts title="src/site.config.ts"
+export const integ: IntegrationUserConfig = {
+  // ...
+  // 一个可添加缩放效果的灯箱库
+  mediumZoom: {
+    enable: true, // 禁用将不会加载整个库
+    selector: '.prose .zoomable',
+    options: {
+      className: 'zoomable'
+    }
+  }
+}
+```
+
+本主题默认已在 `BlogPost.astro` 中集成了它，这意味着 `src/content/blog` 中的任何内容无需导入。如果想在其他布局或页面中使用，可以使用以下代码：
+
+<Tabs>
+<TabItem label='Astro'>
+```astro
+---
+import { MediumZoom } from 'astro-pure/advanced'
+---
+
+<div class="prose">
+  <img src="/path/to/image.jpg" class="zoomable" />
+</div>
+
+<MediumZoom />
+{/* 也可带配置 */}
+<MediumZoom
+  selector=".prose .zoomable"
+  background="rgba(0, 0, 0, 0.7)"
+ />
+```
+</TabItem>
+<TabItem label='MDX'>
+```tsx
+import { MediumZoom } from 'astro-pure/advanced'
+
+// remark 插件会自动添加 .zoomable 类
+![](path/to/image.jpg)
+
+<MediumZoom />
+// 也可带配置
+<MediumZoom
+  selector=".prose .zoomable"
+  background="rgba(0, 0, 0, 0.7)"
+ />
+```
+</TabItem>
+</Tabs>
+
+
+## `@playform/compress`
+
+查看 [playform/compress](https://github.com/PlayForm/Compress) 了解更多。
+
+## Friend-Circle-Lite
+
+参见 [友链 #与 `Friend-Circle-Lite` 集成](/docs/integrations/links#integrated-with-friend-circle-lite)。
+
+## LateX 支持
+
+若将来本主题移除了对 LateX 的默认支持，以下教程可帮助你添加支持。
+
+在 Astro.js 中渲染 LaTeX 可以为你的 markdown 文件添加数学表达式，使内容更具吸引力和信息量。以下步骤概述了将 LaTeX 集成到 Astro.js 中的必要步骤，并说明了可能遇到的问题及其解决方案。
+
+<Steps>
+
+1. 安装必要的包
+
+   首先安装 `remark-math` 和 `rehype-katex`。这些包分别用于解析和渲染 LaTeX。使用以下安装命令：
+
+   ```shell
+   bun install remark-math rehype-katex
+   ```
+
+2. 配置 Astro
+
+   修改你的 Astro 配置以使用这些插件。将插件添加到 astro.config.mjs 中的 markdown 配置部分：
+
+   ```js title="astro.config.mjs"
+   import { defineConfig } from 'astro/config';
+   import remarkMath from 'remark-math';
+   import rehypeKatex from 'rehype-katex';
+
+   export default defineConfig({
+      // ...
+      markdown: {
+         remarkPlugins: [remarkMath],
+         rehypePlugins: [rehypeKatex],
+      },
+   });
+   ```
+
+3. 引入 KaTeX CSS
+
+   为确保 LaTeX 公式样式正确，在你的 HTML 布局中引入 KaTeX CSS（在本主题中是 `BlogPost.astro` 文件）。添加以下 CSS 资源：
+
+   ```astro title="src/layouts/BlogPost.astro"
+   ---
+   import 'katex/dist/katex.min.css'
+   ---
+   ```
+
+   或者使用 CDN 加快速度：
+
+   ```astro title="src/layouts/BlogPost.astro"
+   ---
+   import config from '@/site-config'
+   ---
+   <link rel="stylesheet" href={`${config.npmCDN}/katex@0.16.15/dist/katex.min.css`}>
+   ```
+
+4. 建议添加一些 CSS 代码：
+
+   为确保 LaTeX 公式显示效果更好，你可能需要将以下代码添加到 `public/styles/global.css`：
+
+   ```css
+   span.katex-display {
+     overflow-y: scroll;
+     padding: 0.5rem;
+   }
+   .katex-html {
+     overflow: auto hidden;
+     padding: 3px;
+   }
+   .katex-html .base {
+     margin-block: 0;
+     margin-inline: auto;
+   }
+   .katex-html .tag {
+     position: relative !important;
+     display: inline-block;
+     padding-inline-start: 0.5rem;
+   }
+   ```
+
+</Steps>
+
+常见问题及解决方案：
+
+- CSS 样式问题
+  
+  问题：如果未加载 KaTeX CSS，LaTeX 公式可能无法以正确样式渲染。
+
+  解决方案：确认 KaTeX 样式表链接正确放置在 HTML 头部，且能正常加载。检查是否有网络错误或限制导致 CSS 无法加载。
+
+- 构建错误
+
+  问题：处理 LaTeX 语法时在构建阶段出现错误。
+
+  解决方案：确保你的 LaTeX 格式正确，且 markdown 文件中没有语法错误。LaTeX 语法错误可能会导致解析器出错，进而导致构建失败。
