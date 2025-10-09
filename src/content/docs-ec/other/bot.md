@@ -4,14 +4,12 @@ description: '本文档仍在持续完善中……'
 order: 1
 ---
 
-import { Aside, Tabs, TabItem, MdxRepl } from 'astro-pure/user'
+import { GithubCard } from 'astro-pure/advanced'
 
 > 前言：近时有客问余机器人何也，故以法合之链接总一整。(因部分原因，此处仅提供开源的方案) 
 >
 
 ---
-
-import { GithubCard } from 'astro-pure/advanced'
 
 ## 主要
 <font style="color:rgb(31, 35, 40);">LiteLoaderQQNT(QQNT 的插件加载器)【推荐】</font>
