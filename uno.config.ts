@@ -124,9 +124,9 @@ const typographyConfig = {
     ...(typographyCustom.inlineCodeBlockStyle === 'modern' && {
       ':not(pre) > code': { // 非代码块内的代码（行内代码）
         color: fgMuted, // 颜色使用弱化文字颜色
-        padding: '0.3em 0.5em', // 内边距
-        border: '2px solid hsl(var(--border) / 1)', // 边框（使用边框色变量）
-        'border-radius': 'var(--radius)', // 圆角
+        // padding: '0.3em 0.5em', // 内边距
+        // border: '2px solid hsl(var(--border) / 1)', // 边框（使用边框色变量）
+        // 'border-radius': 'var(--radius)', // 圆角
         'background-color': 'hsl(var(--muted) / var(--un-bg-opacity, 1))' // 背景色（使用弱化背景色）
       },
       // 取消行内代码默认的前后引号
