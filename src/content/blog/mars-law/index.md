@@ -1,6 +1,6 @@
 ---
 title: 火星法
-publishDate: 2020-07-07 00:00:10
+publishDate: 2020-07-07 00:00:00
 description: 本文中的火星指什么？
 tags:
 - 火星
