@@ -95,7 +95,7 @@ export const theme: ThemeUserConfig = {
       }
     },
     /** 博客分页的页面大小（可选） */
-    blogPageSize: 8,
+    blogPageSize: 10,
     // 目前支持微博、x、bluesky
     share: ['weibo', 'x', 'bluesky']
   }
