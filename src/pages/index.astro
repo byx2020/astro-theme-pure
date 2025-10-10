@@ -125,24 +125,30 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       </Section> */}
 
   <Section title='网站列表'>
+        <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
           <ProjectCard
             href='/docs-ec'
             heading='EdgeCloud文档'
-            subheading='个人构建维护的QQ机器人，已稳定持续运行五年有余，主要为起点书友相关群服务'
+            subheading='个人搭建维护了五年的Q群工具型Bot，目前主要服务于起点书友相关群'
             imagePath='/src/assets/projects/wallhaven-gj7jee2_cr520x200.webp'
           />
-        <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
           <ProjectCard
             href='http://byx2020.ysepan.com/'
             heading='边缘星的杂货铺'
-            subheading='个人资源网盘，用于分享各种书籍、软件、游戏、影视等资源'
+            subheading='个人使用了八年的轻量资源分享网盘，希望能够帮到更多有需要的人'
             imagePath='/src/assets/projects/wh0_cr520x220.webp'
           />
           <ProjectCard
             href='https://bbs.ra2ol.com/mapcenter/author.php?aid=68'
-            heading='红色警戒2地图'
-            subheading='个人于2019-2023年期间制作，红警战网热度累计4.5w+'
+            heading='红色警戒2尤复地图'
+            subheading='个人于2019-2023年期间制作，战网热度累计4.5w+，欢迎游玩体验'
             imagePath='/src/assets/projects/RA2map2_cr520x200.webp'
+          />
+          <ProjectCard
+            href='https://link.byx2020.com/'
+            heading='边缘短网址转换'
+            subheading='基于开源项目Sink部署，为EdgeCloud的部分功能提供支持'
+            imagePath='/src/assets/projects/sink_520x200.webp'
           />
         </div>
       </Section>
