@@ -43,19 +43,26 @@ import { Aside } from 'astro-pure/user'
 ---
 
 ## 2023年12月29日
+
+<details>
+<summary>点击展开</summary>
 1. 将“我的本年词云”指令暂时合并集成至“发言统计”指令(年终限定)，现在只需要在群内发送一个“发言统计”指令即可同时查看自己发言数据和年度词云。
 
 2. 发言榜相关指令和词云相关指令的格式调整(具体详见[指令概览](https://www.yuque.com/byx2020/ec/help#yWtSC))，同时将总发言榜、连续发言榜、积累发言榜的本群指令和跨群指令各自永久合并为一个指令。
 
 3. 发言统计信息界面增加显示跨群相关数据，词云相关指令返回的文本信息内容增加年度总结词。
 
-4. 使用[Overflow](https://github.com/MrXiaoM/Overflow)替换[MiraiCore](https://github.com/GayStudio/mirai-core)，在[Mirai](https://github.com/mamoe/mirai)实现[Onebot](https://github.com/botuniverse/onebot)<font style="color:rgb(31, 35, 40);">标准</font>。
+4. 使用[Overflow](https://github.com/MrXiaoM/Overflow)替换[MiraiCore](https://github.com/GayStudio/mirai-core)，在[Mirai](https://github.com/mamoe/mirai)实现[Onebot](https://github.com/botuniverse/onebot)标准。
 
 5. 部分功能细节优化。
+</details>
 
 ---
 
 ## 2023年09月16日
+
+<details>
+<summary>点击展开</summary>
 1. 优化了小程序转文本的读取规则，兼容识别更多qq小程序。
 
 2. 优化了梗查询和百科查询的相关机制，弃用已失效的[小鸡词典](https://jikipedia.com/)，同时在查询网站无内容时将会自动更换网站，优先级从高到低依次为[热梗百科](https://regengbaike.com)、[萌娘百科](https://zh.moegirl.org.cn)、[百度百科](https://baike.baidu.com)、[必应搜索](https://cn.bing.com)。
@@ -65,10 +72,14 @@ import { Aside } from 'astro-pure/user'
 4. 将由[EC·β](http://wpa.qq.com/msgrd?v=3&uin=393809749&site=qq&menu=yes)挂载运行的[ZeroBot-Plugin](https://github.com/FloatTech/ZeroBot-Plugin)项目版本，从1.7.0更新至1.7.3。
 
 5. 部分功能细节优化。
+</details>
 
 ---
 
 ## 2023年03月20日(EC三周年)
+
+<details>
+<summary>点击展开</summary>
 1. 修复漂流瓶功能部分指令无法被触发的问题。
 
 2. 修复b站查成分返回图片无法正常显示粉丝牌和vup数据无法更新的问题。
@@ -80,25 +91,33 @@ import { Aside } from 'astro-pure/user'
 5. 将由[EC·β](http://wpa.qq.com/msgrd?v=3&uin=393809749&site=qq&menu=yes)挂载运行的[ZeroBot-Plugin](https://github.com/FloatTech/ZeroBot-Plugin)项目版本，从1.6.0更新至1.7.0。
 
 6. 部分功能细节优化。
+</details>
 
 ---
 
 ## 2022年11月20日
+
+<details>
+<summary>点击展开</summary>
 1. 由于前段时间[风云四号卫星官网](http://fy4.nsmc.org.cn/nsmc/cn/theme/FY4A.html)异常停止服务，因此改用[北京世界气象中心官网](http://www.wmc-bj.net)作为卫星云图图源。
 
 2. 每天60秒图片推送时间提前，增加周、月、年的群词云图片推送。
 
-3. <font style="color:rgb(64, 64, 64);">修复在当新漂流瓶数量为零时，一直捞取不到任何内容的问题</font>。
+3. 修复在当新漂流瓶数量为零时，一直捞取不到任何内容的问题。
 
-4. <font style="color:rgb(64, 64, 64);">修复无法自动生成本周、本月、本年的群词云图片的问题</font>。
+4. 修复无法自动生成本周、本月、本年的群词云图片的问题。
 
 5. 将由[EC·β](http://wpa.qq.com/msgrd?v=3&uin=393809749&site=qq&menu=yes)挂载运行的[ZeroBot-Plugin](https://github.com/FloatTech/ZeroBot-Plugin)项目版本，从1.5.1更新至1.6.0。
 
-6. <font style="color:rgb(64, 64, 64);">部分功能细节优化</font>。
+6. 部分功能细节优化。
+</details>
 
 ---
 
 ## 2022年10月11日
+
+<details>
+<summary>点击展开</summary>
 1. 修复了在捞取漂流瓶时，偶尔会捞到本人或本群扔出瓶子的问题。
 
 2. 群发消息增加干扰码机制，尝试降低EC发送消息被屏蔽的概率。
@@ -107,16 +126,20 @@ import { Aside } from 'astro-pure/user'
 
 4. 今日老婆功能，修复了“今日老婆”指令总是返回未娶到结果的问题，同时调整了嫁、娶、当小三等相关指令的成功概率。
 
-5. <font style="color:rgb(64, 64, 64);">词云功能</font>，增加了个人的日周月年词云<font style="color:rgb(64, 64, 64);">和群周月年词云的生成指令，具体使用方法详见</font>[《EC指令概览》](https://www.yuque.com/byx2020/ec/help)<font style="color:rgb(64, 64, 64);">的群数据相关指令部分。by 项目</font>[WordCloud](https://github.com/Hellobaka/WordCloud)
+5. 词云功能增加了个人的日周月年词云和群周月年词云的生成指令，具体使用方法详见[《EC指令概览》](https://www.yuque.com/byx2020/ec/help)的群数据相关指令部分。by 项目[WordCloud](https://github.com/Hellobaka/WordCloud)
 
-6. <font style="color:rgb(64, 64, 64);">疫情查询、天气查询、图库信息查询返回的结果，由文本格式变更为图片格式。</font>
+6. 疫情查询、天气查询、图库信息查询返回的结果，由文本格式变更为图片格式。
 
-7. <font style="color:rgb(64, 64, 64);">部分功能细节优化。</font>
+7. 部分功能细节优化。
+</details>
 
 ---
 
 ## 2022年09月07日
-1. 制图功能，修复部分bug，<font style="color:rgb(36, 41, 47);">更新旧素材，</font>并新增“我老婆、小天使XXX、你的XXX、不要看、玩一下XXX、给我变、揍、吞、膜拜、诶嘿、2蹭、你犯法了、砰、蒙蔽、踩、好玩、2转、踢球、2舔、可莉吃、胡桃啃、怀、一直（支持动图）”等制图类型。by 项目[ZeroBot-Plugin](https://github.com/FloatTech/ZeroBot-Plugin)
+
+<details>
+<summary>点击展开</summary>
+1. 制图功能，修复部分bug，更新旧素材，并新增“我老婆、小天使XXX、你的XXX、不要看、玩一下XXX、给我变、揍、吞、膜拜、诶嘿、2蹭、你犯法了、砰、蒙蔽、踩、好玩、2转、踢球、2舔、可莉吃、胡桃啃、怀、一直（支持动图）”等制图类型。by 项目[ZeroBot-Plugin](https://github.com/FloatTech/ZeroBot-Plugin)
 
 2. 修复指令“b站查成分”不可用的问题，同时新增指令“b站查弹幕”。by 项目[ZeroBot-Plugin](https://github.com/FloatTech/ZeroBot-Plugin)
 
@@ -124,11 +147,15 @@ import { Aside } from 'astro-pure/user'
 
 4. 由于接口变更，实时b站热搜榜和实时微博热搜榜功能暂时下线维护。
 
-5. <font style="color:rgb(64, 64, 64);">部分功能细节优化。</font>
+5. 部分功能细节优化。
+</details>
 
 ---
 
 ## 2022年08月07日
+
+<details>
+<summary>点击展开</summary>
 1. 制图功能，新增“亲、结婚登记、阿尼亚喜欢、像只、我永远喜欢、像样的亲亲、国旗、不要靠近、万能表情、采访、需要、这像画吗、小画家、完美、玩游戏、出警、警察、舔、安全感、精神支柱、想什么、墙纸、为什么at我、交个朋友、打工人、兑换券、注意力涣散、垃圾桶、捶、啾啾、2敲、听音乐、永远爱你、2拍、顶、捣、打拳、滚、吸、扔、锤、紧贴、转”等制图类型。by 项目[ZeroBot-Plugin](https://github.com/FloatTech/ZeroBot-Plugin)
 
 2. 优化了发言榜、词云、每天60秒、卫星云图、NASA天文图等推送功能的逻辑，同时修复了在苹果设备上看EC发送的图片会自动带上表情的问题。
@@ -137,11 +164,15 @@ import { Aside } from 'astro-pure/user'
 
 4. 由于近期起点中文网加强了防盗机制，导致之前用来监控起点小说更新的接口失效，起点小说更新通知推送功能暂时下线维护。
 
-5. <font style="color:rgb(64, 64, 64);">部分功能细节优化。</font>
+5. 部分功能细节优化。
+</details>
 
 ---
 
 ## 2022年07月17日
+
+<details>
+<summary>点击展开</summary>
 1. 修复了在提取跨群图库图片时，会提示非图库创建群无权限提取的问题。
 
 2. 优化了漂流瓶功能的逻辑，优先捞取时间较新且不是本群扔出的漂流瓶。
@@ -150,15 +181,18 @@ import { Aside } from 'astro-pure/user'
 
 4. NASA每日天文图片推送功能和报时卫星云图推送功能的文案及推送方式调整。
 
-5. <font style="color:rgb(64, 64, 64);">投票功能增加“踢出”和“事件”两个类型，并将允许自定义投票目标票数和投票有效期，此功能尚在内测阶段，可能存在问题。</font>
+5. 投票功能增加“踢出”和“事件”两个类型，并将允许自定义投票目标票数和投票有效期，此功能尚在内测阶段，可能存在问题。
 
 6. 修复最近时常出现的掉线无响应问题。
 
 7. 早晚安、吃什么、捞瓶子、状态查询、天气查询、发言统计、疫情查询等功能的开关状态将变更为默认启用，同时统一增加延时撤回机制。
+</details>
 
 ---
 
 ## 2022年06月26日
+<details>
+<summary>点击展开</summary>
 1. 修复了发言榜图片底部缺失的问题。
 
 2. 修复了起点小说更新通知推送功能失效的问题，并为最新章节增加了直达链接。
@@ -167,22 +201,30 @@ import { Aside } from 'astro-pure/user'
 
 4. 修复了小程序转文本功能有时返回链接为空的问题。
 
-5. <font style="color:rgb(64, 64, 64);">旧版词条库功能彻底下线。</font>
+5. 旧版词条库功能彻底下线。
+</details>
 
 ---
 
 ## 2022年06月19日
+
+<details>
+<summary>点击展开</summary>
 1. 今日运势底图类型增加“ASoul”，合成图片速度优化。by 项目<font style="color:#40A9FF;">@ZeroBot-Plugin</font>
 
 2. zbp指令“今日老婆”逻辑优化，并增加相关子指令若干，具体使用方法见《[EC指令概览](https://www.yuque.com/byx2020/ec/help)》。by 项目<font style="color:#40A9FF;">@ZeroBot-Plugin</font>
 
-3. <font style="color:rgb(64, 64, 64);">群管指令增加“投票禁言”及相关子指令，仅在机器人拥群管理权限的群可用</font>，具体使用方法见《[群管相关指令概览](https://www.yuque.com/byx2020/ec/help-manage)》，同时增加对应的开关指令。
+3. 群管指令增加“投票禁言”及相关子指令，仅在机器人拥群管理权限的群可用，具体使用方法见《[群管相关指令概览](https://www.yuque.com/byx2020/ec/help-manage)》，同时增加对应的开关指令。
 
-4. <font style="color:rgb(64, 64, 64);">定时推送每日发言榜和词云的时间调整，以解决因获取群名片失败导致发言榜上显示qq号的问题。</font>
+4. 定时推送每日发言榜和词云的时间调整，以解决因获取群名片失败导致发言榜上显示qq号的问题。
+</details>
 
 ---
 
 ## 2022年05月22日
+
+<details>
+<summary>点击展开</summary>
 1. 部分指令的优先级和回复方式调整。
 
 2. <font style="color:rgb(64, 64, 64);">NASA每日天文图片推送和报时卫星云图推送进入半下线状态，不再支持自行通过指令启用</font>。
@@ -192,10 +234,13 @@ import { Aside } from 'astro-pure/user'
 4. zbp指令增加“今日老婆”和“当小三”，具体使用方法见《[EC指令概览](https://www.yuque.com/byx2020/ec/help)》。by 项目<font style="color:#40A9FF;">@ZeroBot-Plugin</font>
 
 5. zbp指令“以图搜图”逻辑优化，同时“番剧搜索”指令变更为“以图搜番”，b站查成分功能增加可使用uid进行查询。by 项目<font style="color:#40A9FF;">@ZeroBot-Plugin</font>
+</details>
 
 ---
 
 ## 2022年05月07日
+<details>
+<summary>点击展开</summary>
 1. 允许群管理员通过开关指令启用或禁用所在群的“入群欢迎、退群欢送、提出提示”功能。
 
 2. 基本修复腾讯漫画更新通知错误推送的问题，并增加微信公众号文章(基于文章合集页面进行检测)更新推送功能。
@@ -204,13 +249,17 @@ import { Aside } from 'astro-pure/user'
 
 4. zbp指令“评价图片”下线，同时增加指令“b站查询”和“b站vup查询”。
 
-5. zbp指令“b站查成分”增加字段“注册日期”，同时今日运势底图类型增加“<font style="color:rgb(36, 41, 47);">夏日口袋</font>”。by 项目<font style="color:#40A9FF;">@ZeroBot-Plugin</font>
+5. zbp指令“b站查成分”增加字段“注册日期”，同时今日运势底图类型增加“夏日口袋”。by 项目<font style="color:#40A9FF;">@ZeroBot-Plugin</font>
 
 6. 部分原有指令的触发方式和回复内容发生了一定变更，具体请详见《[EC指令概览](https://www.yuque.com/byx2020/ec/help)》。
+</details>
 
 ---
 
 ## 2022年04月16日
+
+<details>
+<summary>点击展开</summary>
 1. 定时推送功能(包括发言榜图片、词云图片、每天60S图片等)变更为动态启用模式，只要一个群达到“单日发言总数>300条且发言人数>30人”的标准，将会自动启用定时推送功能，不达标则会自动禁用定时推送功能(但不影响使用指令手动触发)。
 
 2. 原定时推送功能的相关开关指令全部作废，定时推送开关指令并入通用指令开关指令集内，比如可以通过“ec禁用定时推送”指令禁用定时推送功能。
@@ -218,10 +267,14 @@ import { Aside } from 'astro-pure/user'
 3. 修复了在以周和月为单位统计群发言数据时会将往年的同期数据也给错误计入的问题，并增加了“年发言榜”、“跨群年发言榜”、“跨群上周发言榜”、“跨群积累发言榜”、“跨群发言人数”等多个群数据相关指令。
 
 4. “嘉然”、“猫图”、“狗图”、“捞瓶子”、“提取图库色图”等指令放宽频率限制，同时触发方式变更为需要艾特EC才能触发。
+</details>
 
 ---
 
 ## 2022年04月07日
+
+<details>
+<summary>点击展开</summary>
 1. 增加群数据相关指令“跨群昨日发言榜”和“跨群今日发言榜”。
 
 2. 下线铅笔小说网搜索功能。
@@ -229,19 +282,27 @@ import { Aside } from 'astro-pure/user'
 3. 增加bilibili指令“b站查成分”，同时运势底图类型增加“奇异恩典”。by 项目<font style="color:#40A9FF;">@ZeroBot-Plugin</font>
 
 4. 定时推送逻辑优化。
+</details>
 
 ---
 
 ## 2022年03月26日
+
+<details>
+<summary>点击展开</summary>
 1. 修复了“象棋、定时推送词云、定时推送发言榜”的开关指令失效问题，并为“象棋”指令增加了未启用提示。
 
 2. 修正了对于“cp短打”错误的指令说明。
 
 3. 修复了zbp指令重复响应导致多次回复的问题。
+</details>
 
 ---
 
 ## 2022年03月17日
+
+<details>
+<summary>点击展开</summary>
 1. 暂时下线今日老婆、今日少女、今日转生、花影塔罗、投胎、挨骂、VTB语录、合成emoji等比较刷屏的功能。
 
 2. 增加五张发言榜图片背景图，并在生成发言榜图片时随机选取。
@@ -255,10 +316,14 @@ import { Aside } from 'astro-pure/user'
 6. 图库上传图片恢复支持先发指令再发图片。
 
 7. 嘉然小作文指令变更，同时增加新指令“嘉然评论区”。
+</details>
 
 ---
 
 ## 2022年03月06日
+
+<details>
+<summary>点击展开</summary>
 1. zbp部分指令变更，并增加部分指令，具体详见《[EC指令概览](https://www.yuque.com/byx2020/ec/help)》。
 
 2. 增加中国象棋功能。by 群友<font style="color:#40a9ff;">@</font><font style="color:#40A9FF;">Mr.Time</font>
@@ -270,10 +335,14 @@ import { Aside } from 'astro-pure/user'
 5. 发言榜底图更换，字体大小颜色调整，如果群友有合适的底图(要求为左侧空白、尺寸1200×1000的jpg或png图片)，也欢迎投稿自定义底图。
 
 6. 修复生成的群名片图片总是为黑色背景的问题。
+</details>
 
 ---
 
 ## 2022年02月26日
+
+<details>
+<summary>点击展开</summary>
 1. 不再支持通过私聊使用指令或功能，同时将依赖私聊的玉帝灵签和斗地主功能下线。
 
 2. zbp项目整体分离，项目内的所有指令和服务完全交由EC·β独立回复和处理，EC·α不再参与，之前的藏头诗和制图功能，迁移至合并zbp项目内，同时zbp项目新增多个功能和指令，并且项目内所有指令的状态均变为默认启用(可通过开关指令禁用)。
@@ -281,19 +350,27 @@ import { Aside } from 'astro-pure/user'
 3. 开关类指令调整，之前部分指令作废。
 
 4. 指令频率限制机制优化，支持动态显示剩余时间。
+</details>
 
 ---
 
 ## 2022年01月18日
+
+<details>
+<summary>点击展开</summary>
 1. 今日运势，将抽到“凶”的概率降低了15%左右，祝群友新年有好运。
 
 2. 今日人品，将抽到负人品值的概率降低了27%左右，祝群友新年高人品。
 
 3. 漂流瓶功能，相对放宽对于群内使用“捞瓶子”指令的频率限制。
+</details>
 
 ---
 
 ## 2022年01月16日
+
+<details>
+<summary>点击展开</summary>
 1. 由于时间和其他因素综合影响，未来EC功能更新的主要来源，可能会从EC管理员<font style="color:#40A9FF;">@边缘星2020</font> 变更为其他来源，同时，即日起，对EC更新日志中的第三方更改项，将会标记来源。
 
 2. ZBP指令“今日少女”、“图片评分”等bug修复，同时新增指令“今日转生”。by 项目<font style="color:#40A9FF;">@ZeroBot-Plugin</font>
@@ -311,10 +388,14 @@ import { Aside } from 'astro-pure/user'
 8. 增加指令“中国云图视频”、“地球云图视频”。
 
 9. 应部分群友反馈，取消容易输错的指令“jrrp”和“jrys”，仅保留“今日人品”和“今日运势”。
+</details>
 
 ---
 
 ## 2022年01月06日
+
+<details>
+<summary>点击展开</summary>
 1. 增删更新了部分嘉然小作文，同时对小作文的编号进行了一定调整，经典的或质量高的小作文编号提前。
 
 2. 图库功能，对图库名增加了字符数量和类型的限制，并删除了部分废弃图库，对本群图库和跨群图库进行了分离，修复了删除图库指令和图库黑名单指令。
@@ -326,10 +407,14 @@ import { Aside } from 'astro-pure/user'
 5. 为减少屏蔽消息现象，搜索相关功能从卡片模式变更为文本模式，相关逻辑调整。
 
 6. 增加随机复读功能，每连续3条相同消息，EC会有3%的概率复读一次。
+</details>
 
 ---
 
 ## 2022年01月03日
+
+<details>
+<summary>点击展开</summary>
 1. 群数据功能增加指令“跨群总发言榜”、“跨群月发言榜”、“跨群周发言榜”。
 
 2. 文档《[QQ Bot制作链接导航](https://www.yuque.com/byx2020/ec/bot)》更新，增加更多项目，推荐群友自行搭建QQ机器人~~，替EC分担压力~~。
@@ -341,10 +426,14 @@ import { Aside } from 'astro-pure/user'
 5. 漂流瓶功能增加字数限制，并将漂流瓶指令合并至基础指令中。
 
 6. ZBP相关服务依赖升级，增加VTB语录、铅笔小说搜索、图片搜索、CP短打等多个功能指令(均默认处于禁用状态，如需使用请参考《[EC指令概览](https://www.yuque.com/byx2020/ec/help)》)。
+</details>
 
 ---
 
 ## 2022年01月01日
+
+<details>
+<summary>点击展开</summary>
 1. 添加斗地主功能，发送指令“斗地主说明”即可查看相关指令。
 
 2. 疫情查询、天气查询、发言统计排行榜等相关功能转为图片模式。
@@ -362,10 +451,14 @@ import { Aside } from 'astro-pure/user'
 8. 增加了Github项目更新推送的功能，优化了B站动态推送功能的逻辑。
 
 9. 部分指令增加延时自动撤回特性，防止刷屏。
+</details>
 
 ---
 
 ## 2021年11月20日
+
+<details>
+<summary>点击展开</summary>
 1. 重构了嘉然小作文功能，从发送文字改为发送图片(防止刷屏)，并增加了小作文编号，支持按编号查看小作文。
 
 2. 应部分群友要求，初步恢复了斗地主功能，但由于此功能尚不完善且存在bug，故暂不开放，仅限少量群内使用。
@@ -373,10 +466,14 @@ import { Aside } from 'astro-pure/user'
 3. 增加了EC反馈指令，可用于群友向EC管理员反馈问题或需求(非实时)。
 
 4. 对部分指令进行了调整，具体详见文档《[EC指令概览](https://www.yuque.com/byx2020/ec/help)》。
+</details>
 
 ---
 
 ## 2021年11月06日
+
+<details>
+<summary>点击展开</summary>
 1. 应群友要求，给文档《[EC指令概览](https://www.yuque.com/byx2020/ec/help)》增加了一些配图，并进行了重新排版。
 
 2. 给部分可能导致群内刷屏的功能指令增加了开关，群管理员可通过开关指令控制部分功能指令的启用状态。
@@ -386,10 +483,14 @@ import { Aside } from 'astro-pure/user'
 4. 对部分指令的格式进行了规范化调整。
 
 5. 取消了在群内查看指令时的截图图片，仅保留说明文档链接。
+</details>
 
 ---
 
 ## 2021年11月01日
+
+<details>
+<summary>点击展开</summary>
 1. EC·α进入为期一月的休眠养号状态，期间内由EC·β代理处理所有功能。
 
 2. 修复了因开关状态读取错误而导致指令“上传图库色图”不可用的问题。
@@ -399,15 +500,19 @@ import { Aside } from 'astro-pure/user'
 4. 指令“今日运势”和指令“今日运势+”合并。
 
 5. 指令开关功能增加提示，如若出现某指令之前已经启用但EC却提示未启用的情况，重新启用一下该指令即可解决问题。
+</details>
 
 ---
 
 ## 2021年10月27日
+
+<details>
+<summary>点击展开</summary>
 1. 因项目变动转移，fortune今日运势功能暂时下线。
 
 2. 点歌功能，修复了失效的网易云音乐和网易电台的搜索API。
 
-3. 将<font style="color:rgb(64, 64, 64);">报时卫星云图推送</font>功能与<font style="color:rgb(64, 64, 64);">每天60S读懂世界新闻图片推送功能</font>进行了拆分。
+3. 将报时卫星云图推送功能与每天60S读懂世界新闻图片推送功能进行了拆分。
 
 4. 修复了群聊词云图片生成功能的崩溃问题(屏蔽匿名消息)，优化了定时群内推送。
 
@@ -416,10 +521,14 @@ import { Aside } from 'astro-pure/user'
 6. 学习词条功能由群友重构升级完成，功能更名为词条库，相关指令变更。
 
 7. 说明文档《[EC指令概览](https://www.yuque.com/byx2020/ec/help)》内容排版调整，并对部分提示图片进行了更新。
+</details>
 
 ---
 
 ## 2021年09月20日
+
+<details>
+<summary>点击展开</summary>
 1. 因腾讯接口变动，天气卡片和秀图图片功能失效。
 
 2. 搜索指令新增了NGA社区搜索。
@@ -439,23 +548,31 @@ import { Aside } from 'astro-pure/user'
 9. 为防止群内刷屏现象，玉帝灵签指令调整为仅限私聊使用。
 
 10. 对部分指令的频率限制进行了调整，并优化了部分指令的提示。
+</details>
 
 ---
 
 ## 2021年06月01日
+
+<details>
+<summary>点击展开</summary>
 1. 图库上传图片增加支持连续上传。
 
 2. 小程序转文本功能识别方式优化。
 
-<font style="color:rgb(0, 0, 0);">3. EC文档全部迁移至语雀平台，群内使用help指令可唤出图片+链接。</font>
+3. EC文档全部迁移至语雀平台，群内使用help指令可唤出图片+链接。
 
-<font style="color:rgb(0, 0, 0);">4. 即日起EC将不再无条件同意好友申请，对于之前已经添加的好友也会进行一定的清理。</font>
+4. 即日起EC将不再无条件同意好友申请，对于之前已经添加的好友也会进行一定的清理。
 
-<font style="color:rgb(0, 0, 0);">5. 邀请EC入群的流程发生变化，详见</font>[EC简介及说明](https://www.yuque.com/byx2020/ec/ec)<font style="color:rgb(0, 0, 0);">。</font>
+5. 邀请EC入群的流程发生变化，详见[EC简介及说明](https://www.yuque.com/byx2020/ec/ec)。
+</details>
 
 ---
 
 ## 2021年05月27日
+
+<details>
+<summary>点击展开</summary>
 1. 测颜值、电子书搜索、群名片生成、随机闲聊功能下线。
 
 2. 新增小程序转文本功能，检测到QQ小程序分享会自动将其转为文本，目前实测对知乎小程序和哔哩哔哩小程序有效，其他类型尚未测试。
@@ -465,10 +582,14 @@ import { Aside } from 'astro-pure/user'
 4. 学习词条功能部分优化，同时对于图片类型的词条，不建议使用词条进行存储，更推荐使用图库功能。
 
 5. 制图功能新增指令“冲”，格式与之前其他制图指令一致，需要查看全部制图指令请在群内发送“制图”。
+</details>
 
 ---
 
 ## 2021年05月18日
+
+<details>
+<summary>点击展开</summary>
 1. 梗百科功能和天气查询功能改为卡片形式，藏头诗功能限制仅汉字触发。
 
 2. 群管相关指令格式变更，主要是禁言时间变量与被禁言人变量位置互换。
@@ -480,10 +601,14 @@ import { Aside } from 'astro-pure/user'
 5. 斗地主功能下线，之后可能继续下线其他娱乐性功能，以防止EC刷屏。
 
 6. 部分指令增加群内图片说明。
+</details>
 
 ---
 
 ## 2021年04月13日
+
+<details>
+<summary>点击展开</summary>
 1. 制图功能优化，图片的制作速度平均提升了1-3秒(感谢群友<font style="color:#2F54EB;">@友纪</font> 提供的技术支持)。
 
 2. 新增EC图库功能，目前已经支持创建公共图库、上传/提取图库图片、增删图库黑名单等功能，之后可能会考虑增加私人图库、私群图库、密码图库等功能。
@@ -495,10 +620,14 @@ import { Aside } from 'astro-pure/user'
 5. 修复了之前发言榜第二页存在空行的问题。
 
 6. 对部分图片功能的普通形式和秀图形式增加了不同指令。
+</details>
 
 ---
 
 ## 2021年04月08日
+
+<details>
+<summary>点击展开</summary>
 1. 扔瓶子指令增加单Q每分钟只能扔一个的频率限制，以防止被恶意大量刷瓶子。
 
 2. 色图功能开启青少年模式，图片相关功能获取的图片均改为秀图形式并增加频率限制。
@@ -508,10 +637,14 @@ import { Aside } from 'astro-pure/user'
 4. 发言榜展示方式优化，解决了之前因排名重复导致一人占据多个排名的错误。
 
 5. 增加了部分指令概览的快速查看指令，详见综合指令概览。
+</details>
 
 ---
 
 ## 2021年04月05日
+
+<details>
+<summary>点击展开</summary>
 1. 点歌相关指令和功能全部重构，增加了几种实验性点歌方式。
 
 2. 新增了退群指令，群管理员发送指令“EC退群”即可让EC两个号退群。
@@ -521,19 +654,27 @@ import { Aside } from 'astro-pure/user'
 4. 功能“来点二次元”关闭，色图功能有限开放。
 
 4. GIF制作功能增加指令“关注了你”，详细指令说明请参见综合指令概览。
+</details>
 
 ---
 
 ## 2021年03月29日
+
+<details>
+<summary>点击展开</summary>
 1. 新增GIF制作指令“次”(具体使用方法可到综合指令概览中查看)。
 
 2. 修复了之前GIF制作指令对图片无效和有时候返回图片错误的问题。
 
 3. 给GIF制作指令增加了频率限制(注意！由于框架限制，目前执行GIF制作指令的不是EC主号，所以如果使用GIF制作指令EC却一直没有响应，有可能是因为群里没有EC副号)。
+</details>
 
 ---
 
 ## 2021年03月28日
+
+<details>
+<summary>点击展开</summary>
 1. 将群数据指令独立出综合指令，方便查阅。
 
 2. 给大部分指令概览增加了配图，降低了指令理解难度。
@@ -541,19 +682,27 @@ import { Aside } from 'astro-pure/user'
 3. 增加了图片指令“买家秀”。
 
 4. 搜索指令的回复改为卡片形式。
+</details>
 
 ---
 
 ## 2021年03月24日
+
+<details>
+<summary>点击展开</summary>
 1. 新增了fortune今日运势(图片版)指令，具体指令内容详见综合指令概览。
 
 2. 修复了之前自助禁言指令存在的一些问题，限制了触发范围。
 
 3. 优化了“群数据”等指令的匹配逻辑。
+</details>
 
 ---
 
 ## 2021年03月17日
+
+<details>
+<summary>点击展开</summary>
 1. 漂流瓶功能的捞取时间限制取消，并解决了之前出现的捞不到瓶子的问题。图片
 
 2. 群管的随机禁言和禁我功能简化，随机禁言的时间上限不再需要×2了(因为之前有太多人看不懂规则了)，现在你在这两个指令后面输入的数字就是随机禁言时间的上限。
@@ -561,21 +710,19 @@ import { Aside } from 'astro-pure/user'
 3. RSS订阅功能初步恢复上线，需要了解或使用此功能的朋友可以点击[RssHub文档](https://docs.rsshub.app)进行参考。
 
 4. 本周内EC会进行一次换号(从EC·β换到EC·α)，届时会进行群广播通知，具体详情请点击[EC简介及说明](https://www.yuque.com/byx2020/ec/ec)查看。
+</details>
 
 ---
 
 ## 2021年03月14日
+
+<details>
+<summary>点击展开</summary>
 1. 群管功能重做，大部分群管常用指令已基本修复。
 
 2. 漂流瓶功能初步增加捞取筛选机制(理论上应该不会在群里捞到本群扔的瓶子了)。
 
 3. 斗地主功能初步修复，使用指令“斗地主”可以唤出斗地主指令菜单。
-
----
-
-## 附录
-[EC简介及说明](https://www.yuque.com/byx2020/ec/ec)
-
-[EC指令概览](https://www.yuque.com/byx2020/ec/help)
+</details>
 
 
