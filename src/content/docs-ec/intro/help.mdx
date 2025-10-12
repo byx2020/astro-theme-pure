@@ -14,8 +14,10 @@ import { Aside, Tabs, TabItem } from 'astro-pure/user'
 | --- | --- |
 | `ec / edgecloud` | <font color="red">EC在线检查</font> |
 | `ec<指令 / 菜单 / 帮助 / help>` | <font color="red">EC指令概览</font> |
-| `ec功能<状态 / 列表>` | <font color="red">EC功能状态查询</font> |
-| `ec<启用 / 禁用>[功能名称]` | <font color="red">EC开关功能</font> |
+| `ec功能<状态 / 列表>` | <font color="red">EC功能开关状态查询</font> |
+| `ec<启用 / 禁用>[功能名称]` | <font color="red">EC整群开关功能</font> |
+| `ec对我<启用 / 禁用>[功能名称]` | <font color="red">EC个人开关功能(仅在对应功能整群状态为启用的情况下有效)</font> |
+| `ec永久<忽略 / 屏蔽>我` | <font color="red"><b>警告，此操作不可逆</b>，使用此指令后EC将不再收集统计和处理响应你的任何发言消息(包括指令)</font> |
 | `报时` | 时辰报时 |
 | `文本转图片[文本内容]` | 文字转图片(默认使用霞鹜文楷字体) |
 | `[回复或引用]取链接` | 提取所回复消息里面的文件链接(方便手机QQ直接保存表情图片的文件) |
