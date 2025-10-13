@@ -14,7 +14,7 @@ import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 
 // 动态导入图片作为映射集合
 const imagesGlob = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/content/blog/**/*.{jpeg,jpg,png,gif,avif.webp}' // 如需支持更多图片格式可添加
+  '/src/content/blog/**/*.{jpeg,jpg,png,gif,avif,webp}' // 如需支持更多图片格式可添加
 )
 
 const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
