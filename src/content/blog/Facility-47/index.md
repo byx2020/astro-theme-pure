@@ -10,8 +10,8 @@ heroImage: { src: './S80205-231952_cr_600x200.webp', color: '#0376f8ff' }
 language: '中文'
 ---
 
-> 此文首发于百度贴吧：[https://tieba.baidu.com/p/5542213291](https://tieba.baidu.com/p/5542213291)  
-> 但本网站的排版更佳，更适合阅读，以下为正文内容
+> 本文首发于百度贴吧：https://tieba.baidu.com/p/5542213291  
+> 不过本网站的排版更佳，更适合阅读，以下为正文内容
 
 ![alt text](S80205-231952.jpg)
 
@@ -157,7 +157,7 @@ language: '中文'
 > 亲爱的罗兹先生，上次我们开的短会上，我忘记告诉你了，我们的地图室位于2号建筑。  
 > 我相信那里会对你的旅程大有助益。
 
-![alt text](building2.png)
+![2号建筑](building2.png)
 
 > 自：罗兹·卡尔文(crhodes@f47.net)  
 > 至：布罗迪·本杰明(bbrody@f47.net)  
@@ -167,7 +167,7 @@ language: '中文'
 > 总之，感谢你前来救援，但愿那顶帐篷还算舒适！  
 > 幸运的是那里有我的一副扑克。关于这副扑克的来源就说来话长了。我以后写回忆录的时候一定会提到的。
 
-![alt text](excavation_site.png)
+![室外雪地](excavation_site.png)
 
 > 自：罗兹·卡尔文(crhodes@f47.net)  
 > 至：恩格尔曼，詹恩(jengelmann@f47.net)  
