@@ -37,7 +37,7 @@ import { Aside, Tabs, TabItem } from 'astro-pure/user'
 注3：不论是尖括号“\<>”还是方括号“\[]”，其本身在群内实际使用指令时都不需要保留。  
 注4：<font color="green">绿色</font>的指令，需要发送者拥有群管理员或更高权限方可使用。
 </TabItem>
-<TabItem label="部分指令演示图片">
+<TabItem label="操作使用演示图片(部分)">
 ![ec](help/ec.webp)
 ![](help/报时.webp)
 ![](help/文本转图片.webp)
@@ -71,7 +71,7 @@ import { Aside, Tabs, TabItem } from 'astro-pure/user'
 <TabItem label="额外说明">
 注1：如果你发现某些搜索指令已经失效不再可用，或者希望新增某些(比如搜索引擎/社区/论坛等)快捷搜索指令(仅支持Get方式)，可向EC管理员反馈。
 </TabItem>
-<TabItem label="部分指令演示图片">
+<TabItem label="操作使用演示图片(部分)">
 ![](help/搜索功能.webp)
 </TabItem>
 </Tabs>
@@ -110,10 +110,9 @@ import { Aside, Tabs, TabItem } from 'astro-pure/user'
 <TabItem label="额外说明">
 注1：词云功能由项目[WordCloud](https://github.com/Hellobaka/WordCloud)提供，以较大的日期范围生成词云时，速度较慢，有时候甚至可能会需要三分钟以上的时间，请耐心等待，不要在短时间内连续发送多次词云相关指令。
 </TabItem>
-<TabItem label="部分指令演示图片">
+<TabItem label="操作使用演示图片(部分)">
 ![](help/今年发言榜.webp)
 ![](help/近3日发言榜.webp)
-![](help/发言人数统计.webp)
 ![](help/词云.webp)
 </TabItem>
 </Tabs>
@@ -150,10 +149,10 @@ import { Aside, Tabs, TabItem } from 'astro-pure/user'
 
 <Tabs>
 <TabItem label="额外说明">
-注1：这部分指令由EC·β处理，没有EC·β的群无法使用。  
+<font color="DarkViolet">注1：这部分指令由EC·β处理，没有EC·β的群无法使用。</font>  
 注2：对于单个QQ，以上指令限制每分钟使用一次。
 </TabItem>
-<TabItem label="部分指令演示图片">
+<TabItem label="操作使用演示图片(部分)">
 ![](help/狗图嘉然.webp)
 ![](help/新闻云图.webp)
 </TabItem>
@@ -183,10 +182,10 @@ import { Aside, Tabs, TabItem } from 'astro-pure/user'
 
 <Tabs>
 <TabItem label="额外说明">
-注1：这部分指令由EC·β处理，没有EC·β的群无法使用。  
+<font color="DarkViolet">注1：这部分指令由EC·β处理，没有EC·β的群无法使用。</font>  
 注2：以上部分指令需要群管理员通过开关类指令进行启用后方可使用。
 </TabItem>
-<TabItem label="部分指令演示图片">
+<TabItem label="操作使用演示图片(部分)">
 ![](help/漂流瓶.webp)
 ![](help/今日运势.webp)
 ![](help/今日老婆.webp)
@@ -220,9 +219,9 @@ import { Aside, Tabs, TabItem } from 'astro-pure/user'
 | `改名片[名片内容]` | 改自己名片 |
 |  |  |
 | `申请头衔[头衔内容]` | 申请群头衔 |
-| `给头衔[@群友][头衔内容(可不填)]` | <font color="yellow">给群头衔</font> |
-| `上管理[@群友]` | <font color="yellow">增加群管理员</font> |
-| `下管理[@群友]` | <font color="yellow">取消群管理员</font> |
+| `给头衔[@群友][头衔内容(可不填)]` | <font color="Gold">给群头衔</font> |
+| `上管理[@群友]` | <font color="Gold">增加群管理员</font> |
+| `下管理[@群友]` | <font color="Gold">取消群管理员</font> |
 |  |  |
 | `投票禁言[@群友][禁言时间]` | 发起投票禁言 |  
 | `投成票[投票编号]` | 投赞成票 |  
@@ -233,12 +232,12 @@ import { Aside, Tabs, TabItem } from 'astro-pure/user'
 
 <Tabs>
 <TabItem label="额外说明">
-注1：上面的[禁言时间]变量，单位为分钟，最大值为43200，超出43200按43200算，均可以不填，有默认值。  
-注2：上面的[@群友]变量，均支持同时@多个群友。  
-注3：以上所有指令，均需要EC拥有群管理员或更高权限方可使用，且只能在群内使用。  
-注4：<font color="green">绿色</font>的指令，需要发送者拥有群管理员或更高权限方可使用。
+注1：以上所有指令，均需要EC拥有群管理员或更高权限方可使用。  
+注2：<font color="green">绿色</font>的指令，需要发送者拥有群管理员或更高权限方可使用。  
+注3：上面的[禁言时间]变量，单位为分钟，最大值为43200，超出43200按43200算，均可以不填，有默认值。  
+注4：上面的[@群友]变量，均支持同时@多个群友。
 </TabItem>
-<TabItem label="部分指令演示图片">
+<TabItem label="操作使用演示图片(部分)">
 ![](help/头衔禁言.webp)
 </TabItem>
 </Tabs>
@@ -268,8 +267,8 @@ import { Aside, Tabs, TabItem } from 'astro-pure/user'
 注1：对于只用歌曲名搜不到自己想要的歌曲的情况，在歌曲名后面加上歌曲作者名就能更精确的查找了。  
 注2：点歌功能由项目[MiraiSongPlugin](https://github.com/khjxiaogu/MiraiSongPlugin)提供。
 </TabItem>
-<TabItem label="部分指令演示图片">
-待后续补充
+<TabItem label="操作使用演示图片(部分)">
+![](help/点歌.webp)
 </TabItem>
 </Tabs>
 
@@ -297,9 +296,9 @@ import { Aside, Tabs, TabItem } from 'astro-pure/user'
 <Tabs>
 <TabItem label="额外说明">
 注1：此功能危险级别较高，且部分通过此功能添加的指令，可能会被误认为是EC官方的指令，容易导致冲突矛盾，请群管理员慎重决定是否启用此功能。  
-注2：学习词条功能由项目[EntryLib](https://github.com/BillYang2016/entrylib)提供，此项目已经停更多年，存在部分EC管理员难以修复的bug。
+注2：学习词条功能由项目[EntryLib](https://github.com/BillYang2016/entrylib)提供，此项目已经停更多年，目前存在部分bug(比如无法存储图片和语音)。
 </TabItem>
-<TabItem label="部分指令演示图片">
+<TabItem label="操作使用演示图片(部分)">
 ![](help/学习词条.webp)
 </TabItem>
 </Tabs>
@@ -330,7 +329,7 @@ import { Aside, Tabs, TabItem } from 'astro-pure/user'
 
 _注1：此功能由项目[BilibiliDynamicMiraiPlugin](https://github.com/Colter23/bilibili-dynamic-mirai-plugin)提供_
 </TabItem>
-<TabItem label="部分指令演示图片">
+<TabItem label="操作使用演示图片(部分)">
 ![](help/B站动态推送.webp)
 </TabItem>
 </Tabs>
@@ -365,7 +364,7 @@ _注1：此功能由项目[BilibiliDynamicMiraiPlugin](https://github.com/Colter
 注3：由于起点的反爬策略严格，EC只能每分钟检查一次更新，因此当最新章节更新后，群内的起点更新通知推送可能会有1-60秒左右的延迟。  
 注4：在书籍列表已有的书籍，可直接通过书籍ID添加订阅，如果需要订阅列表中没有的书籍，需要把书名提供给EC管理员进行添加。
 </TabItem>
-<TabItem label="部分指令演示图片">
+<TabItem label="操作使用演示图片(部分)">
 ![](help/起点更新推送.webp)
 </TabItem>
 </Tabs>
@@ -386,8 +385,8 @@ EC的管理员很讨厌小程序，但更多的群友却已经接受了小程序
 此功能默认禁用，启用后的效果为：  
 在群友往群内分享了知乎、微博之类的小程序消息时，EC会返回对应的网页链接，使有需要或者讨厌小程序的群友能够选择不打开小程序直接通过链接在网页浏览。
 </TabItem>
-<TabItem label="部分指令演示图片">
-待后续补充
+<TabItem label="操作使用演示图片(部分)">
+![](help/小程序转文本.webp)
 </TabItem>
 </Tabs>
 
@@ -408,7 +407,7 @@ EC的管理员很讨厌小程序，但更多的群友却已经接受了小程序
 此功能对群默认禁用，但个人可以通过@EC 使用，启用后的效果为：  
 在群友往群内分享了B站视频的链接、BV号或小程序消息时，EC会返回对应的干净链接和前三个热评，方便群友快速了解视频内容和去除B站默认分享链接里面的追踪参数。
 </TabItem>
-<TabItem label="部分指令演示图片">
+<TabItem label="操作使用演示图片(部分)">
 ![](help/B站解析小程序.webp)
 ![](help/B站解析链接.webp)
 ![](help/B站解析bv.webp)
@@ -440,8 +439,9 @@ EC的管理员很讨厌小程序，但更多的群友却已经接受了小程序
 
 定时发送以上类型的内容
 </TabItem>
-<TabItem label="部分指令演示图片">
-![](help/每日新闻天气推送.webp)
+<TabItem label="操作使用演示图片(部分)">
+![](help/推送新闻天气.webp)
+![](help/推送发言榜词云.webp)
 </TabItem>
 </Tabs>
 
@@ -469,7 +469,7 @@ EC的管理员很讨厌小程序，但更多的群友却已经接受了小程序
 
 对发言数达标或已经加入过隔壁群的群友，会在其入群或退群的时候，额外生成一张综合查询图片
 </TabItem>
-<TabItem label="部分指令演示图片">
+<TabItem label="操作使用演示图片(部分)">
 ![](help/入群欢迎.webp)
 ![](help/退群欢送.webp)
 </TabItem>
@@ -512,7 +512,7 @@ EC的管理员很讨厌小程序，但更多的群友却已经接受了小程序
 注4：上传图库指令后面可直接加上图片，也可以先发指令再发图，支持连续上传多张图片。  
 注5：“优先本群图库”是指，当存在同名的本群图库和跨群图库时，会优先匹配返回本群图库的结果，而不会返回跨群图库的结果，只有当不存在本群图库时，才会返回跨群图库的结果。
 </TabItem>
-<TabItem label="部分指令演示图片">
+<TabItem label="操作使用演示图片(部分)">
 待后续补充
 </TabItem>
 </Tabs>
