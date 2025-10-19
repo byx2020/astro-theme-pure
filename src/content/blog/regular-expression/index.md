@@ -1,7 +1,7 @@
 ---
 title: 常用正则表达式整理
 publishDate: 2021-05-21 15:20:00
-updatedDate: 2026-01-01 00:00:00
+updatedDate: 2019-10-01 00:00:00
 description: 自用
 tags:
  - 正则表达式
