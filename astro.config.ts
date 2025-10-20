@@ -24,13 +24,6 @@ import config from './src/site.config.ts'
 
 import netlify from '@astrojs/netlify';
 
-// 根据部署平台自动选择适配器
-const adapter = process.env.NETLIFY 
-  ? netlify() // Netlify 部署时使用 Netlify 适配器
-  : process.env.VERCEL 
-    ? vercel() // Vercel 部署时使用 Vercel 适配器
-    : netlify(); // 本地默认（可选）
-
 // Astro 官方配置文档：https://astro.build/config
 export default defineConfig({
   // 顶层选项
@@ -42,8 +35,8 @@ export default defineConfig({
   // 适配器
   // Astro 部署指南：https://docs.astro.build/en/guides/deploy/
   // 1. Vercel（无服务器）
-  adapter: adapter,
-  output: 'server',
+  // adapter: adapter,
+  output: 'static',
   // 2. Vercel（静态）
   // adapter: vercelStatic(),
   // 3. 本地（独立模式）
