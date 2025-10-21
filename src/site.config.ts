@@ -47,7 +47,7 @@ export const theme: ThemeUserConfig = {
   /** 配置网站的头部。 */
   header: {
     menu: [
-  { title: '博客', link: '/blog' },
+  { title: '文章', link: '/posts' },
   // { title: 'Docs', link: '/docs' }, 
   // { title: '项目', link: '/projects' },
   { title: '友链', link: '/links' },
