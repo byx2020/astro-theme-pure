@@ -94,7 +94,7 @@ export const theme: ThemeUserConfig = {
         style: 'user-select:none'
       }
     },
-    /** 博客分页的页面大小（可选） */
+    /** 文章分页的页面大小（可选） */
     blogPageSize: 10,
     // 目前支持微博、x、bluesky
     share: ['weibo', 'x', 'bluesky']

@@ -12,7 +12,7 @@ const allPostsByDate = sortMDByDate(allPosts)
 const allPostsByYear = groupCollectionsByYear(allPostsByDate)
 
 const meta = {
-  description: '所有年份的博客文章列表',
+  description: '所有年份的文章列表',
   title: '归档'
 }
 ---
@@ -27,7 +27,7 @@ const meta = {
 
   {allPosts.length === 0 && <p>暂无文章。</p>}
 
-  <section id='content' class='animate' aria-label='博客文章列表'>
+  <section id='content' class='animate' aria-label='文章列表'>
       {
         allPostsByYear.map(([year, posts]) => (
           <div class='relative mt-20'>

@@ -30,8 +30,8 @@ interface Props {
 const { page, uniqueTags, collectionsCount } = Astro.props
 
 const meta = {
-  description: '博客文章与归档',
-  title: '博客'
+  description: '文章与归档',
+  title: '文章'
 }
 
 const paginationProps = {
@@ -54,7 +54,7 @@ const paginationProps = {
   <Button title='返回' href='/' variant='back' />
   <main class='mt-6 lg:mt-10'>
     <div id='content-header' class='animate'>
-  <h1 class='mb-6 mt-6 text-3xl font-medium sm:mt-10'>博客</h1>
+  <h1 class='mb-6 mt-6 text-3xl font-medium sm:mt-10'>文章</h1>
     </div>
     {
       page.data.length === 0 ? (
@@ -95,7 +95,7 @@ const paginationProps = {
                 ))}
               </ul>
               <span class='mt-4 block sm:text-end'>
-                <a aria-label='查看所有博客分类' href='/tags' data-astro-prefetch>
+                <a aria-label='查看所有文章分类' href='/tags' data-astro-prefetch>
                   查看全部 →
                 </a>
               </span>

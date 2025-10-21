@@ -32,8 +32,8 @@ const { Content, headings } = await render(post)
 const { description, title } = post.data
 
 const editPath = `https://github.com/byx2020/astro-theme-pure/edit/main/${post.filePath}`
-// 2. 定义评论区唯一标识（参考博客页面的 ID 生成逻辑，确保唯一性）
-const commentId = `docs-ec-${post.id}` // 区分博客和文档评论（博客通常用 `blog-${post.id}`）
+// 2. 定义评论区唯一标识（参考文章页面的 ID 生成逻辑，确保唯一性）
+const commentId = `docs-ec-${post.id}` // 区分文章和文档评论（文章通常用 `blog-${post.id}`）
 ---
 
 <PageLayout meta={{ description, title }} back='/docs-ec'>
@@ -85,7 +85,7 @@ const commentId = `docs-ec-${post.id}` // 区分博客和文档评论（博客�
     {/* 显示文档目录 */}
     <div class='rounded-xl border px-4 py-3 mt-3 sm:py-4 md:mt-6'>
       <DocsContents />
-      {/* 3. 添加评论区（参考博客页面的位置，通常在内容底部） */}
+      {/* 3. 添加评论区（参考文章页面的位置，通常在内容底部） */}
     <div class="mt-8 pt-6 border-t">
       <h3 class="text-lg font-medium mb-4">评论区</h3>
       <Comment 
