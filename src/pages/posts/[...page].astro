@@ -22,7 +22,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 }) satisfies GetStaticPaths
 
 interface Props {
-  page: Page<CollectionEntry<'posts'>>
+  page: Page<CollectionEntry<'blog'>>
   uniqueTags: string[]
   collectionsCount: number
 }

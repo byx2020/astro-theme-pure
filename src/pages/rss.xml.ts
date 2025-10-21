@@ -17,7 +17,7 @@ const imagesGlob = import.meta.glob<{ default: ImageMetadata }>(
   '/src/content/posts/**/*.{jpeg,jpg,png,gif,avif,webp}' // 如需支持更多图片格式可添加
 )
 
-const renderContent = async (post: CollectionEntry<'posts'>, site: URL) => {
+const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
   // 用正确的路径替换图片链接
   function remarkReplaceImageLink() {
     /**
@@ -54,7 +54,7 @@ const renderContent = async (post: CollectionEntry<'posts'>, site: URL) => {
 }
 
 const GET = async (context: AstroGlobal) => {
-  const allPostsByDate = sortMDByDate(await getBlogCollection()) as CollectionEntry<'posts'>[]
+  const allPostsByDate = sortMDByDate(await getBlogCollection()) as CollectionEntry<'blog'>[]
   const siteUrl = context.site ?? new URL(import.meta.env.SITE)
 
   return rss({

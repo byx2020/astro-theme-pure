@@ -15,8 +15,8 @@ export async function getStaticPaths() {
 }
 
 type Props = {
-  post: CollectionEntry<'posts'>
-  posts: CollectionEntry<'posts'>[]
+  post: CollectionEntry<'blog'>
+  posts: CollectionEntry<'blog'>[]
 }
 
 const { post, posts } = Astro.props
