@@ -159,7 +159,7 @@ export const integ: IntegrationUserConfig = {
     // 服务器服务链接
     server: 'https://waline.byx2020.com/',
     // 参考 https://waline.js.org/en/guide/features/emoji.html
-    emoji: ['qq', 'tieba', 'bmoji', 'weibo', 'bilibili', 'alus', 'tw-emoji', 'soul-emoji'],
+    emoji: ['qq', 'tieba', 'bmoji', 'weibo'],
     // 参考 https://waline.js.org/en/reference/client/props.html
     additionalConfigs: {
       search: false,

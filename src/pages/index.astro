@@ -43,12 +43,12 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
           >
             <Icon name='email' class='size-5' slot='icon' />
           </Label>
-          <Label
+          <!-- <Label
             title='Github'
             as='a'
             href='https://github.com/byx2020'
             target='_blank'
-          >
+          > -->
             <Icon name='github' class='size-5' slot='icon' />
           </Label>
         </div>
@@ -74,7 +74,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
       <Section title='关于'>
         <p class='text-muted-foreground'>
-          这里汇总了边缘星2020的网站、项目和文章等相关信息。
+          这里汇总了边缘星2020的一些信息。
         </p>
         <Button title='更多关于' class='w-fit self-end' href='/about' variant='ahead' />
       </Section>
@@ -124,7 +124,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
         </Card>
       </Section> */}
 
-  <Section title='网站列表'>
+  <Section title='主要'>
         <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
           <ProjectCard
             href='/docs-ec'
@@ -156,7 +156,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       
       {
         allPostsByDate.length > 0 && (
-          <Section title='文章列表'>
+          <Section title='文章'>
             <ul class='flex flex-col gap-y-1.5 sm:gap-y-2'>
               {allPostsByDate.map((p) => (
                 <li class='flex flex-col gap-x-2 sm:flex-row'>
