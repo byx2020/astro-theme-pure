@@ -90,12 +90,7 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [],
-    build: {
-      rollupOptions: {
-        external: ['sharp'],  // 关键：避免 sharp 被打包进 JS 代码
-      },
-    },
+    plugins: []
   }
 })
 
