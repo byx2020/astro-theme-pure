@@ -34,7 +34,7 @@ export default defineConfig({
   trailingSlash: 'never',
 
   // 核心：动态适配器 + 静态输出（保持简洁）
-  adapter: adapter,
+  adapter: vercel(),
   output: 'server',
 
   // 图片服务保留基础配置（平台适配器会自动兼容）
