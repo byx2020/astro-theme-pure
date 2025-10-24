@@ -257,5 +257,8 @@
     "prettier-plugin-astro": "^0.14.1",
     "rollup-plugin-visualizer": "^6.0.3",
     "typescript-eslint": "^8.37.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.52.3"
   }
 }
