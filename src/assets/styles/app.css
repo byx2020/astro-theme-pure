@@ -24,7 +24,7 @@ html {
   --card-foreground: 240 10% 3.9%;
   --popover: 0 0% 100%;
   --popover-foreground: 240 10% 3.9%;
-  --primary: 295 50% 30%; /* 主色调紫色 */
+  --primary: 295 50% 45%; /* 主色调紫色 */
   --primary-foreground: 0 0% 92.5%;
   --secondary: 240 4.8% 95.9%;
   --secondary-foreground: 240 5.9% 10%;
@@ -46,7 +46,7 @@ html {
   --card-foreground: 0 0% 98%;
   --popover: 240 10% 3.9%;
   --popover-foreground: 0 0% 98%;
-  --primary: 300 30% 50%; /* 主色调紫色 */
+  --primary: 300 60% 60%; /* 主色调紫色 */
   --primary-foreground: 240 3.7% 15.9%;
   --secondary: 240 3.7% 15.9%;
   --secondary-foreground: 0 0% 98%;
