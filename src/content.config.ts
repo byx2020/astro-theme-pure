@@ -52,6 +52,7 @@ const docs = defineCollection({
       updatedDate: z.coerce.date().optional(),
       tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
       draft: z.boolean().default(false),
+      hide: z.boolean().default(false),
       // Special fields
       order: z.number().default(999)
     })
@@ -68,6 +69,7 @@ const docs_ec = defineCollection({
       updatedDate: z.coerce.date().optional(),
       tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
       draft: z.boolean().default(false),
+      hide: z.boolean().default(false),
       // Special fields
       order: z.number().default(999)
     })
@@ -84,6 +86,7 @@ const docs_zxs = defineCollection({
       updatedDate: z.coerce.date().optional(),
       tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
       draft: z.boolean().default(false),
+      hide: z.boolean().default(false),
       // Special fields
       order: z.number().default(999)
     })
@@ -100,6 +103,7 @@ const docs_qq = defineCollection({
       updatedDate: z.coerce.date().optional(),
       tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
       draft: z.boolean().default(false),
+      hide: z.boolean().default(false),
       // Special fields
       order: z.number().default(999)
     })
