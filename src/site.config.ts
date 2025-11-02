@@ -7,7 +7,7 @@ export const theme: ThemeUserConfig = {
   /** 将用于首页和版权声明 */
   author: '边缘星2020',
   /** 网站的描述元数据。可用于页面元数据。 */
-  description: '个人网站',
+  description: '边缘星2020的个人网站，包含EdgeCloud文档、边缘星的杂货铺、红色警戒2地图及其他博客文章等内容',
   /** 网站的默认图标，应为`public/`目录中图片的路径。 */
   favicon: '/favicon/favicon.ico',
   /** 指定本网站的默认语言。 */

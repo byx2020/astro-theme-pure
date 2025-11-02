@@ -8,6 +8,7 @@ tags:
 - 法律
 heroImage: { src: './mars_law_600x200.webp', color: '#B4C6DA' }
 language: '中文'
+hide: true
 ---
 
 ## 火星管理处罚条例

@@ -35,6 +35,7 @@ const blog = defineCollection({
       tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
       language: z.string().optional(),
       draft: z.boolean().default(false),
+      hide: z.boolean().default(false),
       // 特殊字段
       comment: z.boolean().default(true)
     })

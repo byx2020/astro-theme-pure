@@ -18,8 +18,12 @@ import config from '@/site-config'
 // const backend = ['Vercel', 'Waline']
 
 const MAX_POSTS = 9
+// 1. 获取所有博客文章
 const allPosts = await getBlogCollection()
-const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
+// 2. 过滤掉 hide: true 的文章（核心修改）
+const visiblePosts = allPosts.filter(post => !post.data.hide)
+// 3. 对可见文章排序并截取前 MAX_POSTS 篇
+const allPostsByDate = sortMDByDate(visiblePosts).slice(0, MAX_POSTS)
 ---
 
 <PageLayout meta={{ title: '主页' }} highlightColor='#659EB9'>

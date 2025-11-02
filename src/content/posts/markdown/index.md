@@ -7,6 +7,7 @@ tags:
   - Markdown
 heroImage: { src: './thumbnail.webp', color: '#B4C6DA' }
 language: '中文'
+hide: true
 ---
 
 ## 基本语法
