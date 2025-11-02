@@ -18,13 +18,13 @@ html {
 
 /* 主题样式 */  /* 颜色变量（HSL色彩模式，格式：色相 饱和度 明度） */
 :root {
-  --background: 295 30% 99%; /* 背景紫色 */
+  --background: 240 67% 99%; /* 背景紫色 */
   --foreground: 240 10% 3.9%;
   --card: 0 0% 100%;
   --card-foreground: 240 10% 3.9%;
   --popover: 0 0% 100%;
   --popover-foreground: 240 10% 3.9%;
-  --primary: 295 50% 45%; /* 主色调紫色 */
+  --primary: 282 100% 41%; /* 主色调紫色 */
   --primary-foreground: 0 0% 92.5%;
   --secondary: 240 4.8% 95.9%;
   --secondary-foreground: 240 5.9% 10%;
@@ -46,7 +46,7 @@ html {
   --card-foreground: 0 0% 98%;
   --popover: 240 10% 3.9%;
   --popover-foreground: 0 0% 98%;
-  --primary: 300 60% 60%; /* 主色调紫色 */
+  --primary: 260 60% 65%; /* 主色调紫色 */
   --primary-foreground: 240 3.7% 15.9%;
   --secondary: 240 3.7% 15.9%;
   --secondary-foreground: 0 0% 98%;
