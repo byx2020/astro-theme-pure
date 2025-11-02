@@ -18,13 +18,13 @@ html {
 
 /* 主题样式 */  /* 颜色变量（HSL色彩模式，格式：色相 饱和度 明度） */
 :root {
-  --background: 310 33% 99%; /* 调整：提高饱和度至30%、降低明度至95%，增强紫色感知 */
+  --background: 210 33% 99%;
   --foreground: 240 10% 3.9%;
   --card: 0 0% 100%;
   --card-foreground: 240 10% 3.9%;
   --popover: 0 0% 100%;
   --popover-foreground: 240 10% 3.9%;
-  --primary: 300 29% 45%; /* 调整：提高饱和度至40%，加深主色调紫色 */
+  --primary: 200 29% 45%;
   --primary-foreground: 0 0% 92.5%;
   --secondary: 240 4.8% 95.9%;
   --secondary-foreground: 240 5.9% 10%;
@@ -34,7 +34,7 @@ html {
   --accent-foreground: 240 5.9% 10%;
   --destructive: 0 72.22% 50.59%;
   --destructive-foreground: 0 0% 98%;
-  --border: 280 25% 85%; /* 调整：提高饱和度至25%，让边框紫色更明显 */
+  --border: 280 25% 85%; /* 边框紫色 */
   --input: 240 5.9% 90%;
   --ring: 240 5.9% 10%;
   --radius: 0.5rem;
@@ -46,7 +46,7 @@ html {
   --card-foreground: 0 0% 98%;
   --popover: 240 10% 3.9%;
   --popover-foreground: 0 0% 98%;
-  --primary: 280 80% 70%; /* 核心修改：深色模式下的亮紫色（在深灰上更显柔和） */
+  --primary: 195 95% 85%;
   --primary-foreground: 240 3.7% 15.9%;
   --secondary: 240 3.7% 15.9%;
   --secondary-foreground: 0 0% 98%;
@@ -56,7 +56,7 @@ html {
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --border: 240 4% 28%; /* 核心调整：明度从19.9%提高到28%，与背景明度差提升至22.8% */
+  --border: 240 4% 28%; /* 边框紫色 */
   --input: 240 3.7% 15.9%;
   --ring: 240 4.9% 83.9%;
   --radius: 0.5rem;
