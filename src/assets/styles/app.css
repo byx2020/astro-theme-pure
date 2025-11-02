@@ -13,7 +13,7 @@
 } */
 html {
   /* font-family: 'Satoshi', sans-serif; 全局默认字体，优先使用Satoshi，无则使用系统无衬线字体 */
-  font-family: system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 /* 主题样式 */  /* 颜色变量（HSL色彩模式，格式：色相 饱和度 明度） */
