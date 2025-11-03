@@ -2,7 +2,7 @@
 import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import Substats from '@/components/about/Substats.astro'
-import ToolSection from '@/components/about/ToolSection.astro'
+// import ToolSection from '@/components/about/ToolSection.astro'
 
 const headings = [
   { depth: 2, slug: 'hobbies', text: '兴趣爱好' },
@@ -15,7 +15,10 @@ const headings = [
 
 <PageLayout title='关于' {headings} comment>
   <p>
-    这里汇总了边缘星2020的网站、项目和文章等相关信息。
+    这里是边缘星2020(并非程序猿)的个人网站，用于汇集其散落在各个平台的页面、工具和文章等相关信息。
+  </p>
+  <p>
+    目前本网站仍在不断修改和调整中，部分文章待迁移。
   </p>
   <!-- <p>
     座右铭：Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
@@ -25,7 +28,9 @@ const headings = [
   {/* general-talk */}
   <h2 id='hobbies'>兴趣爱好</h2>
   <ul>
-    <li>喜欢小说、纯音乐，热衷于部署开源项目、做红警2地图、编写攻略、搭建Q群机器人之类的创作类娱乐。</li>
+    <li>爱看<a href="https://my.qidian.com/user/191356014" target="_blank">小说</a>、基本只听<a href="https://music.163.com/#/playlist?id=619361927" target="_blank">纯音乐</a></li>
+    <li>喜欢<a href="https://baike.baidu.com/item/%E5%8D%B3%E6%97%B6%E6%88%98%E7%95%A5%E6%B8%B8%E6%88%8F" target="_blank">即时战略型(RTS)</a>多人游戏，曾是<a href="https://rustedwarfare.org/" target="_blank">铁锈战争</a>和<a href="https://www.ra2ol.com/" target="_blank">红色警戒2</a>的地图作者，但在几年前均已经弃坑</li>
+    <li>热衷于一些代码相关的创作类娱乐，致力于做出一些有用的工具，不过偶尔也会整一些烂活</li>
   </ul>
 
   {/* tools */}
@@ -169,20 +174,20 @@ const headings = [
         api: 'steamgames/76561199087204454'
       },
       {
-        platform: '哔哩哔哩',
-        icon: 'bilibili',
-        color: '#00a1d6',
-        link: 'https://space.bilibili.com/143571804',
-        text: '粉丝数',
-        api: 'bilibili/143571804'
-      },
-      {
         platform: '网易云音乐',
         icon: 'netease',
         color: '#c20c0c',
         link: 'https://music.163.com/#/playlist?id=619361927',
         text: '粉丝数',
         api: 'neteasemusic/431857556'
+      },
+      {
+        platform: '哔哩哔哩',
+        icon: 'bilibili',
+        color: '#00a1d6',
+        link: 'https://space.bilibili.com/143571804',
+        text: '粉丝数',
+        api: 'bilibili/143571804'
       },
       {
         platform: '酷安',
@@ -219,12 +224,12 @@ const headings = [
       {
         date: '2025-10-02',
         content: 
-          '网站更新改版，基于 <a href="https://astro.build/" target="_blank">Astro</a> 框架的 <a href="https://github.com/cworld1/astro-theme-pure" target="_blank">Pure</a> 主题构建'
+          '网站更新，基于 <a href="https://astro.build/" target="_blank">Astro</a> 框架的 <a href="https://github.com/cworld1/astro-theme-pure" target="_blank">Pure</a> 主题构建'
       }
     ]}
   />
   <p>
-    本网站使用了以下项目/服务商的资源与技术支持：
+    本网站当前使用了以下项目/服务商的资源与技术支持：
   </p>
   <ul>
     <li>域名服务：<a href='https://www.cloudflare.com/' target='_blank'>CloudFlare</a></li>
