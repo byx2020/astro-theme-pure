@@ -3,7 +3,7 @@ import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } fro
 export const theme: ThemeUserConfig = {
   // === 基本配置 ===
   /** 网站标题。将用于元数据和浏览器标签页标题。 */
-  title: '边缘',
+  title: '边缘星云',
   /** 将用于首页和版权声明 */
   author: '边缘星2020',
   /** 网站的描述元数据。可用于页面元数据。 */
