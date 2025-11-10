@@ -3,7 +3,7 @@ import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } fro
 export const theme: ThemeUserConfig = {
   // === 基本配置 ===
   /** 网站标题。将用于元数据和浏览器标签页标题。 */
-  title: '边缘星云',
+  title: '边缘',
   /** 将用于首页和版权声明 */
   author: '边缘星2020',
   /** 网站的描述元数据。可用于页面元数据。 */
@@ -35,6 +35,13 @@ export const theme: ThemeUserConfig = {
 
   // 仍在测试中
   head: [
+    {
+      tag: 'meta',
+      attrs: { 
+        name: 'keywords', 
+        content: '边缘星的杂货铺, 边缘星2020, 边缘星云, 边缘星球, 边缘星, 边缘云' // 替换为你的全站通用关键词，用逗号分隔
+      }
+    }
     /*  Telegram频道 */
     // {
     //   tag: 'meta',
