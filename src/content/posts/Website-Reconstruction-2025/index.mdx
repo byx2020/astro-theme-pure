@@ -42,27 +42,27 @@ import { Aside } from 'astro-pure/user'
 
 确定了用途，接下来就是框架和主题的选择。  
 我五年前的网站是基于[Hexo](https://hexo.io/zh-cn/)框架和[hexo-theme-yun](https://github.com/YunYouJun/hexo-theme-yun)主题构建的，在当时非常优秀。  
-[![](image/hexo-theme-yun.webp)](https://github.com/YunYouJun/hexo-theme-yun)
-但在我没管网站的这几年里，技术也在迭代，[hexo-theme-yun](https://github.com/YunYouJun/hexo-theme-yun)也迁移到了一个全新的框架——[Valaxy](https://github.com/YunYouJun/valaxy)。
+![](image/hexo-theme-yun.webp)
+但在我没管网站的这几年里，技术也在迭代，`hexo-theme-yun`也迁移到了一个全新的框架——`Valaxy`。
 
-[Valaxy](https://github.com/YunYouJun/valaxy)是新一代的静态博客框架，其开发者[@云游君](https://yunyoujun.cn/)，也正是我之前使用的 [hexo-theme-yun](https://github.com/YunYouJun/hexo-theme-yun) 主题的作者。  
-这个框架的诞生，源于他对[Hexo](https://hexo.io/zh-cn/)框架局限性的思考，并借鉴了众多现代框架的优秀设计。  
-因此[Valaxy](https://github.com/YunYouJun/valaxy)相较于其他静态博客框架具有多种优势，这一点在其官方文档[《为什么选择 Valaxy》](https://valaxy.site/guide/why)中有详细的介绍。
+[Valaxy](https://github.com/YunYouJun/valaxy)是新一代的静态博客框架，其开发者[@云游君](https://yunyoujun.cn/)，也正是我之前使用的`hexo-theme-yun`主题的作者。  
+这个框架的诞生，源于他对`Hexo`框架局限性的思考，并借鉴了众多现代框架的优秀设计。  
+因此`Valaxy`相较于其他静态博客框架具有多种优势，这一点在其官方文档[《为什么选择Valaxy》](https://valaxy.site/guide/why)中有详细的介绍。
 
-所以我在仔细阅读完[Valaxy](https://github.com/YunYouJun/valaxy)的文档后，最终选择了使用群岛架构、泛用性更强的[Astro](https://github.com/withastro/astro)框架，原因很简单：
+所以我在仔细阅读完`Valaxy`的文档后，最终选择了使用群岛架构、泛用性更强的`Astro`框架，原因很简单：
 
-1.  需求特殊：这次重构，我主要的需求是给EC存放文档，未来大概率也不会专注于博客。我需要的是一个“文档站 + 博客”的混合体，而Valaxy现有的主题和插件并不能很好地满足我这个非主流需求。
+1.  需求特殊：这次重构，我主要的需求是给EC存放文档，未来大概率也不会专注于博客。我需要的是一个“文档站 + 博客”的混合体，而`Valaxy`现有的主题和插件并不能很好地满足我这个非主流需求。
 2.  精力有限：而让我自己来设计开发新的主题，先不提我有没有这样的能力，即便我拥有相应的代码水平，但在这上面花费太多的精力和时间，也是违背了我重建网站的初衷，毕竟光是机器人EC那边，都还有一堆功能bug和说明文档等着我去修改和编写，实在不想再花太多时间在网站上面。
 
 因此，我选择了[Astro](https://github.com/withastro/astro)框架搭配由[@CWorld](https://cworld0.com/)开发的[astro-theme-pure](https://github.com/cworld1/astro-theme-pure)主题。  
-[![](image/astro-theme-pure.webp)](https://github.com/cworld1/astro-theme-pure)
+![](image/astro-theme-pure.webp)
 这个主题风格与Yun主题很相似，同样轻量简洁功能齐全，  
 最重要的是它自带了文档页面，直接改改就能用，能节省我很多时间。
 
 <Aside type='note' title='笔记'>
 当然，如果你只想专注于博客，或者具备一定的代码水平，  
 我个人仍然非常推荐使用[Valaxy](https://github.com/YunYouJun/valaxy)，因为它确实是一个相当出色的新框架，具有顶级的性能和页面一致性等，  
-这次也只是我个人的需求比较特殊，才没有选择Valaxy。
+这次也只是我个人的需求比较特殊，才没有选择`Valaxy`。
 </Aside>
 
 ## 踩坑实录：从实现到部署
