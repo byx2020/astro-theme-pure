@@ -139,8 +139,15 @@ export const integ: IntegrationUserConfig = {
     // https://github.com/lukePeavey/quotable
     // https://api.quotable.io/quotes/random?maxLength=60
     // target: `(data) => data[0].content || 'Error'`
-    server: 'https://v1.jinrishici.com/tianqi/xingxing',
-    target: `(data) => data.content || 'Error'`
+    // server: 'https://v1.jinrishici.com/tianqi/xingxing',
+    // target: `(data) => data.content || 'Error'`
+    server: '/quotes.json',
+    target: `(data) => {
+      const quotes = Array.isArray(data) ? data : [];
+      if (quotes.length === 0) return '众星罗列夜明深，岩点孤灯月未沉';
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      return quotes[randomIndex];
+    }`
   },
   // UnoCSS排版
   // 查看：https://unocss.dev/presets/typography
