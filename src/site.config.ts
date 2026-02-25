@@ -39,7 +39,7 @@ export const theme: ThemeUserConfig = {
       tag: 'meta',
       attrs: { 
         name: 'keywords', 
-        content: '边缘星的杂货铺, 边缘星2020, 边缘星云, 边缘星球, 边缘星, 边缘云' // 替换为你的全站通用关键词，用逗号分隔
+        content: '边缘星的杂货铺, 边缘星2020, 边缘星云, 边缘星球, 边缘星, 边缘云, byx2020' // 替换为你的全站通用关键词，用逗号分隔
       }
     }
     /*  Telegram频道 */

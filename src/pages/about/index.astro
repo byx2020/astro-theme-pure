@@ -13,12 +13,9 @@ const headings = [
 ]
 ---
 
-<PageLayout title='关于' {headings} comment>
+<PageLayout title='关于我' {headings} comment>
   <p>
-    这里是边缘星2020(并非程序猿)的个人网站，用于汇集其散落在各个平台的页面、工具和文章等相关信息。
-  </p>
-  <p>
-    目前本网站仍在不断修改和调整中，部分文章待迁移。
+    这里是边缘星2020的个人网站，本页面整理了其部分的个人信息。
   </p>
   <!-- <p>
     座右铭：Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
@@ -28,9 +25,11 @@ const headings = [
   {/* general-talk */}
   <h2 id='hobbies'>兴趣爱好</h2>
   <ul>
-    <li>爱看<a href="https://my.qidian.com/user/191356014" target="_blank">小说</a>、基本只听<a href="https://music.163.com/#/playlist?id=619361927" target="_blank">纯音乐</a></li>
-    <li>喜欢<a href="https://baike.baidu.com/item/%E5%8D%B3%E6%97%B6%E6%88%98%E7%95%A5%E6%B8%B8%E6%88%8F" target="_blank">即时战略型(RTS)</a>多人游戏，曾是<a href="https://rustedwarfare.org/" target="_blank">铁锈战争</a>和<a href="https://www.ra2ol.com/" target="_blank">红色警戒2</a>的地图作者，但在几年前均已经弃坑</li>
-    <li>热衷于一些代码相关的创作类娱乐，致力于做出一些有用的工具，不过偶尔也会整一些烂活</li>
+    <li>网文方面：只用起点读书，偏好老白，可参考我的书单<a href="https://book.qidian.com/booklist/detail/269173/" target="_blank">《边缘之书》</a></li>
+    <li>音乐方面：只用网抑云，偏好纯音乐，可参考我的歌单<a href="https://music.163.com/#/playlist?id=619361927" target="_blank">《边缘之声》</a></li>
+    <li>视频方面：只用b站，近期偏好梦核，可参考我的b站个人主页<a href="https://music.163.com/#/playlist?id=619361927" target="_blank">《边缘之声》</a></li>
+    <li>游戏方面：偏好<a href="https://baike.baidu.com/item/%E5%8D%B3%E6%97%B6%E6%88%98%E7%95%A5%E6%B8%B8%E6%88%8F" target="_blank">即时战略型(RTS)</a>多人游戏，曾是<a href="https://rustedwarfare.org/" target="_blank">铁锈战争</a>和<a href="https://www.ra2ol.com/" target="_blank">红色警戒2</a>的地图作者，但在几年前均已经弃坑，现在不玩游戏了</li>
+    <li>其他方面：热衷于一些代码相关的创作类娱乐，比如这个破网站里面的东西，初心是尽量做出一些有用的、能够帮助到别人的工具，顺便整些活</li>
   </ul>
 
   {/* tools */}
@@ -162,7 +161,7 @@ const headings = [
         platform: 'GitHub',
         icon: 'github',
         link: 'https://github.com/byx2020',
-        text: '关注者',
+        text: '追随者',
         api: 'github/byx2020'
       },
       {
@@ -178,24 +177,73 @@ const headings = [
         icon: 'netease',
         color: '#c20c0c',
         link: 'https://music.163.com/#/playlist?id=619361927',
-        text: '粉丝数',
-        api: 'neteasemusic/431857556'
+        text: '歌曲数',
+        api: 'zzneteasemusic/431857556'
       },
       {
         platform: '哔哩哔哩',
         icon: 'bilibili',
         color: '#00a1d6',
         link: 'https://space.bilibili.com/143571804',
-        text: '粉丝数',
-        api: 'bilibili/143571804'
+        text: '视频数',
+        api: 'zzbilibili/143571804'
       },
       {
         platform: '酷安',
         icon: 'coolapk',
         color: '#11ab60',
         link: 'https://www.coolapk.com/u/1457295',
-        text: '粉丝数',
-        api: 'coolapk/1457295'
+        text: '文章数',
+        api: 'zzcoolapk/1457295'
+      },
+      {
+        platform: '小红书',
+        icon: 'xiaohongshu',
+        color: '#ff5f5f',
+        link: 'https://www.xiaohongshu.com/user/profile/65e42e85000000000500d20f',
+        text: '笔记数',
+        api: 'xiaohongshu/65e42e85000000000500d20f'
+      },
+      {
+        platform: '百度贴吧',
+        icon: 'baidu',
+        color: '#11ab60',
+        link: 'https://tieba.baidu.com/home/main?un=%E8%BE%B9%E7%BC%98%E6%98%9F2020',
+        text: '帖子数',
+        api: 'baidu/byx2020'
+
+      },
+      {
+        platform: 'Lofter',
+        icon: 'lofter',
+        color: '#11ab60',
+        link: 'https://byx2020.lofter.com/',
+        text: '文章数',
+        api: 'lofter/byx2020'
+      },
+      {
+        platform: 'NGA',
+        icon: 'nga',
+        color: '#11ab60',
+        link: 'https://bbs.nga.cn/thread.php?authorid=62705620',
+        text: '帖子数',
+        api: 'nga/62705620'
+      },
+      {
+        platform: '红警任务之家',
+        icon: 'pkuit',
+        color: '#ff5f5f',
+        link: 'http://www.pkuit.com/?242069',
+        text: '主题数',
+        api: 'redalert2/242069'
+      },
+      {
+        platform: '红警DIY',
+        icon: 'ra2diy',
+        color: '#11ab60',
+        link: 'https://bbs.ra2diy.com/?12951',
+        text: '主题数',
+        api: 'ra2diy/12951'
       }
     ]}
   />
