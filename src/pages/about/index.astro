@@ -13,9 +13,9 @@ const headings = [
 ]
 ---
 
-<PageLayout title='关于我' {headings} comment>
+<PageLayout title='关于' {headings} comment>
   <p>
-    这里是边缘星2020的个人网站，本页面展示了其部分信息。
+    这里是边缘星2020的个人网站。
   </p>
   <!-- <p>
     座右铭：Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
@@ -25,12 +25,34 @@ const headings = [
   {/* general-talk */}
   <h2 id='hobbies'>兴趣爱好</h2>
   <ul>
-    <li>网文方面：常看起点读书，部分偏好可参考书单<a href="https://book.qidian.com/booklist/detail/269173/" target="_blank">《边缘之书》</a></li>
-    <li>音乐方面：只用网抑云，偏好纯音乐，可参考歌单<a href="https://music.163.com/#/playlist?id=619361927" target="_blank">《边缘之声》</a></li>
-    <li>视频方面：只用B站，部分偏好可参考<a href="https://space.bilibili.com/143571804" target="_blank">B站主页信息</a></li>
-    <li>游戏方面：偏好<a href="https://baike.baidu.com/item/%E5%8D%B3%E6%97%B6%E6%88%98%E7%95%A5%E6%B8%B8%E6%88%8F" target="_blank">即时战略型(RTS)</a>游戏，曾为<a href="https://rustedwarfare.org/" target="_blank">铁锈战争</a>游戏汉化者、地图作者和<a href="https://www.ra2ol.com/" target="_blank">红色警戒2</a>地图作者，但在几年前均已先后弃坑，此后再未玩过其他任何游戏</li>
-    <li>其他方面：无聊时会做一些代码相关的创作类娱乐，比如这个破网站里面的东西，本意是尽量做出一些有用的、能够帮助到别人的工具，不过顺便整了些活</li>
+    <li>阅读：偏好网络小说，本人起点书单<a href="https://book.qidian.com/booklist/detail/269173/" target="_blank">《边缘之书》</a></li>
+    <li>音乐：偏好纯音乐，本人网易云歌单<a href="https://music.163.com/#/playlist?id=619361927" target="_blank">《边缘之声》</a></li>
+    <li>游戏：偏好<a href="https://baike.baidu.com/item/%E5%8D%B3%E6%97%B6%E6%88%98%E7%95%A5%E6%B8%B8%E6%88%8F" target="_blank">即时战略型(RTS)</a>游戏，曾为铁锈战争<a href="https://tieba.baidu.com/p/5938086361" target="_blank">游戏汉化者</a>、<a href="https://tieba.baidu.com/p/6005547110" target="_blank">地图作者</a>和红色警戒2<a href="http://bbs.ra2ol.com/mapcenter/author.php?aid=68" target="_blank">地图作者</a>，目前均已弃坑，此后再未玩过其他任何游戏</li>
+    <li>其他方面：无聊时会做一些创作类娱乐，比如写书评、写教程文章、做资源分享、做个人网站、做QQ机器人等等</li>
   </ul>
+
+  {/* gossips */}
+  <h2 id='gossips'>碎片信息</h2>
+  <Collapse title='为什么做这些既耗费精力又没有任何收益的东西？'>
+    我比较社恐不喜欢出门，平时看的几本小说每天加起来更新也就两万字左右，不够看，
+    <br>游戏很久没玩了，又不喜欢一直听音乐或看视频，还不想干正事，所以就只能做这些东西来打发时间了，
+    <br>做这些东西对我来说不是工作，而是一种休闲娱乐的方式。
+  </Collapse>
+  <Collapse title='你的网络ID里面为什么有个“2020”？'>
+    一方面是因为现在这个网络ID是在2020年才正式开始使用的，
+    <br>另一方面是为了尽量减少出现因昵称被占用导致无法注册其他平台账号的情况(比如B站)。
+  </Collapse>
+  <Collapse title='你的头像有什么来历？'>
+    在<a href="https://www.qidian.com/book/3406500/" target="_blank">《走进修仙》</a>书友群里面偷的，时间大概是2018年左右，
+    <br>到了现在，估计发这图的群友都未必还存着这图，因为我自己在网上搜过，这图所有的来源都是我自己，
+    <br>图片的内容，应该是<a href="https://www.qidian.com/book/1262627/" target="_blank">《临高启明》</a>里面<a href="https://lgqm.huijiwiki.com/wiki/%E6%98%9F%E6%8B%B3%E5%BE%BD" target="_blank">星拳徽</a>的一个变种，
+    <br>不过我其实没看过《临高启明》，只是单纯觉得这个徽章漂亮，所以就拿来做了头像，一直用到现在。
+  </Collapse>
+  <Collapse title='你是程序猿或者有系统性学过编程吗？'>
+    不是程序猿，没有系统性学过编程，都是我折腾的东西需要用到什么方面的代码，才会临时去查资料学一下，
+    <br>此处特别感谢一下前辈大佬们编写的技术教程和工具，让我这个菜鸟水平的人也能搭建出自己的网站、QQ机器人之类的东西，
+    <br>因此即便我个人能力有限，但也会尽量多写这方面的文章，不辜负大佬们曾经对我的帮助，继续宣扬开放互助共享精神。
+  </Collapse>
 
   {/* tools */}
   {/* <h2 id='tools'>常用工具</h2>
@@ -153,7 +175,7 @@ const headings = [
   {/* social-networks */}
   <h2 id='social-networks'>社交网络</h2>
   <p>
-    你还可以在以下平台找到我。
+    你还可以在以下平台或社区找到我。
   </p>
   <Substats
     stats={[
@@ -230,14 +252,6 @@ const headings = [
         api: 'nga/62705620'
       },
       {
-        platform: '红警任务之家',
-        icon: 'rss',
-        color: '#4169E1',
-        link: 'http://www.pkuit.com/?242069',
-        text: '主题数',
-        api: 'redalert2/242069'
-      },
-      {
         platform: '红警DIY',
         icon: 'rss',
         color: '#FFA500',
@@ -247,12 +261,6 @@ const headings = [
       }
     ]}
   />
-
-  {/* gossips */}
-  {/* <h2 id='gossips'>碎碎念</h2>
-  <Collapse title='随便聊聊'>
-    这里是一些个人感想或日常碎碎念，欢迎留言交流。
-  </Collapse> */}
 
   {/* about-blog */}
   <h2 id='about-blog'>关于本站</h2>
