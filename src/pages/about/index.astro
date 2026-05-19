@@ -15,10 +15,7 @@ const headings = [
 
 <PageLayout title='关于' {headings} comment>
   <p>
-    这里是边缘星2020(并非程序猿)的个人网站，用于汇集其散落在各个平台的页面、工具和文章等相关信息。
-  </p>
-  <p>
-    目前本网站仍在不断修改和调整中，部分文章待迁移。
+    这里是边缘星2020的个人网站。
   </p>
   <!-- <p>
     座右铭：Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
@@ -28,10 +25,35 @@ const headings = [
   {/* general-talk */}
   <h2 id='hobbies'>兴趣爱好</h2>
   <ul>
-    <li>爱看<a href="https://my.qidian.com/user/191356014" target="_blank">小说</a>、基本只听<a href="https://music.163.com/#/playlist?id=619361927" target="_blank">纯音乐</a></li>
-    <li>喜欢<a href="https://baike.baidu.com/item/%E5%8D%B3%E6%97%B6%E6%88%98%E7%95%A5%E6%B8%B8%E6%88%8F" target="_blank">即时战略型(RTS)</a>多人游戏，曾是<a href="https://rustedwarfare.org/" target="_blank">铁锈战争</a>和<a href="https://www.ra2ol.com/" target="_blank">红色警戒2</a>的地图作者，但在几年前均已经弃坑</li>
-    <li>热衷于一些代码相关的创作类娱乐，致力于做出一些有用的工具，不过偶尔也会整一些烂活</li>
+    <li>阅读：对文字的喜爱远大于图片和视频，实体书和网络小说都看得很多，本人起点读书书单<a href="https://h5.if.qidian.com/h5/share/bookListShare?bookListId=269173" target="_blank">《边缘之书》</a></li>
+    <li>音乐：基本只听纯音乐，本人网易云音乐歌单<a href="https://music.163.com/#/playlist?id=619361927" target="_blank">《边缘之声》</a></li>
+    <li>游戏：偏好<a href="https://baike.baidu.com/item/%E5%8D%B3%E6%97%B6%E6%88%98%E7%95%A5%E6%B8%B8%E6%88%8F" target="_blank">即时战略型(RTS)</a>游戏，曾为铁锈战争<a href="https://tieba.baidu.com/p/5938086361" target="_blank">游戏汉化者</a>、<a href="https://tieba.baidu.com/p/6005547110" target="_blank">地图作者</a>和红色警戒2<a href="http://bbs.ra2ol.com/mapcenter/author.php?aid=68" target="_blank">地图作者</a>，目前均已弃坑，此后再未玩过其他任何游戏</li>
+    <li>其他方面：无聊时会做一些创作类娱乐，比如写书评、写教程文章、做资源分享、做个人网站、做QQ机器人等等</li>
   </ul>
+
+  {/* gossips */}
+  <h2 id='gossips'>碎片信息</h2>
+  <Collapse title='为什么做这些没有任何收益的东西？'>
+    做这些东西对我来说只是一种休闲娱乐的方式，所以不会在乎有没有收益，甚至之前有人想打赏我都拒绝了，
+    <br>毕竟如果收了钱，我就得对这些东西负责了，不能随时想做就做，想不做就不做了，
+    <br>应该没有人会希望自己为数不多的兴趣爱好也变成一种工作吧。
+  </Collapse>
+  <Collapse title='你的网络ID里面为什么有个“2020”？'>
+    一方面是因为现在这个网络ID是在2020年才正式开始使用的，
+    <br>另一方面是为了尽量减少出现因昵称被占用导致无法注册其他平台账号的情况(比如B站)。
+  </Collapse>
+  <Collapse title='你的头像有什么来历？'>
+    在<a href="https://www.qidian.com/book/3406500/" target="_blank">《走进修仙》</a>书友群里面偷的，时间大概是2018年左右，
+    <br>到现在估计发这图的群友都未必还存着这图了，因为我在网上搜过，这图所有的来源都是我自己发的，
+    <br>至于图片的内容，应该是<a href="https://www.qidian.com/book/1262627/" target="_blank">《临高启明》</a>里面<a href="https://lgqm.huijiwiki.com/wiki/%E6%98%9F%E6%8B%B3%E5%BE%BD" target="_blank">星拳徽</a>的一个变种，
+    <br>不过我其实没看过《临高启明》，只是单纯觉得这个徽章很漂亮，所以就拿来做了头像，结果一直用到现在。
+  </Collapse>
+  <Collapse title='你是程序猿或者有系统性学过编程吗？'>
+    不是程序猿，没有系统性学过编程，
+    <br>我都是在折腾的时候，需要用到什么方面的代码，才会临时去查资料学一下，
+    <br>此处特别感谢一下前辈大佬们编写的技术教程和工具，让我这个菜鸟水平的人也能搭建出自己的网站、QQ机器人之类的东西，
+    <br>因此即便我个人能力有限，但也会尽量多写这方面的文章，不辜负大佬们曾经对我的帮助，继续宣扬开放互助共享精神。
+  </Collapse>
 
   {/* tools */}
   {/* <h2 id='tools'>常用工具</h2>
@@ -154,7 +176,7 @@ const headings = [
   {/* social-networks */}
   <h2 id='social-networks'>社交网络</h2>
   <p>
-    你还可以在以下平台找到我。
+    你还可以在以下平台或社区找到我。
   </p>
   <Substats
     stats={[
@@ -162,7 +184,7 @@ const headings = [
         platform: 'GitHub',
         icon: 'github',
         link: 'https://github.com/byx2020',
-        text: '关注者',
+        text: '追随者',
         api: 'github/byx2020'
       },
       {
@@ -178,7 +200,7 @@ const headings = [
         icon: 'netease',
         color: '#c20c0c',
         link: 'https://music.163.com/#/playlist?id=619361927',
-        text: '粉丝数',
+        text: '歌曲数',
         api: 'neteasemusic/431857556'
       },
       {
@@ -186,25 +208,60 @@ const headings = [
         icon: 'bilibili',
         color: '#00a1d6',
         link: 'https://space.bilibili.com/143571804',
-        text: '粉丝数',
+        text: '视频数',
         api: 'bilibili/143571804'
       },
       {
         platform: '酷安',
         icon: 'coolapk',
         color: '#11ab60',
-        link: 'https://www.coolapk.com/u/1457295',
-        text: '粉丝数',
+        link: 'https://www.coolapk.com/feed/62758373?s=OWU2NWE1MGYxNjNjOGZnNjlhNTcxZTJ6a1603',
+        text: '文章数',
         api: 'coolapk/1457295'
+      },
+      {
+        platform: '小红书',
+        icon: 'rss',
+        color: '#DC143C',
+        link: 'https://www.xiaohongshu.com/user/profile/65e42e85000000000500d20f',
+        text: '笔记数',
+        api: 'xiaohongshu/65e42e85000000000500d20f'
+      },
+      {
+        platform: '百度贴吧',
+        icon: 'rss',
+        color: '#0000FF',
+        link: 'https://tieba.baidu.com/home/main?un=%E8%BE%B9%E7%BC%98%E6%98%9F2020',
+        text: '帖子数',
+        api: 'baidu/byx2020'
+
+      },
+      {
+        platform: 'Lofter',
+        icon: 'rss',
+        color: '#20B2AA',
+        link: 'https://byx2020.lofter.com/',
+        text: '文章数',
+        api: 'lofter/byx2020'
+      },
+      {
+        platform: 'NGA',
+        icon: 'rss',
+        color: '#B8860B',
+        link: 'https://bbs.nga.cn/read.php?tid=38216124',
+        text: '帖子数',
+        api: 'nga/62705620'
+      },
+      {
+        platform: '红警DIY',
+        icon: 'rss',
+        color: '#FFA500',
+        link: 'https://bbs.ra2diy.com/forum.php?mod=viewthread&tid=21688',
+        text: '主题数',
+        api: 'ra2diy/12951'
       }
     ]}
   />
-
-  {/* gossips */}
-  {/* <h2 id='gossips'>碎碎念</h2>
-  <Collapse title='随便聊聊'>
-    这里是一些个人感想或日常碎碎念，欢迎留言交流。
-  </Collapse> */}
 
   {/* about-blog */}
   <h2 id='about-blog'>关于本站</h2>

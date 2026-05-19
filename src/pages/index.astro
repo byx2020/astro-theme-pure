@@ -78,10 +78,11 @@ const allPostsByDate = sortMDByDate(visiblePosts).slice(0, MAX_POSTS)
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
       <Section title='关于'>
         <p class='text-muted-foreground'>
-          这里是边缘星2020(并非程序猿)的个人网站，用于汇集其散落在各个平台的相关信息。
-        <br>目前本网站仍在不断修改和调整中，部分文章待迁移。
+          欢迎来到边缘星2020的个人网站，
+        <br>这里陈列了byx2020在互联网上的大部分公开信息，
+        <br>不过由于当前本网站还在缓慢改造升级中，所以仍有部分文章缺失，待整理迁移。
         </p>
-        <Button title='更多关于' class='w-fit self-end' href='/about' variant='ahead' />
+        <Button title='更多我的信息' class='w-fit self-end' href='/about' variant='ahead' />
       </Section>
 
       {/* <Section title='经历'>
@@ -169,7 +170,7 @@ const allPostsByDate = sortMDByDate(visiblePosts).slice(0, MAX_POSTS)
                 </li>
               ))}
             </ul>
-            <Button title='更多文章' class='w-fit self-end' href='/posts' variant='ahead' />
+            <Button title='更多我的文章' class='w-fit self-end' href='/posts' variant='ahead' />
           </Section>
         )
       }
