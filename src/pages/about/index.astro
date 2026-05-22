@@ -1,8 +1,8 @@
 ---
 import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
-import Substats from '@/components/about/Substats.astro'
-// import ToolSection from '@/components/about/ToolSection.astro'
+// import Substats from '@/components/about/Substats.astro'
+import ToolSection from '@/components/about/ToolSection.astro'
 
 const headings = [
   { depth: 2, slug: 'hobbies', text: '兴趣爱好' },
@@ -15,7 +15,7 @@ const headings = [
 
 <PageLayout title='关于' {headings} comment>
   <p>
-    这里是边缘星2020的个人网站。
+    一个业余创作者的个人网站。
   </p>
   <!-- <p>
     座右铭：Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
@@ -174,11 +174,107 @@ const headings = [
   /> */}
 
   {/* social-networks */}
-  <h2 id='social-networks'>社交网络</h2>
+  <h2 id='social-networks'>其他平台</h2>
   <p>
-    你还可以在以下平台或社区找到我。
+    你还可以在以下社区或应用内找到我。
   </p>
-  <Substats
+  <ToolSection
+    class='mb-5'
+    title='社交网络'
+    tools={[
+      {
+        name: '百度贴吧',
+        description: '帖子数：85',
+        href: 'https://tieba.baidu.com/home/main?un=%E8%BE%B9%E7%BC%98%E6%98%9F2020',
+        icon: import('@/assets/tools/百度贴吧.svg?raw')
+      },
+      {
+        name: '小红书',
+        description: '笔记数：35',
+        href: 'https://www.xiaohongshu.com/user/profile/65e42e85000000000500d20f',
+        icon: import('@/assets/tools/小红书.svg?raw')
+      },
+      {
+        name: 'NGA(漩涡书院)',
+        description: '帖子数：32',
+        href: 'https://bbs.nga.cn/read.php?tid=38216124',
+        icon: import('@/assets/tools/nga.svg?raw')
+      },
+      {
+        name: '酷安',
+        description: '动态数：12',
+        href: 'https://www.coolapk.com/feed/62758373?s=OWU2NWE1MGYxNjNjOGZnNjlhNTcxZTJ6a1603',
+        icon: import('@/assets/tools/酷安.svg?raw')
+      },
+      {
+        name: 'Lofter(乐乎)',
+        description: '文章数：3',
+        href: 'https://byx2020.lofter.com/',
+        icon: import('@/assets/tools/lofter.svg?raw')
+      },
+      {
+        name: '红警DIY论坛',
+        description: '主题数：2',
+        href: 'https://bbs.ra2diy.com/forum.php?mod=viewthread&tid=21688',
+        icon: import('@/assets/tools/ra2diy.svg?raw')
+      },
+      {
+        name: '红警任务之家论坛',
+        description: '主题数：2',
+        href: 'http://www.pkuit.com/?242069',
+        icon: import('@/assets/tools/ra2.svg?raw')
+      },
+      {
+        name: '知乎',
+        description: '回答数：1',
+        href: 'https://www.zhihu.com/people/byx2020',
+        icon: import('@/assets/tools/知乎.svg?raw')
+      }
+    ]}
+  />
+  <ToolSection
+    class='mb-5'
+    title='影音娱乐'
+    tools={[
+      {
+        name: '起点读书',
+        description: '章评数：128',
+        href: 'https://my.qidian.com/user/191356014',
+        icon: import('@/assets/tools/起点读书.svg?raw')
+      },
+      {
+        name: '网易云音乐',
+        description: '歌单数：11',
+        href: 'https://music.163.com/#/playlist?id=619361927',
+        icon: import('@/assets/tools/网易云音乐.svg?raw')
+      },
+      {
+        name: '哔哩哔哩',
+        description: '视频数：3',
+        href: 'https://space.bilibili.com/143571804',
+        icon: import('@/assets/tools/哔哩哔哩.svg?raw')
+      },
+      {
+        name: 'Steam',
+        description: '游戏数：7',
+        href: 'https://store.steampowered.com/app/123456/',
+        icon: import('@/assets/tools/steam.svg?raw')
+      },
+      {
+        name: '红警战网',
+        description: '发布地图数：23',
+        href: 'https://bbs.ra2ol.com/mapcenter/author.php?aid=68',
+        icon: import('@/assets/tools/ra2.svg?raw')
+      },
+      {
+        name: 'QQ机器人',
+        description: '可用功能数：65',
+        href: 'https://www.byx2020.com/docs-ec/intro/ec',
+        icon: import('@/assets/tools/机器人.svg?raw')
+      }
+    ]}
+  />
+  {/* <Substats
     stats={[
       {
         platform: 'GitHub',
@@ -261,7 +357,7 @@ const headings = [
         api: 'ra2diy/12951'
       }
     ]}
-  />
+  /> */}
 
   {/* about-blog */}
   <h2 id='about-blog'>关于本站</h2>
