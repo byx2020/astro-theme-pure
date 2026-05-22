@@ -181,7 +181,7 @@ export const integ: IntegrationUserConfig = {
       comment: true,
       locale: {
         reaction0: '点赞',
-        placeholder: '欢迎评论。（填写邮箱可接收回复，无需登录）'
+        placeholder: '欢迎评论留言。（填写邮箱后可在评论区显示你的Gravatar头像，同时在你的评论被他人回复时会收到邮件通知，无需登录）'
       },
       imageUploader: false
     }

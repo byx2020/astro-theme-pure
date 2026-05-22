@@ -1,5 +1,6 @@
 ---
-import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
+import { Collapse, Timeline } from 'astro-pure/user'
+// import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 // import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
@@ -13,9 +14,9 @@ const headings = [
 ]
 ---
 
-<PageLayout title='关于' {headings} comment>
+<PageLayout title='关于我' {headings} comment>
   <p>
-    这里是一个业余创作者的个人网站。
+    边缘星2020，一个不高尚、不自由、不纯粹、能力普通、喜欢扮演的业余创作者。
   </p>
   <!-- <p>
     座右铭：Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
@@ -27,32 +28,32 @@ const headings = [
   <ul>
     <li>阅读：对文字的喜爱远大于图片和视频，实体书和网络小说都看得很多，本人起点读书书单<a href="https://h5.if.qidian.com/h5/share/bookListShare?bookListId=269173" target="_blank">《边缘之书》</a></li>
     <li>音乐：基本只听纯音乐，本人网易云音乐歌单<a href="https://music.163.com/#/playlist?id=619361927" target="_blank">《边缘之声》</a></li>
-    <li>游戏：偏好<a href="https://baike.baidu.com/item/%E5%8D%B3%E6%97%B6%E6%88%98%E7%95%A5%E6%B8%B8%E6%88%8F" target="_blank">即时战略型(RTS)</a>游戏，曾为铁锈战争<a href="https://tieba.baidu.com/p/5938086361" target="_blank">游戏汉化者</a>、<a href="https://tieba.baidu.com/p/6005547110" target="_blank">地图作者</a>和红色警戒2<a href="http://bbs.ra2ol.com/mapcenter/author.php?aid=68" target="_blank">地图作者</a>，目前均已弃坑，此后再未玩过其他任何游戏</li>
+    <li>游戏：偏好<a href="https://baike.baidu.com/item/%E5%8D%B3%E6%97%B6%E6%88%98%E7%95%A5%E6%B8%B8%E6%88%8F" target="_blank">即时战略型(RTS)</a>游戏，曾为铁锈战争<a href="https://tieba.baidu.com/p/5938086361" target="_blank">游戏汉化者</a>、<a href="https://tieba.baidu.com/p/6005547110" target="_blank">地图作者</a>和红色警戒2<a href="http://bbs.ra2ol.com/mapcenter/author.php?aid=68" target="_blank">地图作者</a>，目前均已弃坑，2023年以后基本不玩游戏了</li>
     <li>其他方面：无聊时会做一些创作类娱乐，比如写书评、写教程文章、做资源分享、做个人网站、做QQ机器人等等</li>
   </ul>
 
   {/* gossips */}
   <h2 id='gossips'>碎片信息</h2>
-  <Collapse title='为什么做这些没有任何收益的东西？'>
+  <Collapse title='为什么做这些没有收益的东西'>
     做这些东西对我来说只是一种休闲娱乐的方式，所以不会在乎有没有收益，甚至之前有人想打赏我都拒绝了，
     <br>毕竟如果收了钱，我就得对这些东西负责了，不能随时想做就做，想不做就不做了，
     <br>应该没有人会希望自己为数不多的兴趣爱好也变成一种工作吧。
   </Collapse>
-  <Collapse title='你的网络ID里面为什么有个“2020”？'>
+  <Collapse title='你的网络ID里面的“2020”有什么特殊含义'>
     一方面是因为现在这个网络ID是在2020年才正式开始使用的，
     <br>另一方面是为了尽量减少出现因昵称被占用导致无法注册其他平台账号的情况(比如B站)。
   </Collapse>
-  <Collapse title='你的头像有什么来历？'>
-    在<a href="https://www.qidian.com/book/3406500/" target="_blank">《走进修仙》</a>书友群里面偷的，时间大概是2018年左右，
-    <br>到现在估计发这图的群友都未必还存着这图了，因为我在网上搜过，这图所有的来源都是我自己发的，
+  <Collapse title='你头像的来历是什么'>
+    2018年左右在<a href="https://www.qidian.com/book/3406500/" target="_blank">《走进修仙》</a>书友群里面偷的，
+    <br>到现在估计发这图的群友都未必还存着这图了，因为我在网上以图搜图过，这图能找得到的所有来源都是我自己，
     <br>至于图片的内容，应该是<a href="https://www.qidian.com/book/1262627/" target="_blank">《临高启明》</a>里面<a href="https://lgqm.huijiwiki.com/wiki/%E6%98%9F%E6%8B%B3%E5%BE%BD" target="_blank">星拳徽</a>的一个变种，
-    <br>不过我其实没看过《临高启明》，只是单纯觉得这个徽章很漂亮，所以就拿来做了头像，结果一直用到现在。
+    <br>不过我其实没看过《临高启明》，只是单纯觉得这个徽章很漂亮，所以就拿来当头像用了快十年了，一直到现在。
   </Collapse>
-  <Collapse title='你是程序猿或者有系统性学过编程吗？'>
+  <Collapse title='你是程序猿吗'>
     不是程序猿，没有系统性学过编程，
     <br>我都是在折腾的时候，需要用到什么方面的代码，才会临时去查资料学一下，
-    <br>此处特别感谢一下前辈大佬们编写的技术教程和工具，让我这个菜鸟水平的人也能搭建出自己的网站、QQ机器人之类的东西，
-    <br>因此即便我个人能力有限，但也会尽量多写这方面的文章，不辜负大佬们曾经对我的帮助，继续宣扬开放互助共享精神。
+    <br>此处特别感谢一下前辈大佬们编写的技术教程和工具，让我这个菜鸟水平的人也能搭建出自己的网站、机器人之类的东西，
+    <br>因此即便我个人能力有限，但也会尽量多写这方面的文章，不负我曾经得到过的帮助，让大佬们的开放互助共享精神永存。
   </Collapse>
 
   {/* tools */}
@@ -176,7 +177,7 @@ const headings = [
   {/* social-networks */}
   <h2 id='social-networks'>其他平台</h2>
   <p>
-    你还可以在以下社区或应用内找到我。
+    本人基本全网同名同头像(除非已被他人提前注册占用)，你还可以在以下社区或应用内找到我。
   </p>
   <ToolSection
     class='mb-5'
@@ -186,49 +187,49 @@ const headings = [
         name: '百度贴吧',
         description: '帖子数：85',
         href: 'https://tieba.baidu.com/home/main?un=%E8%BE%B9%E7%BC%98%E6%98%9F2020',
-        icon: import('@/assets/tools/百度贴吧.svg?raw')
+        icon: import('@/assets/svg/百度贴吧.svg?raw')
       },
       {
         name: '小红书',
         description: '笔记数：35',
         href: 'https://www.xiaohongshu.com/user/profile/65e42e85000000000500d20f',
-        icon: import('@/assets/tools/小红书.svg?raw')
+        icon: import('@/assets/svg/小红书.svg?raw')
       },
       {
         name: 'NGA(漩涡书院)',
         description: '帖子数：32',
         href: 'https://bbs.nga.cn/read.php?tid=38216124',
-        icon: import('@/assets/tools/nga.svg?raw')
+        icon: import('@/assets/svg/nga.svg?raw')
       },
       {
         name: '酷安',
         description: '动态数：12',
         href: 'https://www.coolapk.com/feed/62758373?s=OWU2NWE1MGYxNjNjOGZnNjlhNTcxZTJ6a1603',
-        icon: import('@/assets/tools/酷安.svg?raw')
+        icon: import('@/assets/svg/酷安.svg?raw')
       },
       {
         name: 'Lofter(乐乎)',
         description: '文章数：3',
         href: 'https://byx2020.lofter.com/',
-        icon: import('@/assets/tools/lofter.svg?raw')
+        icon: import('@/assets/svg/lofter.svg?raw')
       },
       {
         name: '红警DIY论坛',
         description: '主题数：2',
         href: 'https://bbs.ra2diy.com/forum.php?mod=viewthread&tid=21688',
-        icon: import('@/assets/tools/ra2diy.svg?raw')
+        icon: import('@/assets/svg/ra2diy.svg?raw')
       },
       {
         name: '红警任务之家论坛',
         description: '主题数：2',
         href: 'http://www.pkuit.com/?242069',
-        icon: import('@/assets/tools/ra2.svg?raw')
+        icon: import('@/assets/svg/ra2.svg?raw')
       },
       {
         name: '知乎',
         description: '回答数：1',
         href: 'https://www.zhihu.com/people/byx2020',
-        icon: import('@/assets/tools/知乎.svg?raw')
+        icon: import('@/assets/svg/知乎.svg?raw')
       }
     ]}
   />
@@ -240,37 +241,37 @@ const headings = [
         name: '起点读书',
         description: '章评数：128',
         href: 'https://my.qidian.com/user/191356014',
-        icon: import('@/assets/tools/起点读书.svg?raw')
+        icon: import('@/assets/svg/起点读书.svg?raw')
       },
       {
         name: '网易云音乐',
         description: '歌单数：11',
         href: 'https://music.163.com/#/playlist?id=619361927',
-        icon: import('@/assets/tools/网易云音乐.svg?raw')
+        icon: import('@/assets/svg/网易云音乐.svg?raw')
       },
       {
         name: '哔哩哔哩',
         description: '视频数：3',
         href: 'https://space.bilibili.com/143571804',
-        icon: import('@/assets/tools/哔哩哔哩.svg?raw')
+        icon: import('@/assets/svg/哔哩哔哩.svg?raw')
       },
       {
         name: 'Steam',
         description: '游戏数：7',
         href: 'https://store.steampowered.com/app/123456/',
-        icon: import('@/assets/tools/steam.svg?raw')
+        icon: import('@/assets/svg/steam.svg?raw')
       },
       {
-        name: '红警战网',
+        name: '红警战网(地图作者)',
         description: '发布地图数：23',
         href: 'https://bbs.ra2ol.com/mapcenter/author.php?aid=68',
-        icon: import('@/assets/tools/ra2.svg?raw')
+        icon: import('@/assets/svg/ra2.svg?raw')
       },
       {
-        name: 'QQ机器人',
-        description: '可用功能数：65',
+        name: 'QQ机器人(EdgeCloud)',
+        description: '编写功能数：65',
         href: 'https://www.byx2020.com/docs-ec/intro/ec',
-        icon: import('@/assets/tools/机器人.svg?raw')
+        icon: import('@/assets/svg/机器人.svg?raw')
       }
     ]}
   />
