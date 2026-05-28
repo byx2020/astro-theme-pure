@@ -75,7 +75,7 @@ export const theme: ThemeUserConfig = {
     //     style: 'text-sm' // Uno/TW CSS类
     //   },
     //   {
-    //     title: '旅行者',
+    //     title: '🚇随机开往',
     //     link: 'https://www.travellings.cn/go.html',
     //     style: 'text-sm'
     //   },
