@@ -1,5 +1,5 @@
 ---
-import { Collapse, Timeline } from 'astro-pure/user'
+import { Button, Collapse, Timeline, Icon } from 'astro-pure/user'
 // import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 // import Substats from '@/components/about/Substats.astro'
@@ -15,8 +15,10 @@ const headings = [
 ---
 
 <PageLayout title='关于我' {headings} comment>
-  <p>
-    边缘星2020，一个不纯粹、不自由、能力普通、会扮演法的业余创作者。
+  <p class='text-muted-foreground'>创作者 / 技术宅</p>
+  <p class='text-muted-foreground'>
+    我是一个多领域的业余创作者和资源分享者，致力于在互联网上留下更多有价值、有意义的内容。
+    <br>此个人网站主要用于汇总和整理我在互联网上各个平台公开发布的文章和作品，希望能够对大家有所帮助。
   </p>
   <!-- <p>
     座右铭：Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
@@ -54,6 +56,19 @@ const headings = [
     <br>我都是在折腾的时候，需要用到什么方面的代码，才会临时去查资料学一下，
     <br>此处特别感谢一下前辈大佬们编写的技术教程和工具，让我这个菜鸟水平的人也能搭建出自己的网站、机器人之类的东西，
     <br>因此即便我个人能力有限，但也会尽量多写这方面的文章，不负我曾经得到过的帮助，让大佬们的开放互助共享精神永存。
+  </Collapse>
+  <Collapse title='不会被迁移到这个网站上的内容'>
+    下面为我早年在其他平台发布的一些作品和分享，
+    <br>从我现在的水平来看，质量有点上不了台面，所以就不迁移到这个网站上了，
+    <br>但考虑到这些东西毕竟也是我的来时路，完全切割还是有点舍不得，
+    <br>所以就偷偷把链接放在这里存档吧，和过去告别。
+    <br>
+    <Button title='自制铁锈汉化版' class='w-fit' as='a' variant='ahead' href='https://tieba.baidu.com/p/5938086361'><Icon class='size-5' name='earth' slot='before' /></Button>
+    <Button title='自制铁锈地图' class='w-fit' as='a' variant='ahead' href='https://tieba.baidu.com/p/6005547110'><Icon class='size-5' name='earth' slot='before' /></Button>
+    <Button title='发布铁锈杂谈攻略' class='w-fit' as='a' variant='ahead' href='https://tieba.baidu.com/p/5965978202'><Icon class='size-5' name='earth' slot='before' /></Button>
+    <Button title='自制重庆疫情分布图' class='w-fit' as='a' variant='ahead' href='https://tieba.baidu.com/p/6470577673'><Icon class='size-5' name='earth' slot='before' /></Button>
+    <Button title='分享上帝流作品资源' class='w-fit' as='a' variant='ahead' href='https://tieba.baidu.com/p/6281260582'><Icon class='size-5' name='earth' slot='before' /></Button>
+    <Button title='分享神探狄仁杰资源' class='w-fit' as='a' variant='ahead' href='https://tieba.baidu.com/p/6281267640'><Icon class='size-5' name='earth' slot='before' /></Button>
   </Collapse>
 
   {/* tools */}

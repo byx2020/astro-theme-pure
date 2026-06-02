@@ -2,12 +2,12 @@
 import links from 'public/links.json'
 import config from 'virtual:config'
 
-import { Collapse, Timeline } from 'astro-pure/user'
+// import { Collapse, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import FriendList from '@/components/links/FriendList.astro'
 
 const headings = [
-  { depth: 2, slug: 'common-links', text: '常用链接' },
+  { depth: 2, slug: 'common-links', text: '友情链接' },
   { depth: 2, slug: 'special-links', text: '特殊链接' },
   { depth: 2, slug: 'apply-links', text: '申请友链' }
 ]
@@ -19,14 +19,14 @@ const linkEditPage = 'https://github.com/byx2020/astro-theme-pure/blob/main/publ
 
 <PageLayout title='友链' {headings} comment>
   <p>怎么可能有顺序呢，当然是随机的~</p>
-  <h2 id='common-links'>常用链接</h2>
+  <h2 id='common-links'>友情链接</h2>
   <FriendList list={friends[0]} />
-  <Collapse title='失效链接'>
+  <!-- <Collapse title='失效链接'>
     <FriendList list={friends[1]} />
   </Collapse>
   <Collapse title='友链历史簿'>
     <Timeline events={linksConf.logbook} />
-  </Collapse>
+  </Collapse> -->
   <h2 id='special-links'>特殊链接</h2>
   <FriendList list={friends[2]} />
 

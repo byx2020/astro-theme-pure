@@ -5,11 +5,12 @@ import { Quote } from 'astro-pure/advanced'
 // import { PostPreview } from 'astro-pure/components/pages'
 import PostPreview from '@/components/pages/PostPreview.astro'
 import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
-import { Button, Card, Icon, Label } from 'astro-pure/user'
+// import { Button, Card, Icon, Label } from 'astro-pure/user'
+import { Button, Icon, Label } from 'astro-pure/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import ProjectCard from '@/components/home/ProjectCard.astro'
 import Section from '@/components/home/Section.astro'
-import SkillLayout from '@/components/home/SkillLayout.astro'
+// import SkillLayout from '@/components/home/SkillLayout.astro'
 import avatar from '@/assets/xz_cr_500x500.webp'
 import config from '@/site-config'
 
@@ -77,10 +78,10 @@ const allPostsByDate = sortMDByDate(visiblePosts).slice(0, MAX_POSTS)
 
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
       <Section title='关于'>
+        <p class='text-muted-foreground'>创作者 / 技术宅</p>
         <p class='text-muted-foreground'>
-          这里是一个业余创作者的个人网站，
-        <br>陈列了其在互联网上的大部分公开信息，
-        <br>不过由于当前本网站还在缓慢改造升级中，所以仍有部分文章缺失，待整理迁移。
+          我是一个多领域的业余创作者和资源分享者，致力于在互联网上留下更多有价值、有意义的内容。
+          <br>此个人网站主要用于汇总和整理我在互联网上各个平台公开发布的文章和作品，希望能够对大家有所帮助。
         </p>
         <Button title='更多我的信息' class='w-fit self-end' href='/about' variant='ahead' />
       </Section>
@@ -135,25 +136,25 @@ const allPostsByDate = sortMDByDate(visiblePosts).slice(0, MAX_POSTS)
           <ProjectCard
             href='/docs-ec'
             heading='EdgeCloud文档'
-            subheading='个人搭建维护了五年的Q群工具型机器人，目前主要服务于起点书友相关群'
+            subheading='自行搭建维护了六年的Q群工具型机器人，目前主要服务于起点书友群'
             imagePath='/src/assets/projects/wallhaven-gj7jee2_cr520x200.webp'
           />
           <ProjectCard
             href='http://byx2020.ysepan.com'
             heading='边缘星的杂货铺'
-            subheading='运行了八年的公开分享型资源网盘，无广告免费不限速，支持游客上传文件'
+            subheading='早年发布汉化和地图作品的主要渠道，一个免费且无广告的分享型网盘'
             imagePath='/src/assets/projects/wh0_cr520x220.webp'
           />
           <ProjectCard
             href='https://bbs.ra2ol.com/mapcenter/author.php?aid=68'
-            heading='红色警戒2尤复地图'
-            subheading='在2019-2023年期间制作的多人防守任务地图，战网热度累计4.5w+，欢迎游玩'
+            heading='红警2尤复地图'
+            subheading='早年制作的红警战网多人防守任务地图，战网热度5w+，欢迎游玩体验'
             imagePath='/src/assets/projects/RA2map2_cr520x200.webp'
           />
           <ProjectCard
             href='https://link.byx2020.com/_docs/scalar'
             heading='边缘短网址转换'
-            subheading='基于开源项目Sink部署，为EdgeCloud的部分功能提供支持'
+            subheading='基于开源项目Sink部署，主要为机器人EdgeCloud提供长链接缩短服务'
             imagePath='/src/assets/projects/sink_520x200.webp'
           />
         </div>
