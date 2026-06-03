@@ -1,5 +1,6 @@
 ---
-import { Button, Collapse, Timeline, Icon } from 'astro-pure/user'
+import { Collapse, Timeline } from 'astro-pure/user'
+import { MediumZoom } from 'astro-pure/advanced'
 // import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 // import Substats from '@/components/about/Substats.astro'
@@ -15,10 +16,10 @@ const headings = [
 ---
 
 <PageLayout title='关于我' {headings} comment>
-  <p class='text-muted-foreground'>创作者 / 技术宅</p>
+  <p class='text-muted-foreground'>技术宅 / 创作者</p>
   <p class='text-muted-foreground'>
-    我是一个多领域的业余创作者和资源分享者，致力于在互联网上留下更多有价值、有意义的内容。
-    <br>此个人网站主要用于汇总和整理我在互联网上各个平台公开发布的文章和作品，希望能够对大家有所帮助。
+    一个兴趣使然的多领域业余创作者，致力于在互联网上留下更多有用的东西。
+    <br>本网站主要用于整理汇总我在网上各平台公开发布的文章和作品，希望能对大家有所帮助。
   </p>
   <!-- <p>
     座右铭：Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
@@ -28,42 +29,57 @@ const headings = [
   {/* general-talk */}
   <h2 id='hobbies'>兴趣爱好</h2>
   <ul>
-    <li>阅读：对文字的喜爱远大于图片和视频，实体书和网络小说都看得很多，本人起点读书书单<a href="https://h5.if.qidian.com/h5/share/bookListShare?bookListId=269173" target="_blank">《边缘之书》</a></li>
-    <li>音乐：基本只听纯音乐，本人网易云音乐歌单<a href="https://music.163.com/#/playlist?id=619361927" target="_blank">《边缘之声》</a></li>
-    <li>游戏：偏好<a href="https://baike.baidu.com/item/%E5%8D%B3%E6%97%B6%E6%88%98%E7%95%A5%E6%B8%B8%E6%88%8F" target="_blank">即时战略型(RTS)</a>游戏，曾为铁锈战争<a href="https://tieba.baidu.com/p/5938086361" target="_blank">游戏汉化者</a>、<a href="https://tieba.baidu.com/p/6005547110" target="_blank">地图作者</a>和红色警戒2<a href="http://bbs.ra2ol.com/mapcenter/author.php?aid=68" target="_blank">地图作者</a>，目前均已弃坑，2023年以后基本不玩游戏了</li>
-    <li>其他方面：无聊时会做一些创作类娱乐，比如写书评、写教程文章、做资源分享、做个人网站、做QQ机器人等等</li>
+    <li>文字
+      <br>对文字的喜爱远大于视频图片，实体书和网络小说(<a href="https://h5.if.qidian.com/h5/share/bookListShare?bookListId=269173" target="_blank">《边缘之书》</a>)都看得很多，同时也比较喜欢写长文，目前已在不同平台发布了数十篇千字以上的文章
+    </li>
+    <li>音乐
+      <br>只听纯音乐(<a href="https://music.163.com/#/playlist?id=619361927" target="_blank">《边缘之声》</a>)
+    </li>
+    <li>游戏
+      <br>喜欢<a href="https://baike.baidu.com/item/%E5%8D%B3%E6%97%B6%E6%88%98%E7%95%A5%E6%B8%B8%E6%88%8F" target="_blank">即时战略型(RTS)</a>游戏，曾为铁锈战争的<a href="https://tieba.baidu.com/p/5965978202" target="_blank">资深玩家</a>、<a href="https://tieba.baidu.com/p/5938086361" target="_blank">手游汉化者</a>和<a href="https://tieba.baidu.com/p/6005547110" target="_blank">地图作者</a>，后面又成为了红色警戒2的<a href="http://bbs.ra2ol.com/mapcenter/author.php?aid=68" target="_blank">地图作者</a>，不过目前基本都很少玩游戏了
+    </li>
+    <li>杂项
+      <br>曾经搭建过几个月的游戏服务器和个人网盘，也做过一段时间的<a href="https://tieba.baidu.com/p/6470577673" target="_blank">重庆疫情分布图</a>、<a href="https://tieba.baidu.com/p/6281260582" target="_blank">上帝流作品资源整理</a>和<a href="https://tieba.baidu.com/p/6281267640" target="_blank">神探狄仁杰资源整理</a>，但都因为各方面的原因而中断，目前大概只剩<a href="https://www.byx2020.com/docs-ec" target="_blank">QQ机器人</a>还在一直维护和更新了
+    </li>
+    <li>信息搬运
+      <br><details><summary>“喜欢往群聊里转发一些自己觉得比较有趣的信息”</summary>
+        <div class="prose">
+          <img src="/src/assets/嘉然支持搬史.webp" alt="嘉然支持搬史" class="zoomable" />
+        </div>
+        <MediumZoom />
+      </details>
+    </li>
+
   </ul>
 
   {/* gossips */}
   <h2 id='gossips'>碎片信息</h2>
   <Collapse title='为什么做这些没有收益的东西'>
-    做这些东西对我来说只是一种休闲娱乐的方式，所以不会在乎有没有收益，甚至之前有人想打赏我都拒绝了，
-    <br>毕竟如果收了钱，我就得对这些东西负责了，不能随时想做就做，想不做就不做了，
-    <br>应该没有人会希望自己为数不多的兴趣爱好也变成一种工作吧。
+    其实这些年在线上和线下都有人对我说过，你做的这些东西是挺有意思的，但如果能往赚钱的方向发展一下就更好了，
+    <br>这话确实没什么问题，不过我想了一下还是拒绝了，主要我做的这些东西，其实只是一种纯靠兴趣的休闲娱乐，
+    <br>平时自己玩玩还好，但如果收了钱性质就变了，娱乐和赚钱，两者需要付出的精力完全是天差地别的，
+    <br>虽然钱这东西谁都缺，我也不例外，但也还没到需要我把自己为数不多的兴趣爱好也给变成工作的程度，
+    <br>说到底还是我这人其实比较懒散又有责任感，别说是主动去赚钱了，就连之前有人想打赏我的作品，我都感觉有压力给拒绝了，
+    <br>所以就还是继续保持现状吧，感谢所有想要支持和帮助我的人。
   </Collapse>
   <Collapse title='你ID里面的“2020”有什么特殊含义'>
-    一方面是因为现在这个网络ID是在2020年才正式开始使用的，
-    <br>另一方面是为了尽量减少出现因昵称被占用导致无法注册其他平台账号的情况(比如B站)。
+    这个也是不少人问过我的问题，
+    <br>原因很简单，加个数字只是为了让我的ID全网唯一，尽量减少出现因昵称被占用导致无法注册其他平台账号的情况(比如B站微信之类的)，
+    <br>至于为什么是“2020”而不是其他数字，这个问题，我感觉如果我用其他数字的话，你也会问为什么要用其他数字……
+    <br>非要说的话，就是单纯是因为现在这个网络ID是在2020年才正式开始使用的，而输入起来比较顺手，没什么特别原因。
   </Collapse>
   <Collapse title='你头像的来历是什么'>
-    2018年左右在<a href="https://www.qidian.com/book/3406500/" target="_blank">《走进修仙》</a>书友群里面偷的，
+    这个问的人不多，不过我自己想讲一下，
+    <br>我目前这个勋章头像，是我在2018年左右从<a href="https://www.qidian.com/book/3406500/" target="_blank">《走进修仙》</a>的书友群里面偷的，
     <br>到现在估计发这图的群友都未必还存着这图了，因为我在网上以图搜图过，这图能找得到的所有来源都是我自己，
     <br>至于图片的内容，应该是<a href="https://www.qidian.com/book/1262627/" target="_blank">《临高启明》</a>里面<a href="https://lgqm.huijiwiki.com/wiki/%E6%98%9F%E6%8B%B3%E5%BE%BD" target="_blank">星拳徽</a>的一个变种，
-    <br>不过我其实没看过《临高启明》，只是单纯觉得这个徽章很漂亮，所以就拿来当头像用了快十年了，一直到现在。
+    <br>不过我其实没看过《临高启明》，只是单纯觉得这个徽章很漂亮，所以就拿来当头像用了快十年了，直到现在。
   </Collapse>
   <Collapse title='你是程序猿吗'>
     不是程序猿，没有系统性学过编程，
-    <br>我都是在折腾的时候，需要用到什么方面的代码，才会临时去查资料学一下，
-    <br>此处特别感谢一下前辈大佬们编写的技术教程和工具，让我这个菜鸟水平的人也能搭建出自己的网站、机器人之类的东西，
-    <br>因此即便我个人能力有限，但也会尽量多写这方面的文章，不负我曾经得到过的帮助，让大佬们的开放互助共享精神永存。
-  </Collapse>
-  <Collapse title='部分不会被迁移到本网站的古早内容'>
-    <Button title='铁锈汉化版' class='w-fit' as='a' variant='ahead' href='https://tieba.baidu.com/p/5938086361'><Icon class='size-5' name='earth' slot='before' /></Button>
-    <Button title='铁锈地图' class='w-fit' as='a' variant='ahead' href='https://tieba.baidu.com/p/6005547110'><Icon class='size-5' name='earth' slot='before' /></Button>
-    <Button title='铁锈杂谈攻略' class='w-fit' as='a' variant='ahead' href='https://tieba.baidu.com/p/5965978202'><Icon class='size-5' name='earth' slot='before' /></Button>
-    <Button title='重庆疫情分布图' class='w-fit' as='a' variant='ahead' href='https://tieba.baidu.com/p/6470577673'><Icon class='size-5' name='earth' slot='before' /></Button>
-    <Button title='上帝流作品资源' class='w-fit' as='a' variant='ahead' href='https://tieba.baidu.com/p/6281260582'><Icon class='size-5' name='earth' slot='before' /></Button>
-    <Button title='神探狄仁杰资源' class='w-fit' as='a' variant='ahead' href='https://tieba.baidu.com/p/6281267640'><Icon class='size-5' name='earth' slot='before' /></Button>
+    <br>我编程都是基于谷歌的(现在应该是AI了)，需要用到什么方面的代码，才会临时去查资料学一下，
+    <br>此处特别感谢一下前辈大佬们编写分享的技术教程和工具，让我这种水平的人也能搭建出自己的网站、机器人之类的东西，
+    <br>因此即便我个人能力有限，但也会尽量多写这方面的文章，不负曾经得到过的帮助，让早期互联网田园时代的余晖延续下去。
   </Collapse>
 
   {/* tools */}
@@ -187,7 +203,7 @@ const headings = [
   {/* social-networks */}
   <h2 id='social-networks'>其他平台</h2>
   <p>
-    本人基本全网同名同头像(除非已被他人提前注册占用)，你还可以在以下社区或应用内找到我。
+    除了某些禁止重复昵称ID且昵称ID已被他人提前注册占用的平台，本人基本全网同名同头像(P站除外)，你还可以在以下社区论坛或平台内找到我。
   </p>
   <ToolSection
     class='mb-5'
