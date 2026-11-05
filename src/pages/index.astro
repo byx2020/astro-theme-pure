@@ -6,7 +6,9 @@ import { Quote } from 'astro-pure/advanced'
 import PostPreview from '@/components/pages/PostPreview.astro'
 import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 // import { Button, Card, Icon, Label } from 'astro-pure/user'
-import { Button, Icon, Label } from 'astro-pure/user'
+import { Button } from 'astro-pure/user'
+// 本地增强版 Icon：优先查本地图标注册表（tieba/xiaohongshu/coolapk），未命中回退主题内置图标
+import Icon from '@/components/custom/Icon.astro'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import ProjectCard from '@/components/home/ProjectCard.astro'
 import Section from '@/components/home/Section.astro'
@@ -39,23 +41,89 @@ const allPostsByDate = sortMDByDate(visiblePosts).slice(0, MAX_POSTS)
 
       <div class='flex flex-col items-center gap-y-4'>
         <h1 class='text-3xl font-bold'>{config.author}</h1>
-        <div class='flex flex-wrap justify-center gap-x-7 gap-y-3'>
-          <Label
-            title='Email'
-            as='a'
+        {/* 社交平台图标栏：仅图标，悬停显示名称，品牌色，高度统一 24px */}
+        <div class='flex flex-wrap items-center justify-center gap-x-5 gap-y-3'>
+          <a
             href='mailto:byx2020@outlook.es'
             target='_blank'
+            rel='noopener noreferrer'
+            title='邮箱'
+            aria-label='邮箱'
+            class='text-[#0078D4] transition-opacity hover:opacity-70'
           >
-            <Icon name='email' class='size-5' slot='icon' />
-          </Label>
-          <!-- <Label
-            title='Github'
-            as='a'
-            href='https://github.com/byx2020'
+            <Icon name='email' class='h-6 w-6' />
+          </a>
+          <a
+            href='https://tieba.baidu.com/home/main?id=tb.1.a19822cf.Zehl_-_tqj0LI8cqoJoGuw'
             target='_blank'
-          > 
-            <Icon name='github' class='size-5' slot='icon' />
-          </Label>-->
+            rel='noopener noreferrer'
+            title='百度贴吧'
+            aria-label='百度贴吧'
+            class='text-[#306EFF] transition-opacity hover:opacity-70'
+          >
+            <Icon name='tieba' class='h-6 w-6' />
+          </a>
+          {/* 宽扁字标：viewBox 已裁剪，元素加宽以保证高度一致 */}
+          <a
+            href='https://www.xiaohongshu.com/user/profile/65e42e85000000000500d20f'
+            target='_blank'
+            rel='noopener noreferrer'
+            title='小红书'
+            aria-label='小红书'
+            class='text-[#FF2442] transition-opacity hover:opacity-70'
+          >
+            <Icon name='xiaohongshu' class='h-6 w-[48px]' />
+          </a>
+          <a
+            href='https://www.coolapk.com/feed/62758373?s=OWU2NWE1MGYxNjNjOGZnNjlhNTcxZTJ6a1603'
+            target='_blank'
+            rel='noopener noreferrer'
+            title='酷安'
+            aria-label='酷安'
+            class='text-[#11AB60] transition-opacity hover:opacity-70'
+          >
+            <Icon name='coolapk' class='h-6 w-[34px]' />
+          </a>
+          <a
+            href='https://space.bilibili.com/143571804'
+            target='_blank'
+            rel='noopener noreferrer'
+            title='哔哩哔哩'
+            aria-label='哔哩哔哩'
+            class='text-[#FB7299] transition-opacity hover:opacity-70'
+          >
+            <Icon name='bilibili' class='h-6 w-6' />
+          </a>
+          <a
+            href='https://music.163.com/#/playlist?id=619361927'
+            target='_blank'
+            rel='noopener noreferrer'
+            title='网易云音乐'
+            aria-label='网易云音乐'
+            class='text-[#C20C0C] transition-opacity hover:opacity-70'
+          >
+            <Icon name='netease' class='h-6 w-6' />
+          </a>
+          <a
+            href='https://steamcommunity.com/id/byx2020/'
+            target='_blank'
+            rel='noopener noreferrer'
+            title='Steam'
+            aria-label='Steam'
+            class='text-[#1B2838] transition-opacity hover:opacity-70 dark:text-[#C7D5E0]'
+          >
+            <Icon name='steam' class='h-6 w-6' />
+          </a>
+          <a
+            href='https://jq.qq.com/?_wv=1027&k=9StgNYMV'
+            target='_blank'
+            rel='noopener noreferrer'
+            title='边缘星墟'
+            aria-label='边缘星墟（QQ群）'
+            class='text-[#12B7F5] transition-opacity hover:opacity-70'
+          >
+            <Icon name='qq-group' class='h-6 w-6' />
+          </a>
         </div>
         <Quote class='relative flex items-center justify-center' />
       </div>

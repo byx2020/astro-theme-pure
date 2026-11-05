@@ -1,0 +1,55 @@
+---
+// 本地增强版 Icon 组件（Swizzling 自 astro-pure 的 components/user/Icon.astro）
+// 在主题内置图标的基础上合并本地图标注册表（./icons.ts）：
+//   - 优先查找本地图标，未命中时回退主题内置图标，调用方式与内置完全一致
+//   - 本地条目可携带 viewBox 裁剪视图框（用于宽扁字标，如小红书/酷安）
+//   - 支持 label（无障碍标签）/ color / size / class 等原有 Props；
+//     传入 class 时宽高完全由 class 控制（如 'size-5'、'h-6 w-[54px]'），否则按 size 取 1.5em
+import { Icons } from 'astro-pure/libs'
+
+import { LocalIcons, type LocalIconDef } from './icons'
+
+interface Props {
+  /** 图标名：本地图标（见 ./icons.ts）或主题内置图标名 */
+  name: keyof typeof Icons | keyof typeof LocalIcons
+  label?: string
+  color?: string
+  size?: string
+  class?: string
+}
+
+const { name, label, size = '1em', color, class: className, ...props } = Astro.props
+const a11yAttrs = label ? ({ 'aria-label': label } as const) : ({ 'aria-hidden': 'true' } as const)
+
+// 合并主题内置图标与本地图标：本地图标优先（后写入覆盖同名内置）
+const paths: Record<string, string> = { ...Icons }
+const viewBoxes: Record<string, string> = {}
+for (const [key, def] of Object.entries(LocalIcons) as [string, LocalIconDef][]) {
+  paths[key] = def.markup
+  if (def.viewBox) viewBoxes[key] = def.viewBox
+}
+const viewBox = viewBoxes[name as string] ?? '0 0 24 24'
+---
+
+<svg
+  {...a11yAttrs}
+  class={className}
+  width='22'
+  height='22'
+  viewBox={viewBox}
+  fill='currentColor'
+  set:html={paths[name as string]}
+  {...props}
+/>
+
+<style define:vars={{ 'sl-icon-color': color, 'sl-icon-size': size }}>
+  svg {
+    color: var(--sl-icon-color);
+  }
+  /* 未传 class 时按 size 应用默认尺寸（1.5em）；传了 class 则由 class 全权控制宽高 */
+  svg:where(:not([class])) {
+    font-size: var(--sl-icon-size, 1em);
+    width: 1.5em;
+    height: 1.5em;
+  }
+</style>
