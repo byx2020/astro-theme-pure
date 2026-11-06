@@ -16,10 +16,17 @@ interface Props {
   color?: string
   size?: string
   class?: string
+  /**
+   * 等比缩放系数（默认 1）。只缩放视觉、不改变布局盒尺寸，
+   * 用于把不同设计密度的图标统一到相同「墨迹高度」，如 scale={0.8}
+   */
+  scale?: number
 }
 
-const { name, label, size = '1em', color, class: className, ...props } = Astro.props
+const { name, label, size = '1em', color, scale, class: className, ...props } = Astro.props
 const a11yAttrs = label ? ({ 'aria-label': label } as const) : ({ 'aria-hidden': 'true' } as const)
+// 以元素中心为缩放原点，保证缩放后视觉位置不变、不挤占相邻图标间距
+const scaleStyle = scale && scale !== 1 ? `transform: scale(${scale}); transform-origin: center;` : undefined
 
 // 合并主题内置图标与本地图标：本地图标优先（后写入覆盖同名内置）
 const paths: Record<string, string> = { ...Icons }
@@ -34,6 +41,7 @@ const viewBox = viewBoxes[name as string] ?? '0 0 24 24'
 <svg
   {...a11yAttrs}
   class={className}
+  style={scaleStyle}
   width='22'
   height='22'
   viewBox={viewBox}
