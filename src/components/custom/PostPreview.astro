@@ -5,6 +5,7 @@ import { render, type CollectionEntry, type CollectionKey } from 'astro:content'
 
 import { cn } from 'astro-pure/utils'
 import { Button, FormattedDate, Icon } from 'astro-pure/user'
+import { ui } from '@/i18n/zh-CN'
 
 type Props<T extends CollectionKey> = {
   post: CollectionEntry<T>
@@ -66,8 +67,8 @@ const previewData = data as typeof data & Partial<PreviewMetadata>
       {/* title */}
       <div class='flex justify-between flex-grow'>
         <div class={cn(detailed && 'font-medium')}>
-          {previewData.pin && <span class='text-primary me-1'>[Pin]</span>}
-          {data.draft && <span class='text-red-500 me-1'>(Draft)</span>}
+          {previewData.pin && <span class='text-primary me-1'>{ui.postPreview.pin}</span>}
+          {data.draft && <span class='text-red-500 me-1'>{ui.postPreview.draft}</span>}
           {data.title}
         </div>
         <svg
@@ -119,7 +120,7 @@ const previewData = data as typeof data & Partial<PreviewMetadata>
               )}
             </div>
             {data.tags.length > 0 && (
-              <object title='Tags' aria-label='Tags' aria-labelledby='Tags'>
+              <object title={ui.postPreview.tags} aria-label={ui.postPreview.tags} aria-labelledby={ui.postPreview.tags}>
                 <ul class='tag-list mt-1 flex gap-2'>
                   {data.tags.map((tag: string) => (
                     <li>
