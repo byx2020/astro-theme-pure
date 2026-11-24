@@ -35,7 +35,8 @@ const typographyConfig: TypographyOptions = {
   cssExtend: {
     // Title
     'h2,h3,h4,h5,h6': {
-      'scroll-margin-top': '4rem'
+      'scroll-margin-top': '4rem',
+      'font-weight': '600'
     },
     'h1>a,h2>a,h3>a,h4>a,h5>a,h6>a': {
       'margin-inline-start': '0.75rem',
@@ -57,12 +58,13 @@ const typographyConfig: TypographyOptions = {
     a: {
       'word-wrap': 'break-word',
       'word-break': 'break-word',
-      'overflow-wrap': 'anywhere'
+      'overflow-wrap': 'anywhere',
+      'font-weight': '500'
     },
     // Inline code
     ':not(pre) > code': {
-      'white-space': 'pre-wrap',
-      'word-break': 'break-all'
+      'white-space': 'pre-wrap !important',
+      'word-break': 'break-all !important'
     },
     ...(typographyCustom.inlineCodeBlockStyle === 'modern' && {
       ':not(pre) > code': {
@@ -82,8 +84,8 @@ const typographyConfig: TypographyOptions = {
     blockquote: {
       position: 'relative',
       overflow: 'hidden',
-      'border-width': '1px',
-      'border-inline-start-color': 'inherit',
+      'border-width': '2px',
+      'border-inline-start-color': border,
       'border-radius': `calc(1.5 * ${radius})`,
       'padding-inline': '1.6rem',
       'box-shadow': `0 5px 0 ${bgMuted}`,
@@ -101,23 +103,54 @@ const typographyConfig: TypographyOptions = {
       transform: 'rotate(-15deg)',
       opacity: '0.1'
     },
-    // Table
-    table: { display: 'block', 'font-size': '.875em', 'overflow-x': 'auto' },
-    'table tr': { 'border-bottom-width': '1px' },
-    'tbody tr:last-child': { 'border-bottom-width': '0' },
-    'thead th': { 'font-weight': '500', color: fg },
-    'td, th': { border: 'inherit', 'text-align': 'start', padding: '0.57em' },
-    'thead th:first-child,thead th:first-child,tbody td:first-child,tfoot td:first-child': {
-      'padding-inline-start': '0'
+    // Table（保留本地网格边框风格）
+    table: {
+      display: 'block',
+      'font-size': '.9em',
+      'overflow-x': 'auto',
+      'border-collapse': 'collapse',
+      'border-width': '0'
+    },
+    'thead th, tbody td': {
+      'border-style': 'solid',
+      'border-color': border,
+      'border-width': '0 2px 2px 0',
+      'text-align': 'start',
+      padding: '0.6em'
+    },
+    'thead th:first-child, tbody td:first-child': {
+      'border-inline-start-width': '2px'
+    },
+    'thead tr:first-child th': {
+      'border-top-width': '2px'
+    },
+    'thead th:last-child, tbody td:last-child': {
+      'border-inline-end-width': '2px'
+    },
+    'tbody tr:last-child td': {
+      'border-bottom-width': '2px'
+    },
+    'thead th': {
+      'font-weight': '700',
+      color: fg
     },
     // List
     'ol, ul': { 'padding-inline-start': '1.625em' },
     'ol>li, ul>li': { 'padding-inline-start': '.375em' },
+    'ul>li::marker': {
+      color: fgMuted,
+      '--un-text-opacity': '0.35'
+    },
     li: { 'margin-top': '.5em', 'margin-bottom': '.5em' },
+    strong: {
+      'font-weight': '700',
+      color: fg
+    },
     // Others
     img: { 'border-radius': radius, margin: '0 auto' },
     kbd: {
       'border-color': border,
+      'border-width': '2px',
       'box-shadow': '0 0 0 1px hsl(var(--card) / 1), 0 3px hsl(var(--card) / 1)'
     },
     'sup>a': { 'scroll-margin-top': '4rem' }
