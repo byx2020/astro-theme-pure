@@ -1,0 +1,13 @@
+{
+  // Cloudflare Workers 部署配置（@astrojs/cloudflare v13）
+  //
+  // v13 起 Wrangler 配置文件变为可选：适配器会自动生成 main 入口
+  // （@astrojs/cloudflare/entrypoints/server）、assets 绑定与兼容日期。
+  // 这里仅显式声明 Worker 名称与兼容日期，便于后续在此追加
+  // KV / D1 / Durable Objects / 自定义域名等绑定。
+  //
+  // 部署命令：
+  //   bun run build:cloudflare && npx wrangler deploy
+  "name": "astro-theme-pure",
+  "compatibility_date": "2026-04-15"
+}

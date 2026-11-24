@@ -1,4 +1,6 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
+import cloudflare from '@astrojs/cloudflare'
+import netlify from '@astrojs/netlify'
 import vercel from '@astrojs/vercel'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig, fontProviders, svgoOptimizer } from 'astro/config'
@@ -23,10 +25,25 @@ import {
 } from './src/plugins/shiki-official/transformers.ts'
 import config from './src/site.config.ts'
 
+// 动态判断部署平台（依赖平台自动注入的环境变量）
+// - Vercel 注入 VERCEL；Netlify 注入 NETLIFY；
+// - Cloudflare Pages 注入 CF_PAGES，Cloudflare Workers（新版统一体验）注入 WORKERS_CI，
+//   CLOUDFLARE 为兼容兜底。
+const isVercel = !!process.env.VERCEL
+const isNetlify = !!process.env.NETLIFY
+const isCloudflare = !!process.env.CF_PAGES || !!process.env.CLOUDFLARE || !!process.env.WORKERS_CI
+
+// 适配器：根据平台自动切换
+const adapter = isCloudflare
+  ? cloudflare({ imageService: 'compile' }) // Cloudflare：构建期优化预渲染图片，运行时透传
+  : isNetlify
+    ? netlify() // Netlify：构建期 sharp 优化
+    : vercel({ imageService: true }) // Vercel（默认 / 本地开发）
+
 // https://astro.build/config
 export default defineConfig({
   // [Basic]
-  site: 'https://astro-pure.js.org',
+  site: process.env.SITE_URL || 'https://www.byx2020.com',
   // Deploy to a sub path
   // https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
   // base: '/astro-pure/',
@@ -41,7 +58,7 @@ export default defineConfig({
 
   // [Adapter]
   // https://docs.astro.build/en/guides/deploy/
-  adapter: vercel({ imageService: true }),
+  adapter: adapter,
   output: 'server',
   // Local (standalone)
   // adapter: node({ mode: 'standalone' }),
@@ -50,7 +67,9 @@ export default defineConfig({
   // [Assets]
   image: {
     responsiveStyles: true,
-    service: { entrypoint: 'astro/assets/services/sharp' },
+    // Cloudflare 分支不显式设 sharp（由适配器 imageService:'compile' 接管）；
+    // 其余平台（Vercel/Netlify/本地）保持构建期 sharp 优化。
+    ...(isCloudflare ? {} : { service: { entrypoint: 'astro/assets/services/sharp' } }),
     // domains: ['ghchart.rshah.org'],
     remotePatterns: [{ protocol: 'https' }]
   },
