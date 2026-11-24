@@ -14,7 +14,7 @@ import config from 'virtual:config'
 
 // Get dynamic import of images as a map collection
 const imagesGlob = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/content/blog/**/*.{jpeg,jpg,png,gif,avif,webp}' // add more image formats if needed
+  '/src/content/posts/**/*.{jpeg,jpg,png,gif,avif,webp}' // add more image formats if needed
 )
 
 const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
@@ -29,7 +29,7 @@ const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
         if (node.url.startsWith('/images')) {
           node.url = `${site}${node.url.replace('/', '')}`
         } else {
-          const imagePathPrefix = `/src/content/blog/${post.id}/${node.url.replace('./', '')}`
+          const imagePathPrefix = `/src/content/posts/${post.id}/${node.url.replace('./', '')}`
           const promise = imagesGlob[imagePathPrefix]?.().then(async (res) => {
             const imagePath = res?.default
             if (imagePath) {
@@ -70,7 +70,7 @@ const GET = async (context: AstroGlobal) => {
     items: await Promise.all(
       allPostsByDate.map(async (post) => ({
         pubDate: post.data.publishDate,
-        link: `/blog/${post.id}`,
+        link: `/posts/${post.id}`,
         // `pubDate` intentionally stays on `publishDate` so aggregators do not re-flow an
         // edited post as new. `atom:updated` lets readers that support it detect the edit.
         customData: `<h:img src="${typeof post.data.heroImage?.src === 'string' ? post.data.heroImage?.src : post.data.heroImage?.src.src}" />
