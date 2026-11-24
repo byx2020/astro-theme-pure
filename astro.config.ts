@@ -1,7 +1,4 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
-import cloudflare from '@astrojs/cloudflare'
-import netlify from '@astrojs/netlify'
-import vercel from '@astrojs/vercel'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig, fontProviders, svgoOptimizer } from 'astro/config'
 import type { FontProvider } from 'astro'
@@ -33,12 +30,18 @@ import config from './src/site.config.ts'
 const isNetlify = !!process.env.NETLIFY
 const isCloudflare = !!process.env.CF_PAGES || !!process.env.CLOUDFLARE || !!process.env.WORKERS_CI
 
-// 适配器：根据平台自动切换
+// 适配器：根据平台动态 import，只加载当前平台的适配器。
+// 为什么不能顶层静态 import 三个适配器：配置加载阶段 Node 会解析所有静态 import，
+// 例如 Vercel 构建时会连带加载 @astrojs/netlify → @netlify/config → find-up，
+// 而 Vercel 用 bun install + Node 运行，bun 的 hoisting 布局会让 find-up 在
+// 嵌套路径 @netlify/config/node_modules/find-up 找不到，报
+// "Cannot find package .../@netlify/config/node_modules/find-up/index.js"。
+// 改用动态 import 后，Vercel 只加载 @astrojs/vercel，从源头规避该依赖解析问题。
 const adapter = isCloudflare
-  ? cloudflare({ imageService: 'compile' }) // Cloudflare：构建期优化预渲染图片，运行时透传
+  ? (await import('@astrojs/cloudflare')).default({ imageService: 'compile' }) // Cloudflare：构建期优化预渲染图片，运行时透传
   : isNetlify
-    ? netlify() // Netlify：构建期 sharp 优化
-    : vercel({ imageService: true }) // Vercel（默认 / 本地开发）
+    ? (await import('@astrojs/netlify')).default() // Netlify：构建期 sharp 优化
+    : (await import('@astrojs/vercel')).default({ imageService: true }) // Vercel（默认 / 本地开发）
 
 // https://astro.build/config
 export default defineConfig({
