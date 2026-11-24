@@ -1,45 +1,90 @@
 ---
-import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
+import { Collapse, Timeline } from 'astro-pure/user'
+import { MediumZoom } from 'astro-pure/advanced'
+// import { Button, Collapse, Spoiler, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
-import Substats from '@/components/about/Substats.astro'
+// import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
 
 const headings = [
-  { depth: 2, slug: 'hobbies', text: 'Hobbies' },
-  { depth: 2, slug: 'tools', text: 'Tools' },
-  { depth: 2, slug: 'social-networks', text: 'Social Networks' },
-  { depth: 2, slug: 'gossips', text: 'Gossips' },
-  { depth: 2, slug: 'about-blog', text: 'About Blog' }
+  { depth: 2, slug: 'hobbies', text: '兴趣爱好' },
+  // { depth: 2, slug: 'tools', text: '常用工具' },
+  { depth: 2, slug: 'social-networks', text: '社交网络' },
+  // { depth: 2, slug: 'gossips', text: '碎碎念' },
+  { depth: 2, slug: 'about-blog', text: '关于本站' }
 ]
 ---
 
-<PageLayout title='About' {headings} comment>
-  <p>Developer / Designer</p>
-  <p>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio
-    possit voluptatum.
+<PageLayout title='关于' {headings} comment>
+  <p class='text-muted-foreground'>技术宅 / 创作者 <del>/ 信息搬运者(Q群限定)</del></p>
+  <p class='text-muted-foreground'>
+    一个兴趣使然的多领域业余创作者，致力于在互联网上留下更多有用的东西。
+    <br>本网站主要用于整理汇总我在网上各平台公开发布的文章和作品，目前仍在升级改造中，欢迎评论留言。
   </p>
-  <p>
-    Motto: Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
+  <!-- <p>
+    座右铭：Stay hungry, Stay foolish. <Spoiler>这里可以夹私货，比如为什么要演奏春日影！</Spoiler>
   </p>
-  <Button title='Sponsor Me' class='w-fit' href='/projects#sponsorship' variant='ahead' />
+  <Button title='赞助我' class='w-fit' href='/projects#sponsorship' variant='ahead' /> -->
 
   {/* general-talk */}
-  <h2 id='hobbies'>Hobbies</h2>
+  <h2 id='hobbies'>兴趣爱好</h2>
   <ul>
-    <li>Lorem ipsum dolor sit amet, vidit suscipit at mei.</li>
-    <li>
-      Quem denique mea id. Usu ei regione indoctum dissentiunt, cu meliore fuisset mei, vel quod
-      voluptua ne.
+    <li>文字方面
+      <br>对文字的喜爱远大于视频图片，实体书和网络小说(<a href="https://h5.if.qidian.com/h5/share/bookListShare?bookListId=269173" target="_blank">《边缘之书》</a>)都看得很多，同时也比较喜欢写长文，目前已在不同平台发布了数十篇千字以上的文章。
     </li>
-    <li>Ex dicat impedit mel, at eum oratio possit voluptatum.</li>
-    <li>Impetus fuisset ullamcorper pri cu, his posse iisque ad, aliquam honestatis usu id.</li>
+    <li>音乐方面
+      <br>只听纯音乐(<a href="https://music.163.com/#/playlist?id=619361927" target="_blank">《边缘之声》</a>)。
+    </li>
+    <li>游戏方面
+      <br>喜欢<a href="https://baike.baidu.com/item/%E5%8D%B3%E6%97%B6%E6%88%98%E7%95%A5%E6%B8%B8%E6%88%8F" target="_blank">即时战略型(RTS)</a>游戏，曾经是铁锈战争的<a href="https://tieba.baidu.com/p/5965978202" target="_blank">资深玩家</a>、<a href="https://tieba.baidu.com/p/5938086361" target="_blank">手游汉化者</a>和<a href="https://tieba.baidu.com/p/6005547110" target="_blank">地图作者</a>，后面又成为了红色警戒2的<a href="http://bbs.ra2ol.com/mapcenter/author.php?aid=68" target="_blank">地图作者</a>，只是目前很少玩游戏了。
+    </li>
+    <li>其他方面
+      <br>曾经搭建过几个月的游戏服务器和个人网盘，也做过一段时间的<a href="https://tieba.baidu.com/p/6470577673" target="_blank">重庆疫情分布图</a>、<a href="https://tieba.baidu.com/p/6281260582" target="_blank">上帝流作品资源整理</a>和<a href="https://tieba.baidu.com/p/6281267640" target="_blank">神探狄仁杰资源整理</a>，但都因为各方面的原因而中断，目前大概只剩<a href="https://www.byx2020.com/docs-ec" target="_blank">QQ机器人</a>还在持续维护和更新。
+    </li>
+    <li>信息搬运
+      <br><details><summary>“喜欢往群聊里转发一些自己觉得比较有趣的信息”</summary>
+        <div class="prose">
+          <img src="/images/嘉然支持搬史.webp" alt="嘉然支持搬史" class="zoomable" />
+        </div>
+        <MediumZoom />
+      </details>
+    </li>
+
   </ul>
 
+  {/* gossips */}
+  <h2 id='gossips'>碎片信息</h2>
+  <Collapse title='为什么做这些没有收益的东西'>
+    其实这些年在线上和线下都有人对我说过，你做的这些东西是挺有意思的，但如果能往赚钱的方向发展一下就更好了，
+    <br>这话确实没什么问题，不过我想了一下还是拒绝了，主要我做的这些东西，其实只是一种纯靠兴趣的休闲娱乐，
+    <br>平时自己玩玩还好，但如果收了钱性质就变了，娱乐和赚钱，两者需要付出的精力完全是天差地别的，
+    <br>虽然钱这东西谁都缺，我也不例外，但也还没到需要我把自己为数不多的兴趣爱好也给变成工作的程度，
+    <br>说到底还是我这人其实比较懒散又有责任感，别说是主动去赚钱了，就连之前有人想打赏我的作品，我都感觉有压力给拒绝了，
+    <br>所以就还是继续保持现状吧，感谢所有想要支持和帮助我的人。
+  </Collapse>
+  <Collapse title='你ID里面的“2020”有什么特殊含义'>
+    这个也是不少人问过我的问题，
+    <br>原因很简单，加个数字只是为了让我的ID全网唯一，尽量减少出现因昵称被占用导致无法注册其他平台账号的情况(比如B站微信之类的)，
+    <br>至于为什么是“2020”而不是其他数字，这个问题，我感觉如果我用其他数字的话，你也会问为什么要用其他数字……
+    <br>非要说的话，就是单纯是因为现在这个网络ID是在2020年才正式开始使用的，而输入起来比较顺手，没什么特别原因。
+  </Collapse>
+  <Collapse title='你头像的来历是什么'>
+    这个问的人不多，但我自己想讲一下，
+    <br>我目前这个勋章头像，是我在2018年左右从<a href="https://www.qidian.com/book/3406500/" target="_blank">《走进修仙》</a>的书友群里面偷的，
+    <br>到现在估计发这图的群友都未必还存着这图了，因为我在网上以图搜图过，这图能找得到的所有来源都是我自己，
+    <br>至于图片的内容，应该是<a href="https://www.qidian.com/book/1262627/" target="_blank">《临高启明》</a>里面<a href="https://lgqm.huijiwiki.com/wiki/%E6%98%9F%E6%8B%B3%E5%BE%BD" target="_blank">星拳徽</a>的一个变种，
+    <br>不过我其实没看过《临高启明》，只是单纯觉得这个徽章很漂亮，所以就拿来当头像用了快十年了，直到现在。
+  </Collapse>
+  <Collapse title='你是程序猿吗'>
+    不是程序猿，没有系统性学过编程，
+    <br>我编程都是基于谷歌的(现在应该是AI了)，需要用到什么方面的代码，才会临时去查资料学一下，
+    <br>此处特别感谢一下前辈大佬们编写分享的技术教程和工具，让我这种水平的人也能搭建出自己的网站、机器人之类的东西，
+    <br>因此即便我个人能力有限，但也会尽量多写这方面的文章，不负曾经得到过的帮助，让早期互联网田园时代的余晖延续下去。
+  </Collapse>
+
   {/* tools */}
-  <h2 id='tools'>Tools</h2>
-  <p>Current support tools as follow:</p>
+  {/* <h2 id='tools'>常用工具</h2>
+  <p>当前常用工具如下：</p>
   <ToolSection
     class='mb-5'
     title='Design'
@@ -153,98 +198,217 @@ const headings = [
         icon: import('@/assets/tools/windows11.svg?raw')
       }
     ]}
-  />
+  /> */}
 
   {/* social-networks */}
-  <h2 id='social-networks'>Social Networks</h2>
+  <h2 id='social-networks'>其他平台</h2>
   <p>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne.
+    下面为我(曾经)比较常去的一些社区论坛和平台，也欢迎在这些地方浏览我的文章和作品。
   </p>
-  <Substats
+  <ToolSection
+    class='mb-5'
+    title='社交网络'
+    tools={[
+      {
+        name: '百度贴吧',
+        description: '帖子数：50',
+        href: 'https://tieba.baidu.com/home/main?id=tb.1.a19822cf.Zehl_-_tqj0LI8cqoJoGuw',
+        icon: import('@/assets/svg/百度贴吧.svg?raw')
+      },
+      {
+        name: '小红书',
+        description: '笔记数：37',
+        href: 'https://www.xiaohongshu.com/user/profile/65e42e85000000000500d20f',
+        icon: import('@/assets/svg/小红书.svg?raw')
+      },
+      {
+        name: 'NGA(漩涡书院)',
+        description: '帖子数：33',
+        href: 'https://bbs.nga.cn/read.php?tid=38216124',
+        icon: import('@/assets/svg/nga.svg?raw')
+      },
+      {
+        name: '酷安',
+        description: '动态数：12',
+        href: 'https://www.coolapk.com/feed/62758373?s=OWU2NWE1MGYxNjNjOGZnNjlhNTcxZTJ6a1603',
+        icon: import('@/assets/svg/酷安.svg?raw')
+      },
+      {
+        name: 'Lofter(乐乎)',
+        description: '文章数：3',
+        href: 'https://byx2020.lofter.com/',
+        icon: import('@/assets/svg/lofter.svg?raw')
+      },
+      {
+        name: '红警DIY论坛',
+        description: '主题数：3',
+        href: 'https://bbs.ra2diy.com/forum.php?mod=viewthread&tid=21688',
+        icon: import('@/assets/svg/ra2diy.svg?raw')
+      }
+    ]}
+  />
+  <ToolSection
+    class='mb-5'
+    title='影音娱乐'
+    tools={[
+      {
+        name: '起点读书',
+        description: '章评数：133',
+        href: 'https://my.qidian.com/user/191356014',
+        icon: import('@/assets/svg/起点读书.svg?raw')
+      },
+      {
+        name: '网易云音乐',
+        description: '歌单数：11',
+        href: 'https://music.163.com/#/playlist?id=619361927',
+        icon: import('@/assets/svg/网易云音乐.svg?raw')
+      },
+      {
+        name: '哔哩哔哩',
+        description: '视频数：3',
+        href: 'https://space.bilibili.com/143571804',
+        icon: import('@/assets/svg/哔哩哔哩.svg?raw')
+      },
+      {
+        name: 'Steam',
+        description: '游戏数：45',
+        href: 'https://steamcommunity.com/id/byx2020/',
+        icon: import('@/assets/svg/steam.svg?raw')
+      },
+      {
+        name: '红警战网(地图作者)',
+        description: '地图数：23',
+        href: 'https://bbs.ra2ol.com/mapcenter/author.php?aid=68',
+        icon: import('@/assets/svg/ra2.svg?raw')
+      },
+      {
+        name: 'QQ机器人(EdgeCloud)',
+        description: '功能数：67',
+        href: 'https://www.byx2020.com/docs-ec/intro/ec',
+        icon: import('@/assets/svg/机器人.svg?raw')
+      }
+    ]}
+  />
+  {/* <Substats
     stats={[
       {
         platform: 'GitHub',
         icon: 'github',
-        link: 'https://github.com/cworld1',
-        text: 'followers',
-        api: 'github/cworld1'
-      },
-      {
-        platform: 'Telegram',
-        icon: 'telegram',
-        color: '#2ca5e0',
-        link: 'https://t.me/cworld0_cn',
-        text: 'subscribers',
-        api: 'telegram/cworld0_cn'
+        link: 'https://github.com/byx2020',
+        text: '追随者',
+        api: 'github/byx2020'
       },
       {
         platform: 'Steam',
         icon: 'steam',
         color: '#50769d',
-        link: 'https://steamcommunity.com/id/cworld',
-        text: 'games',
-        api: 'steamgames/76561199021278120'
+        link: 'https://steamcommunity.com/id/byx2020',
+        text: '游戏数',
+        api: 'steamgames/76561199087204454'
+      },
+      {
+        platform: '网易云音乐',
+        icon: 'netease',
+        color: '#c20c0c',
+        link: 'https://music.163.com/#/playlist?id=619361927',
+        text: '歌曲数',
+        api: 'neteasemusic/431857556'
+      },
+      {
+        platform: '哔哩哔哩',
+        icon: 'bilibili',
+        color: '#00a1d6',
+        link: 'https://space.bilibili.com/143571804',
+        text: '视频数',
+        api: 'bilibili/143571804'
+      },
+      {
+        platform: '酷安',
+        icon: 'coolapk',
+        color: '#11ab60',
+        link: 'https://www.coolapk.com/feed/62758373?s=OWU2NWE1MGYxNjNjOGZnNjlhNTcxZTJ6a1603',
+        text: '文章数',
+        api: 'coolapk/1457295'
+      },
+      {
+        platform: '小红书',
+        icon: 'rss',
+        color: '#DC143C',
+        link: 'https://www.xiaohongshu.com/user/profile/65e42e85000000000500d20f',
+        text: '笔记数',
+        api: 'xiaohongshu/65e42e85000000000500d20f'
+      },
+      {
+        platform: '百度贴吧',
+        icon: 'rss',
+        color: '#0000FF',
+        link: 'https://tieba.baidu.com/home/main?un=%E8%BE%B9%E7%BC%98%E6%98%9F2020',
+        text: '帖子数',
+        api: 'baidu/byx2020'
+
+      },
+      {
+        platform: 'Lofter',
+        icon: 'rss',
+        color: '#20B2AA',
+        link: 'https://byx2020.lofter.com/',
+        text: '文章数',
+        api: 'lofter/byx2020'
+      },
+      {
+        platform: 'NGA',
+        icon: 'rss',
+        color: '#B8860B',
+        link: 'https://bbs.nga.cn/read.php?tid=38216124',
+        text: '帖子数',
+        api: 'nga/62705620'
+      },
+      {
+        platform: '红警DIY',
+        icon: 'rss',
+        color: '#FFA500',
+        link: 'https://bbs.ra2diy.com/forum.php?mod=viewthread&tid=21688',
+        text: '主题数',
+        api: 'ra2diy/12951'
       }
     ]}
-  />
-
-  {/* gossips */}
-  <h2 id='gossips'>Gossips</h2>
-  <Collapse title='Lorem ipsum'>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio
-    possit voluptatum.
-  </Collapse>
+  /> */}
 
   {/* about-blog */}
-  <h2 id='about-blog'>About Blog</h2>
-  <p>Website history:</p>
+  <h2 id='about-blog'>关于本站</h2>
+  <p>网站历史：</p>
   <Timeline
     events={[
       {
-        date: '2024-04-29',
+        date: '2020-05-02',
         content:
-          'Website refactored using <a href="https://astro.build/" target="_blank">Astro</a> and <a href="https://github.com/srleom/astro-theme-resume" target="_blank">Astro Theme Resume</a>'
+          '网站诞生，基于 <a href="https://hexo.io/" target="_blank">Hexo</a> 框架的 <a href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank">Yun</a> 主题构建'
       },
       {
-        date: '2024-07-26',
+        date: '2020-11-12',
         content:
-          'Website abstracted as a theme and published on <a href="https://github.com/cworld1/astro-theme-pure"target="_blank">Github</a>'
+          '更换网站域名为 <a href="https://www.byx2020.com" target="_blank">byx2020.com</a>'
       },
       {
-        date: '2024-07-27',
-        content: 'Began writing website docs'
+        date: '2025-10-02',
+        content: 
+          '网站改版，基于 <a href="https://astro.build/" target="_blank">Astro</a> 框架的 <a href="https://github.com/cworld1/astro-theme-pure" target="_blank">Pure</a> 主题完全重构'
       }
     ]}
   />
   <p>
-    The smooth operation and personalized customization of website also rely on the resources and
-    technical support provided by the following excellent projects/service providers:
+    本网站当前使用了以下项目/服务商的资源与技术支持：
   </p>
   <ul>
-    <li>Domain: <a href='#' target='_blank'>Vercel</a></li>
+    <li>域名服务：<a href='https://www.cloudflare.com/' target='_blank'>CloudFlare</a></li>
     <li>
-      Framework & Theme: <a href='https://astro.build/' target='_blank'>Astro</a> + <a
-        href='https://github.com/cworld1/astro-theme-pure'
-        target='_blank'>Astro Theme Pure</a
-      >
+      框架主题：<a href='https://astro.build/' target='_blank'>Astro</a> + <a href='https://github.com/cworld1/astro-theme-pure' target='_blank'>Pure</a>
     </li>
     <li>
-      Site hosting: <a href='https://vercel.com/' target='_blank'>Vercel</a>
+      网站托管：<a href='https://vercel.com/' target='_blank'>Vercel</a> + <a href='https://netlify.com/' target='_blank'>Netlify</a>
     </li>
     <li>
-      CI/CD: <a href='https://vercel.com/workflow' target='_blank'>Vercel Workflow</a>
-    </li>
-    <li>Comment system: <a href='https://waline.js.org' target='_blank'>Waline</a></li>
-    <li>
-      Visits: <a href='https://supabase.com/' target='_blank'>Supabase</a> +
-      <a href='https://waline.js.org/' target='_blank'>Waline</a>
-    </li>
-    <li>
-      Other statistics: <a href='https://github.com/spencerwooo/substats' target='_blank'
-        >Substats</a
-      >
+      评论系统：<a href='https://waline.js.org' target='_blank'>Waline</a> + <a href='https://neon.com/' target='_blank'>NEON</a>
     </li>
   </ul>
 </PageLayout>
