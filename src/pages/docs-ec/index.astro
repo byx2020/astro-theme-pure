@@ -1,0 +1,39 @@
+---
+import { Button } from 'astro-pure/user'
+import { cn } from 'astro-pure/utils'
+import PageLayout from '@/layouts/BaseLayout.astro'
+import { integ } from '@/site-config'
+
+import DocsContents from './DocsContents.astro'
+
+const meta = {
+  title: 'EC文档',
+  description: 'EdgeCloud文档列表'
+}
+---
+
+<PageLayout {meta}>
+  <Button title='返回' href='/' variant='back' />
+  <main class='mt-6 lg:mt-10'>
+    <div id='content-header' class='animate'>
+      <h1 class='mb-6 text-3xl font-medium'>EdgeCloud文档列表</h1>
+    </div>
+
+    <div id='content' class={cn('animate mt-8 max-w-none md:min-w-[45ch]', integ.typography.class)}>
+      <h2 class='text-xl font-medium'>工具型Q群机器人文档</h2>
+      <DocsContents title={false} />
+
+      <h2 class='text-xl font-medium'>问题反馈</h2>
+      <p>
+        如果遇到通过查阅本文档仍不能解决的问题，可在EC官方群(第三边缘星云)反馈。
+      </p>
+      <p>
+        同时在反馈问题或提出建议之前，也应确认自己已经阅读过了上面的文档内容，否则一律视为无效反馈和建议。
+      </p>
+      <h2 class='text-xl font-medium'>RSS订阅(测试功能)</h2>
+      <!-- <p>
+        <a href='/docs-ec/rss.xml' target='_blank'><Icon name='rss' /> </a>
+      </p> -->
+    </div>
+  </main>
+</PageLayout>
