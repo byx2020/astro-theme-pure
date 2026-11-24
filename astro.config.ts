@@ -106,6 +106,13 @@ export default defineConfig({
 
   // [Markdown]
   markdown: {
+    // 显式启用 GFM（表格/删除线/任务列表等）。
+    // 根因：Astro 6 将 markdown.gfm 从 z.boolean().default(true) 改为 z.boolean().optional()，
+    // 导致 config.markdown.gfm 不再被填充为 true；而 astro-pure 注册的 mdx({ optimize: true })
+    // 未显式传 gfm，@astrojs/mdx 默认 extendMarkdownConfig:true 继承到 undefined，
+    // 使 .mdx 文件的 GFM 表格退化为带 "|" 的原始文本（.md 文件走 unified() 兜底 gfm=true 不受影响）。
+    // 此处显式 gfm:true 让 MDX 重新继承到 true，恢复表格渲染。
+    gfm: true,
     remarkPlugins: [remarkMath],
     rehypePlugins: [
       [rehypeKatex, {}],
