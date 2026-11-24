@@ -1,7 +1,6 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import AstroPureIntegration from 'astro-pure'
-import { defineConfig, fontProviders, svgoOptimizer } from 'astro/config'
-import type { FontProvider } from 'astro'
+import { defineConfig, svgoOptimizer } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 
@@ -76,33 +75,8 @@ export default defineConfig({
     // domains: ['ghchart.rshah.org'],
     remotePatterns: [{ protocol: 'https' }]
   },
-  // Enable font preloading and optimization
-  // https://docs.astro.build/en/guides/fonts/
-  // 使用本地自托管 Satoshi 可变字体（复用本地 public/fonts 的字体文件），
-  // 避免 fontshare CDN 网络依赖，同时保留 --font-satoshi 变量供主题 <Font> 组件使用。
-  fonts: [
-    {
-      // 类型断言为 FontProvider<Record<string, any>>，规避 tsconfig declaration:true 下
-      // local() 返回 FontProvider<LocalFamilyOptions>（LocalFamilyOptions 未导出）导致 ts(2883) 类型泄漏
-      provider: fontProviders.local() as FontProvider<Record<string, any>>,
-      name: 'Satoshi',
-      cssVariable: '--font-satoshi',
-      options: {
-        variants: [
-          {
-            src: ['./src/assets/fonts/Satoshi-Variable.ttf'],
-            weight: '100 900',
-            style: 'normal'
-          },
-          {
-            src: ['./src/assets/fonts/Satoshi-VariableItalic.ttf'],
-            weight: '100 900',
-            style: 'italic'
-          }
-        ]
-      }
-    }
-  ],
+  // 不再加载自定义字体：移除 Satoshi 本地字体配置，改用访问者设备已安装的系统字体
+  // （字体栈见 BaseHead.astro 的 body font-family），以提升加载速度。
 
   // [Markdown]
   markdown: {
