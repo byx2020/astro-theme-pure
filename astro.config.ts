@@ -1,4 +1,5 @@
-import { rehypeHeadingIds } from '@astrojs/markdown-remark'
+import { rehypeHeadingIds, unified } from '@astrojs/markdown-remark'
+import mdx from '@astrojs/mdx'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig, svgoOptimizer } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
@@ -80,26 +81,26 @@ export default defineConfig({
 
   // [Markdown]
   markdown: {
-    // 显式启用 GFM（表格/删除线/任务列表等）。
-    // 根因：Astro 6 将 markdown.gfm 从 z.boolean().default(true) 改为 z.boolean().optional()，
-    // 导致 config.markdown.gfm 不再被填充为 true；而 astro-pure 注册的 mdx({ optimize: true })
-    // 未显式传 gfm，@astrojs/mdx 默认 extendMarkdownConfig:true 继承到 undefined，
-    // 使 .mdx 文件的 GFM 表格退化为带 "|" 的原始文本（.md 文件走 unified() 兜底 gfm=true 不受影响）。
-    // 此处显式 gfm:true 让 MDX 重新继承到 true，恢复表格渲染。
-    gfm: true,
-    remarkPlugins: [remarkMath],
-    rehypePlugins: [
-      [rehypeKatex, {}],
-      rehypeHeadingIds,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: 'append',
-          properties: { className: ['anchor'] },
-          content: { type: 'text', value: '#' }
-        }
+    // 使用 Astro 6 推荐的 unified() 配置 remark/rehype 插件与 GFM，
+    // 替代已废弃的 markdown.remarkPlugins / rehypePlugins / gfm，消除 deprecation 警告。
+    // 注意：unified() 的 gfm 只作用于 .md 文件；.mdx 的 GFM 表格由下方 integrations 中
+    // 显式注册的 mdx({ gfm: true }) 保证（@astrojs/mdx 不会读取 processor 里的 gfm）。
+    processor: unified({
+      gfm: true,
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [
+        [rehypeKatex, {}],
+        rehypeHeadingIds,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: 'append',
+            properties: { className: ['anchor'] },
+            content: { type: 'text', value: '#' }
+          }
+        ]
       ]
-    ],
+    }),
     // https://docs.astro.build/en/guides/syntax-highlighting/
     shikiConfig: {
       themes: {
@@ -133,9 +134,12 @@ export default defineConfig({
 
   // [Integrations]
   integrations: [
+    // 显式注册 mdx 并启用 gfm，确保 .mdx 文件的 GFM 表格正常渲染
+    // （unified() 的 gfm 不影响 MDX）。astro-pure 会检测到已存在 @astrojs/mdx
+    // 而跳过其默认注册 mdx({ optimize: true })。
+    mdx({ gfm: true, optimize: true }),
     // astro-pure will automatically add sitemap, mdx & unocss
     // sitemap(),
-    // mdx(),
     AstroPureIntegration(config)
   ],
 
