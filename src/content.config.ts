@@ -11,8 +11,9 @@ function removeDupsAndLowerCase(array: string[]) {
 
 // Define blog collection
 const blog = defineCollection({
-  // Load Markdown and MDX files in the `src/content/blog/` directory.
-  loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
+  // Load Markdown and MDX files in the `src/content/posts/` directory.
+  // 注：目录名沿用本地 `posts`（原 blog→posts 语义改名，保留 /posts URL）。
+  loader: glob({ base: './src/content/posts', pattern: '**/*.{md,mdx}' }),
   // Required
   schema: ({ image }) =>
     z.object({
@@ -36,6 +37,7 @@ const blog = defineCollection({
       language: z.string().optional(),
       draft: z.boolean().default(false),
       pin: z.boolean().optional(),
+      hide: z.boolean().default(false),
       // Special fields
       comment: z.boolean().default(true)
     })
@@ -52,9 +54,61 @@ const docs = defineCollection({
       updatedDate: z.coerce.date().optional(),
       tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
       draft: z.boolean().default(false),
+      hide: z.boolean().default(false),
       // Special fields
       order: z.number().default(999)
     })
 })
 
-export const collections = { blog, docs }
+// Define docs_ec collection（EdgeCloud 群文档）
+const docs_ec = defineCollection({
+  loader: glob({ base: './src/content/docs-ec', pattern: '**/*.{md,mdx}' }),
+  schema: () =>
+    z.object({
+      title: z.string().max(60),
+      description: z.string().max(160),
+      publishDate: z.coerce.date().optional(),
+      updatedDate: z.coerce.date().optional(),
+      tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+      draft: z.boolean().default(false),
+      hide: z.boolean().default(false),
+      // Special fields
+      order: z.number().default(999)
+    })
+})
+
+// Define docs_zxs collection（红警2 群文档）
+const docs_zxs = defineCollection({
+  loader: glob({ base: './src/content/docs-zxs', pattern: '**/*.{md,mdx}' }),
+  schema: () =>
+    z.object({
+      title: z.string().max(60),
+      description: z.string().max(160),
+      publishDate: z.coerce.date().optional(),
+      updatedDate: z.coerce.date().optional(),
+      tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+      draft: z.boolean().default(false),
+      hide: z.boolean().default(false),
+      // Special fields
+      order: z.number().default(999)
+    })
+})
+
+// Define docs_qq collection（QQ 群文档）
+const docs_qq = defineCollection({
+  loader: glob({ base: './src/content/docs-qq', pattern: '**/*.{md,mdx}' }),
+  schema: () =>
+    z.object({
+      title: z.string().max(60),
+      description: z.string().max(160),
+      publishDate: z.coerce.date().optional(),
+      updatedDate: z.coerce.date().optional(),
+      tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+      draft: z.boolean().default(false),
+      hide: z.boolean().default(false),
+      // Special fields
+      order: z.number().default(999)
+    })
+})
+
+export const collections = { blog, docs, docs_ec, docs_zxs, docs_qq }

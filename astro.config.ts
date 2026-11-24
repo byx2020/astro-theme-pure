@@ -26,10 +26,10 @@ import {
 import config from './src/site.config.ts'
 
 // 动态判断部署平台（依赖平台自动注入的环境变量）
-// - Vercel 注入 VERCEL；Netlify 注入 NETLIFY；
+// - Netlify 注入 NETLIFY；
 // - Cloudflare Pages 注入 CF_PAGES，Cloudflare Workers（新版统一体验）注入 WORKERS_CI，
-//   CLOUDFLARE 为兼容兜底。
-const isVercel = !!process.env.VERCEL
+//   CLOUDFLARE 为兼容兜底；
+// - Vercel 为默认分支（未命中上两者即 Vercel / 本地开发），无需显式检测。
 const isNetlify = !!process.env.NETLIFY
 const isCloudflare = !!process.env.CF_PAGES || !!process.env.CLOUDFLARE || !!process.env.WORKERS_CI
 
