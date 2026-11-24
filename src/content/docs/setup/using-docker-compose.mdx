@@ -1,196 +1,194 @@
 ---
 title: 'Docker Compose'
-description: 'Develop & deploy theme using Docker Compose'
+description: '使用 Docker Compose 开发与部署主题'
 order: 2
 ---
 
 import { Aside } from 'astro-pure/user'
 
-Astro Theme Pure provides Docker Compose workflows for development, building, previewing and content creation in an isolated Bun container. This allows you to perform these workflows inside Docker without installing Bun or its dependencies or running the tooling directly on your host.
+Astro Theme Pure 提供了 Docker Compose 工作流，用于在隔离的 Bun 容器中进行开发、构建、预览和内容创建。这使你无需在主机上安装 Bun 及其依赖，也不必直接在主机上运行相关工具，即可在 Docker 内完成这些工作流。
 
 <Aside type='tip'>
-  To build using Docker manually, please refer to [Astro: Build your Astro site with
-  Docker](https://docs.astro.build/en/recipes/docker/).
+  如需手动使用 Docker 构建，请参阅 [Astro：使用 Docker 构建你的 Astro 网站](https://docs.astro.build/en/recipes/docker/)。
 </Aside>
 
-## Requirements
+## 环境要求
 
-- [Docker Desktop](https://docs.docker.com/get-started/get-docker/) with [Docker Compose](https://docs.docker.com/compose/install) support.
+- [Docker Desktop](https://docs.docker.com/get-started/get-docker/)，需支持 [Docker Compose](https://docs.docker.com/compose/install)。
 
-Verify your installation:
+验证你的安装：
 
 ```shell
 docker --version
 docker compose version
 ```
 
-## How it works
+## 工作原理
 
-The included Docker environment uses:
+随附的 Docker 环境使用：
 
-- **Bun** via the official `oven/bun:debian` image
-- A shared Docker image built from the repository `Dockerfile`
-- Compose profiles to run specific workflows
-- Named Docker volumes for build artifacts and dependencies
+- **Bun**，基于官方 `oven/bun:debian` 镜像
+- 由仓库 `Dockerfile` 构建的共享 Docker 镜像
+- Compose profiles 以运行特定的工作流
+- 用于构建产物和依赖的命名 Docker 卷
 
-The Docker image:
+该 Docker 镜像：
 
-- Installs project dependencies with `bun install --frozen-lockfile`
-- Disables Astro telemetry
-- Exposes port `4321`
-- Uses `/web` as the working directory
+- 通过 `bun install --frozen-lockfile` 安装项目依赖
+- 禁用 Astro 遥测
+- 暴露端口 `4321`
+- 使用 `/web` 作为工作目录
 
-All services reuse the same image and only start when the corresponding profile is selected.
+所有服务复用同一镜像，仅在选中对应 profile 时才会启动。
 
-## Available profiles
+## 可用的 profiles
 
-Each workflow is exposed through a Docker Compose profile. Select the profile corresponding to the task you want to perform:
+每个工作流通过一个 Docker Compose profile 暴露。选择与你想要执行的任务对应的 profile：
 
-| Profile   | What it does                                                                                                                                               |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `build`   | Runs `astro build` inside the container and copies the output into your local `./dist` directory.                                                          |
-| `dev`     | Starts the Astro dev server at http://localhost:4321 with your source files bind-mounted, so edits are picked up immediately without rebuilding the image. |
-| `preview` | Runs the `build` profile first, then serves the production build with `astro preview` at http://localhost:4321 once the build finishes.                    |
-| `new`     | Runs `astro-pure new` to scaffold a new article, without leaving a container running afterwards.                                                           |
+| Profile   | 作用                                                                                                                            |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `build`   | 在容器内运行 `astro build`，并将输出复制到本地 `./dist` 目录。                                                                   |
+| `dev`     | 在 http://localhost:4321 启动 Astro 开发服务器，源文件以 bind-mount 方式挂载，编辑后无需重建镜像即可立即生效。                     |
+| `preview` | 先运行 `build` profile，构建完成后通过 `astro preview` 在 http://localhost:4321 提供生产构建的服务。                              |
+| `new`     | 运行 `astro-pure new` 脚手架创建新文章，运行结束后不会留下持续运行的容器。                                                        |
 
-## Building for production
+## 生产构建
 
-Generate a production build:
+生成生产构建：
 
 ```shell
 docker compose --profile build up --build
 ```
 
-The build process:
+构建过程：
 
-1. Runs `bun run build`
-2. Creates the Astro production output inside the container
-3. Copies the generated files into your local `./dist` directory
+1. 运行 `bun run build`
+2. 在容器内创建 Astro 生产输出
+3. 将生成的文件复制到本地 `./dist` 目录
 
-After the build completes, the generated site is available in:
+构建完成后，生成的站点位于：
 
 ```text
 ./dist
 ```
 
-The build container exits automatically when finished.
+构建容器在完成后会自动退出。
 
-## Rebuilding the Docker image
+## 重建 Docker 镜像
 
-The `--build` flag forces Docker Compose to rebuild the image before starting services.
+`--build` 标志会强制 Docker Compose 在启动服务前重建镜像。
 
-Use it when:
+在以下情况使用它：
 
-- Updating project dependencies
-- Modifying `package.json`
-- Changing the `Dockerfile`
-- Switching to a branch with dependency changes
+- 更新项目依赖
+- 修改 `package.json`
+- 更改 `Dockerfile`
+- 切换到带有依赖变更的分支
 
-Example:
+示例：
 
 ```shell
 docker compose --profile dev up --build
 ```
 
 <Aside type='tip'>
-  Running `--build` again does not necessarily rebuild every layer from scratch. Docker reuses
-  cached layers when possible, so unchanged dependencies and other build steps can still be cached.
+  再次运行 `--build` 并不一定会从头重建每一层。Docker 会尽可能复用缓存层，因此未变更的依赖和其他构建步骤仍可被缓存。
 </Aside>
 
-## Development
+## 开发
 
-Start the Astro development server:
+启动 Astro 开发服务器：
 
 ```shell
 docker compose --profile dev up --build
 ```
 
-The site will be available at:
+站点将可通过以下地址访问：
 
 ```text
 http://localhost:4321
 ```
 
-### Hot reloading
+### 热重载
 
-Your project directory is mounted directly into the container:
+你的项目目录会直接挂载到容器中：
 
 ```yaml
 - .:/web
 ```
 
-This means changes to source files are immediately visible inside the container, allowing Astro's development server to hot reload automatically.
+这意味着源文件的变更会立即在容器内可见，从而让 Astro 开发服务器自动进行热重载。
 
-Project dependencies are stored in a dedicated Docker volume:
+项目依赖存储在专用的 Docker 卷中：
 
 ```yaml
 - node_modules:/web/node_modules
 ```
 
-This avoids conflicts between container-managed dependencies and any local environment.
+这样可以避免容器管理的依赖与任何本地环境之间的冲突。
 
-To stop the development server, press <kbd>Ctrl</kbd> + <kbd>C</kbd>.
+如需停止开发服务器，请按 <kbd>Ctrl</kbd> + <kbd>C</kbd>。
 
-## Previewing a production build
+## 预览生产构建
 
-To build and serve the production output:
+构建并提供生产输出的服务：
 
 ```shell
 docker compose --profile preview up --build
 ```
 
-The preview workflow:
+预览工作流：
 
-1. Executes the `build` service
-2. Shares the generated files through a Docker volume
-3. Starts Astro Preview
+1. 执行 `build` 服务
+2. 通过 Docker 卷共享生成的文件
+3. 启动 Astro Preview
 
-The production preview is available at:
+生产预览可通过以下地址访问：
 
 ```text
 http://localhost:4321
 ```
 
-This is useful for verifying behavior closer to a production deployment than the development server.
+这有助于验证比开发服务器更接近生产部署的行为。
 
-## Creating an article
+## 创建文章
 
-Astro Theme Pure provides a command for scaffolding new articles that can be run without installing dependencies locally.
+Astro Theme Pure 提供了一个脚手架创建新文章的命令，无需在本地安装依赖即可运行。
 
-Create a new article:
+创建新文章：
 
 ```shell
 docker compose --profile new run --rm new
 ```
 
-This executes:
+这会执行：
 
 ```shell
 bun run pure new
 ```
 
-The container mounts only the content directory:
+该容器只挂载内容目录：
 
 ```yaml
 - ./src/content:/web/src/content
 ```
 
-Any generated content is written directly into your project.
+生成的内容会直接写入你的项目。
 
-The `--rm` flag automatically removes the temporary container after the command completes.
+`--rm` 标志会在命令完成后自动删除临时容器。
 
-## Cleaning up
+## 清理
 
-Stop containers and remove Compose resources:
+停止容器并移除 Compose 资源：
 
 ```shell
 docker compose down
 ```
 
-Remove associated volumes as well:
+同时移除关联的卷：
 
 ```shell
 docker compose down --volumes
 ```
 
-This removes cached build output and installed dependencies stored in Docker volumes.
+这会删除存储在 Docker 卷中的缓存构建输出和已安装的依赖。

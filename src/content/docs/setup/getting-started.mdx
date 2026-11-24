@@ -1,41 +1,41 @@
 ---
-title: 'Getting Started'
-description: 'Get started with the Astro Theme Pure'
+title: '快速开始'
+description: 'Astro Theme Pure 快速入门'
 order: 1
 ---
 
 import { Steps, Aside, Tabs, TabItem } from 'astro-pure/user'
 
-## Installation
+## 安装
 
-Two way to install. "Template" way is lightweight and simple, but hard to update; while "Fork" way is easy to update but needs some skills for git.
+有两种安装方式。“模板”方式轻量简单，但难以更新；而“Fork”方式便于更新，但需要一些 Git 操作技巧。
 
-### Install Using Template
+### 通过模板安装
 
 <Aside type='tip'>
-Astro has a great article teaching you setting up project: [Install and set up Astro #Use a theme or starter template](https://docs.astro.build/en/install-and-setup/#use-a-theme-or-starter-template) 
+Astro 有一篇很棒的文章教你搭建项目：[安装并设置 Astro #使用主题或启动模板](https://docs.astro.build/en/install-and-setup/#use-a-theme-or-starter-template)
 </Aside>
 
 <Steps>
 
-1. Install the theme
+1. 安装主题
 
-   Execute the following command in the your user directory to install the theme:
-   
+   在你的用户目录下执行以下命令以安装主题：
+
    <Tabs>
    <TabItem label='bun'>
    ```shell
    bun create astro@latest --template cworld1/astro-theme-pure
    ```
    <Aside type='tip'>
-   For Bun, if the installation is slow, it is recommended to use a mirror configuration by creating `bunfig.toml` under the project root directory:
+   对于 Bun，若安装速度较慢，建议在项目根目录下创建 `bunfig.toml` 文件配置镜像：
 
    ```toml title="bunfig.toml"
    [install]
-   registry = "<npm mirror site>"
+   registry = "<npm镜像地址>"
    ```
 
-   For details about other PM mirror configs, you may need to see their official documents.
+   其他包管理器（PM）的镜像配置详情，你可能需要查看它们的官方文档。
    </Aside>
    </TabItem>
    <TabItem label='pnpm'>
@@ -55,36 +55,36 @@ Astro has a great article teaching you setting up project: [Install and set up A
    </TabItem>
    </Tabs>
 
-   By default, this command will use the template repository’s main branch. To use a different branch name, pass it as part of the `--template` argument: `cworld1/astro-theme-pure#<branch>`.
+   默认情况下，该命令会使用模板仓库的 `main` 分支。若要使用其他分支，可在 `--template` 参数中指定分支名：`cworld1/astro-theme-pure#<branch>`（将 `<branch>` 替换为目标分支名）。
 
-2. Answer the questions and follow the instructions of the CLI wizard.
+2. 回答 CLI 向导的问题并遵循其指示操作。
 
-3. VOILA!
+3. 完成！
 
-   You can now [start the Astro dev server](https://docs.astro.build/en/install-and-setup/#start-the-astro-dev-server) and see a live preview of your project while you make it your own!
+   现在你可以[启动 Astro 开发服务器](https://docs.astro.build/en/install-and-setup/#start-the-astro-dev-server)，在自定义项目时查看实时预览效果了！
 
 </Steps>
 
-### Install Using Fork
+### 通过 Fork 安装
 
-You only need to [click fork button at theme repository](https://github.com/cworld1/astro-theme-pure/fork) to create your project; then clone the forked repository to your local machine.
+你只需[点击主题仓库的 Fork 按钮](https://github.com/cworld1/astro-theme-pure/fork)创建自己的项目，然后将 Fork 后的仓库克隆到本地机器即可。
 
 ```shell
-git clone https://github.com/<your-username>/astro-theme-pure.git
+git clone https://github.com/<你的用户名>/astro-theme-pure.git
 ```
 
-Then, you can start the Astro dev server and see a live preview of your project while you make it your own!
+之后，你就可以启动 Astro 开发服务器，在自定义项目时查看实时预览效果了！
 
-## Start the Dev Server
+## 启动开发服务器
 
 <Aside type='tip'>
-For container-based workflows using [Docker](https://docs.docker.com/get-started/get-docker) & [Docker Compose](https://docs.docker.com/compose/install), please refer to the [Using Docker Compose](/docs/setup/using-docker-compose) documentation.
+对于基于容器的工作流，如需使用 [Docker](https://docs.docker.com/get-started/get-docker) 与 [Docker Compose](https://docs.docker.com/compose/install)，请参阅 [使用 Docker Compose](/docs/setup/using-docker-compose) 文档。
 </Aside>
 
-Go to your project directory:
+进入你的项目目录：
 
 ```shell
-cd ./<your-project>
+cd ./<你的项目名>
 ```
 
 <Tabs>
@@ -110,49 +110,48 @@ npm run dev
 </TabItem>
 </Tabs>
 
-Next, please read the configuration notes first and continue configuring the theme.
+接下来，请先阅读配置说明，再继续配置主题。
 
-## Migrate to Astro
+## 迁移到 Astro
 
-See [Astro: Migrate an existing project to Astro](https://docs.astro.build/en/guides/migrate-to-astro/).
+参见 [Astro：将现有项目迁移到 Astro](https://docs.astro.build/en/guides/migrate-to-astro/)。
 
-## Theme File Structure
+## 主题文件结构
 
-The theme file structure is as follows:
+主题的文件结构如下：
 
-- `public`: Static resources that will be copied to the root directory
-- `src`:
-  - `assets`: Static resources
-  - `components`: Components used in the theme, also include user-like components, like `Card`, `Collapse`, `Spoiler`, etc.
-  - `layouts`: Basic site layouts
-  - `pages`: Pages like `404`, `about`, `blog`, `docs`, `index`, etc.
-  - `plugins`: Extended plugins used in the theme
-  - `types`: Typescript type definitions
-  - `utils`: Utilities
-  - `site.config.ts`: Theme configuration file
-- `astro.config.ts`: Astro configuration file
-- `eslint.config.mjs`: ESLint configuration file
-- `prettier.config.mjs`: Prettier configuration file
-- `uno.config.ts`: UnoCSS configuration file
-- `tsconfig.json`: Typescript configuration file
-- `package.json`: Package information
-- `Dockerfile`: Docker build setup for local development
-- `compose.yml`: Docker Compose configuration for local dev and preview
+- `public`：将被复制到根目录的静态资源
+- `src`：
+  - `assets`：静态资源
+  - `components`：主题中使用的组件，也包含用户常用组件（如 `Card`、`Collapse`、`Spoiler` 等）
+  - `layouts`：网站基础布局组件
+  - `pages`：页面文件（如 `404`、`about`、`blog`、`docs`、`index` 等页面）
+  - `plugins`：主题中使用的扩展插件
+  - `types`：TypeScript 类型定义文件
+  - `utils`：工具函数
+  - `site.config.ts`：主题核心配置文件
+- `astro.config.ts`：Astro 框架配置文件
+- `eslint.config.mjs`：ESLint 代码检查配置文件
+- `prettier.config.mjs`：Prettier 代码格式化配置文件
+- `uno.config.ts`：UnoCSS 样式框架配置文件
+- `tsconfig.json`：TypeScript 编译配置文件
+- `package.json`：项目包信息
+- `Dockerfile`：用于本地开发的 Docker 构建配置
+- `compose.yml`：用于本地开发和预览的 Docker Compose 配置
 
-## Simple Setup
-
+## 简单配置
 
 <Steps>
 
-1. Remove docs files
+1. 删除文档文件
 
-   - Remove the `src/pages/docs` directory
-   - Remove the menu declaration in `src/site.config.ts`:
-   
+   - 删除 `src/pages/docs` 目录
+   - 删除 `src/site.config.ts` 中的文档菜单声明：
+
    ```ts title="src/site.config.ts"
    export const theme: ThemeUserConfig = {
       // ...
-      /** Configure the header of your site. */
+      /** 配置网站头部 */
       header: {
          menu: [
             { title: 'Blog', link: '/blog' },
@@ -163,7 +162,7 @@ The theme file structure is as follows:
    }
    ```
 
-   - Remove the Content Collection for docs in `src/content.config.ts`:
+   - 删除 `src/content.config.ts` 中文档相关的内容集合配置：
 
    ```ts title="src/content.config.ts"
    const docs = defineCollection({ // [!code --]
@@ -177,9 +176,9 @@ The theme file structure is as follows:
    export const collections = { blog } // [!code ++]
    ```
 
-2. Remove `packages` directory (this will be imported by our NPM package).
+2. 删除 `packages` 目录（该目录将通过 NPM 包自动导入）。
 
-   And remember to change the `workspaces` field in `package.json`:
+   同时记得修改 `package.json` 中的 `workspaces` 字段：
 
    ```json title="package.json"
    {
@@ -191,37 +190,37 @@ The theme file structure is as follows:
    }
    ```
 
-3. Change the site favicon.
+3. 修改网站图标（Favicon）
 
    <Aside type='tip'>
-   [Favicon.io](https://favicon.io/) is a great tool that can help you generate favicons quickly.
+   [Favicon.io](https://favicon.io/) 是一个实用工具，可帮助你快速生成图标文件。
    </Aside>
 
-   Replace the `public/favicon/*` files with your own favicon.
+   将 `public/favicon/*` 目录下的文件替换为你自己的图标文件。
 
-4. Replace your avatar image.
+4. 替换头像图片
 
-   Replace the `src/assets/avatar.png` file with your own avatar image.
+   将 `src/assets/avatar.png` 文件替换为你自己的头像图片。
 
-5. Configure the site
+5. 配置网站信息
 
-   You can configure your project inside the `src/site.config.ts` configuration file:
+   你可以在 `src/site.config.ts` 配置文件中自定义项目信息：
 
    ```ts title="src/site.config.ts"
    export const theme: ThemeUserConfig = {
-      author: 'CWorld',
-      title: 'Astro Theme Pure',
-      site: 'https://astro-pure.js.org',
-      description: 'Stay hungry, stay foolish',
-      // ...
+      author: 'CWorld', // 作者名
+      title: 'Astro Theme Pure', // 网站标题
+      site: 'https://astro-pure.js.org', // 网站域名
+      description: 'Stay hungry, stay foolish', // 网站描述
+      // ...（其他配置项）
    }
 
-   export const integ: IntegrationUserConfig = { /* ... */ }
+   export const integ: IntegrationUserConfig = { /* ...（集成工具配置） */ }
    // ...
    ```
 
-6. Typescript Syntax
+6. TypeScript 语法说明
 
-   The configuration file `site.config.ts` uses Typescript syntax. If you are not familiar with TS syntax, please read about it [here](https://learnxinyminutes.com/docs/typescript/) first.
+   配置文件 `site.config.ts` 使用 TypeScript 语法。若你不熟悉 TS 语法，建议先[点击这里](https://learnxinyminutes.com/docs/typescript/)了解相关基础内容。
 
 </Steps>

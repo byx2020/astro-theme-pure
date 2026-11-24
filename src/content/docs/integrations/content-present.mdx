@@ -1,18 +1,18 @@
 ---
-title: 'Content Presentation'
-description: 'About Content Page Rendering'
+title: '内容展示'
+description: '关于内容页面渲染'
 order: 5
 ---
 
 import { MdxRepl } from 'astro-pure/user'
 
-## Shiki Code
+## Shiki 代码
 
-You can change transformer at `defineConfig.markdown.shikiConfig` in config file `astro.config.ts`.
+你可以在配置文件 `astro.config.ts` 的 `defineConfig.markdown.shikiConfig` 中更改转换器。
 
-### Basic Usage
+### 基本用法
 
-For `.astro` file:
+对于 `.astro` 文件：
 
 ```astro
 ---
@@ -22,7 +22,7 @@ import { Code } from 'astro:components'
 <Code lang='shell' code={`git log --oneline`} />
 ```
 
-For `.mdx` and `.md` file:
+对于 `.mdx` 和 `.md` 文件：
 
 ````markdown
 ```shell
@@ -30,7 +30,7 @@ git log --oneline
 ```
 ````
 
-### Add Title
+### 添加标题
 
 <MdxRepl width='80%'>
 ```shell title="start.sh"
@@ -52,9 +52,9 @@ bun dev
 </Fragment>
 </MdxRepl>
 
-### Show Diff
+### 显示差异
 
-Supports add and del lines.
+支持新增和删除行。
 
 <MdxRepl width='80%'>
 ```shell title="deploy.sh"
@@ -84,7 +84,7 @@ git push
 </Fragment>
 </MdxRepl>
 
-### Show Highlight
+### 显示高亮
 
 <MdxRepl width='80%'>
 ```html
@@ -134,9 +134,9 @@ function draw(t,c) { ctx.fillStyle=c; ctx.fillRect(t%sz*sz+1,~~(t/sz)*sz+1,sz-2,
 </Fragment>
 </MdxRepl>
 
-## Content Obsolete Warning
+## 内容过时提醒
 
-Add a warning message if the article is old enough.
+如果文章足够旧，添加一条提醒消息。
 
 ```astro title="src/layouts/BlogPost.astro"
 ---
@@ -156,10 +156,10 @@ Add a warning message if the article is old enough.
   </Hero>
 ```
 
-It will render like this:
+渲染效果如下：
 
 {
   <p class='mt-1 text-sm italic text-primary' style='--primary:41 90% 50%'>
-    This article was last updated over a year ago. Some information may be outdated.
+    这篇文章上次更新已超过一年，部分信息可能已过时。
   </p>
 }

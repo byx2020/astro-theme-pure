@@ -1,22 +1,22 @@
 ---
-title: 'Other Integrations'
-description: 'Other integrations that help improve your site'
+title: '其他集成'
+description: '有助于改进网站的其他集成'
 ---
 
 import { Aside, Tabs, TabItem, Steps } from 'astro-pure/user'
 
-<Aside>Docs are still in progress.</Aside>
+<Aside>文档仍在完善中。</Aside>
 
 ## `medium-zoom`
 
-Checkout [medium-zoom](https://github.com/francoischalifour/medium-zoom) for more.
+查看 [medium-zoom](https://github.com/francoischalifour/medium-zoom) 了解更多。
 
 ```ts title="src/site.config.ts"
 export const integ: IntegrationUserConfig = {
   // ...
-  // A lightbox library that can add zoom effect
+  // 一个可添加缩放效果的灯箱库
   mediumZoom: {
-    enable: true, // disable it will not load the whole library
+    enable: true, // 禁用将不会加载整个库
     selector: '.prose .zoomable',
     options: {
       className: 'zoomable'
@@ -25,7 +25,7 @@ export const integ: IntegrationUserConfig = {
 }
 ```
 
-This theme has integrated it in `BlogPost.astro` by default, which means any content in `src/content/blog` doesn't need to import. If you want to use it in any other layout or page, you can use the following code:
+本主题默认已在 `BlogPost.astro` 中集成了它，这意味着 `src/content/blog` 中的任何内容无需导入。如果想在其他布局或页面中使用，可以使用以下代码：
 
 <Tabs>
 <TabItem label='Astro'>
@@ -39,7 +39,7 @@ import { MediumZoom } from 'astro-pure/advanced'
 </div>
 
 <MediumZoom />
-{/* Or with configs */}
+{/* 也可带配置 */}
 <MediumZoom
   selector=".prose .zoomable"
   background="rgba(0, 0, 0, 0.7)"
@@ -50,11 +50,11 @@ import { MediumZoom } from 'astro-pure/advanced'
 ```tsx
 import { MediumZoom } from 'astro-pure/advanced'
 
-// .zoomable class will automatically added using remark plugin
+// remark 插件会自动添加 .zoomable 类
 ![](path/to/image.jpg)
 
 <MediumZoom />
-// Or with configs
+// 也可带配置
 <MediumZoom
   selector=".prose .zoomable"
   background="rgba(0, 0, 0, 0.7)"
@@ -66,31 +66,31 @@ import { MediumZoom } from 'astro-pure/advanced'
 
 ## `@playform/compress`
 
-Checkout [playform/compress](https://github.com/PlayForm/Compress) for more.
+查看 [playform/compress](https://github.com/PlayForm/Compress) 了解更多。
 
 ## Friend-Circle-Lite
 
-See [Friend Links #Integrated with `Friend-Circle-Lite`](/docs/integrations/links#integrated-with-friend-circle-lite).
+参见 [友链 #与 `Friend-Circle-Lite` 集成](/docs/integrations/links#integrated-with-friend-circle-lite)。
 
-## LateX support
+## LateX 支持
 
-In case any time in the future this theme removes default support for LateX, there's a tutorial to help you add support for it.
+若将来本主题移除了对 LateX 的默认支持，以下教程可帮助你添加支持。
 
-Rendering LaTeX in Astro.js enriches your markdown files with mathematical expressions, making your content both engaging and informative. The following steps outline the necessary steps to integrate LaTeX into Astro.js and addresses potential pitfalls along with their solutions.
+在 Astro.js 中渲染 LaTeX 可以为你的 markdown 文件添加数学表达式，使内容更具吸引力和信息量。以下步骤概述了将 LaTeX 集成到 Astro.js 中的必要步骤，并说明了可能遇到的问题及其解决方案。
 
 <Steps>
 
-1. Install Necessary Packages
+1. 安装必要的包
 
-   Begin by installing `remark-math` and `rehype-katex`. These packages parse and render LaTeX respectively. Use the install commands:
+   首先安装 `remark-math` 和 `rehype-katex`。这些包分别用于解析和渲染 LaTeX。使用以下安装命令：
 
    ```shell
    bun install remark-math rehype-katex
    ```
 
-2. Configure Astro
+2. 配置 Astro
 
-   Modify your Astro configuration to use these plugins. Add the plugins to the markdown configuration section in your `astro.config.ts`:
+   修改你的 Astro 配置以使用这些插件。将插件添加到 `astro.config.ts` 中的 markdown 配置部分：
 
    ```js title="astro.config.ts"
    import { defineConfig } from 'astro/config';
@@ -106,9 +106,9 @@ Rendering LaTeX in Astro.js enriches your markdown files with mathematical expre
    });
    ```
 
-3. Include KaTeX CSS
+3. 引入 KaTeX CSS
 
-   To ensure that LaTeX formulas are styled correctly, include the KaTeX CSS in your HTML layout (in this theme it would be in the `BlogPost.astro` file). Add the following css resources:
+   为确保 LaTeX 公式样式正确，在你的 HTML 布局中引入 KaTeX CSS（在本主题中是 `BlogPost.astro` 文件）。添加以下 CSS 资源：
 
    ```astro title="src/layouts/BlogPost.astro"
    ---
@@ -116,7 +116,7 @@ Rendering LaTeX in Astro.js enriches your markdown files with mathematical expre
    ---
    ```
 
-   Or use CDN to fasten speed:
+   或者使用 CDN 加快速度：
 
    ```astro title="src/layouts/BlogPost.astro"
    ---
@@ -125,9 +125,9 @@ Rendering LaTeX in Astro.js enriches your markdown files with mathematical expre
    <link rel="stylesheet" href={`${config.npmCDN}/katex@0.16.15/dist/katex.min.css`}>
    ```
 
-4. Some CSS code is recommended:
+4. 建议添加一些 CSS 代码：
 
-   To ensure that the LaTeX formulas are displayed better, you may need to add the following code to `public/styles/global.css`:
+   为确保 LaTeX 公式显示效果更好，你可能需要将以下代码添加到 `public/styles/global.css`：
 
    ```css
    span.katex-display {
@@ -151,16 +151,16 @@ Rendering LaTeX in Astro.js enriches your markdown files with mathematical expre
 
 </Steps>
 
-Common Pitfalls and Solutions:
+常见问题及解决方案：
 
-- CSS Styling Issues
+- CSS 样式问题
   
-  Problem: LaTeX formulas might not render with the correct styles if the KaTeX CSS isn’t loaded.
+  问题：如果未加载 KaTeX CSS，LaTeX 公式可能无法以正确样式渲染。
 
-  Solution: Confirm the KaTeX stylesheet link is correctly placed in the HTML head and is loading without issues. Check for network errors or restrictions that might prevent the CSS from loading.
+  解决方案：确认 KaTeX 样式表链接正确放置在 HTML 头部，且能正常加载。检查是否有网络错误或限制导致 CSS 无法加载。
 
-- Build Errors
+- 构建错误
 
-  Problem: Errors during build time when processing LaTeX syntax.
+  问题：处理 LaTeX 语法时在构建阶段出现错误。
 
-  Solution: Ensure that your LaTeX is correctly formatted and that there are no syntax errors in your markdown files. LaTeX syntax errors can break the parser and cause build failures.
+  解决方案：确保你的 LaTeX 格式正确，且 markdown 文件中没有语法错误。LaTeX 语法错误可能会导致解析器出错，进而导致构建失败。
