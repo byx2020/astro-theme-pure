@@ -1,0 +1,14 @@
+# Cloudflare Pages 部署配置（@astrojs/cloudflare 12.x）
+# 构建产物输出到 ./dist（由适配器生成 _worker.js + _routes.json）
+#
+# 构建环境（官方 build-image 文档，2026-10 更新）：Cloudflare Pages v3 构建镜像
+# 预装 Bun 1.4.4 / Node.js 22.23.4 / npm 10.9.9，`bun run build` 与 `npm run build`
+# 均可直接构建，无需绕开 bun（v1 已于 2026-09-15 迁移 v3，v2 将于 2027-02-23 迁移 v3）。
+# 如需固定 Bun 版本，请将 BUN_VERSION 设为具体版本号（勿用 "latest"，会因 asdf
+# 拉取版本列表失败返回 403）。
+name = "astro-theme-pure"
+compatibility_date = "2025-05-21"
+pages_build_output_dir = "./dist"
+
+# 开启 Node.js API 兼容（运行时主要依赖纯 JS，开启以规避部分依赖的 Node API 调用）
+compatibility_flags = ["nodejs_compat"]

@@ -6,6 +6,9 @@
     "dev": "astro dev",
     "dev:check": "astro check --watch & astro dev",
     "build": "astro-pure check && astro check && astro build",
+    "build:vercel": "astro-pure check && astro check && VERCEL=1 astro build",
+    "build:netlify": "astro-pure check && astro check && NETLIFY=true astro build",
+    "build:cloudflare": "astro-pure check && astro check && CF_PAGES=1 astro build",
     "preview": "astro preview",
     "sync": "astro sync",
     "check": "astro check",
@@ -19,6 +22,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/cloudflare": "^12.6.13",
     "@astrojs/netlify": "^6.5.13",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/vercel": "^8.2.2",

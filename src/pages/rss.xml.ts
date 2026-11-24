@@ -80,4 +80,5 @@ const GET = async (context: AstroGlobal) => {
   })
 }
 
+export const prerender = true
 export { GET }
