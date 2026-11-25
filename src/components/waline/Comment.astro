@@ -40,6 +40,12 @@ const { class: className } = Astro.props
         emoji,
         reaction: ['/icons/heart-item.svg'],
         ...walineConfig.additionalConfigs,
+        // 归一化 path：去掉尾斜杠，保证与评论数据存储 key 一致。
+        // 根因：Cloudflare 部署后 URL 带尾斜杠（trailingSlash:'never' 行为反转），
+        // 而评论数据存于无尾斜杠的 key 下；此处与 PageInfo 的 data-path（Astro.url.pathname）
+        // 统一为无尾斜杠，确保评论列表、数量、提交使用同一 path。
+        // Vercel/Netlify 下 path 本就无尾斜杠，replace 幂等无副作用。
+        path: location.pathname.replace(/\/+$/, '') || '/',
       })
     }
 
